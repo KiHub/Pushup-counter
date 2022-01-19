@@ -50,7 +50,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jaw-HC-qqh">
-                        <barButtonItem key="rightBarButtonItem" image="info" id="wtc-lT-MHr">
+                        <barButtonItem key="rightBarButtonItem" image="questionmark.circle.fill" catalog="system" id="wtc-lT-MHr">
+                            <color key="tintColor" red="0.25098039215686274" green="0.23137254901960785" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="barButtonPressed:" destination="BYZ-38-t0r" id="80H-GY-oCa"/>
                             </connections>
@@ -87,8 +88,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="COj-be-T24">
-                        <barButtonItem key="backBarButtonItem" title=" " id="rlQ-bp-Ged"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="ok" id="1lH-z6-GC9">
+                        <barButtonItem key="backBarButtonItem" id="rlQ-bp-Ged"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="checkmark.circle.fill" catalog="system" id="1lH-z6-GC9">
+                            <color key="tintColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="doneBarButton:" destination="RPx-Ti-4rA" id="esN-kZ-Jth"/>
                             </connections>
@@ -107,6 +109,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="FWb-Mq-tGf">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -121,8 +124,8 @@
     <resources>
         <image name="Background2" width="530" height="919"/>
         <image name="With Icon" width="232" height="68"/>
-        <image name="info" width="68" height="68"/>
-        <image name="ok" width="68" height="68"/>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
