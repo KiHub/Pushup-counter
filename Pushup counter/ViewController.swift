@@ -22,11 +22,12 @@ class ViewController: UIViewController{
        
         self.picker.delegate = self
         self.picker.dataSource = self
+        picker.selectRow(24, inComponent: 0, animated: true)
+     //   let y = picker.frame.origin.y
         
-      //  pickerData = Array(1...300)
+      //  picker.transform = CGAffineTransform(rotationAngle: -90 * (.pi/180))
+     //   picker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
         
-      //  pickerData = ["1","2","3"]
-      
     }
     
     
@@ -67,15 +68,31 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
         return 360
     }
     
-     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-       // return pickerData[row]
-        return String(row+1)
-    }
+//     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//       // return pickerData[row]
+//        return String(row+1)
+//    }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         selected = row + 1
         print(selected)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 50
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let  view = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        label.text = String(row+1)
+        label.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
+       // view.transform = CGAffineTransform(rotationAngle: (90 * (.pi/180)))
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 35, weight: UIFont.Weight.medium)
+        view.addSubview(label)
+        return view
     }
     
 }

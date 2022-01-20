@@ -132,7 +132,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="COj-be-T24">
-                        <barButtonItem key="backBarButtonItem" id="rlQ-bp-Ged"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="checkmark.circle.fill" catalog="system" id="1lH-z6-GC9">
                             <color key="tintColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>

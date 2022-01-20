@@ -61,6 +61,13 @@ class CounterViewController: UIViewController {
 //        labelNumber += 1
 //        label.text = String(labelNumber)
 //        circularProgressView.angle = Double(labelNumber)
+       update()
+        
+        
+    }
+    
+    func update() {
+        
         if currentNumber != labelNumber - 1 {
             print("labekNumber:\(labelNumber)")
             circularProgressView.angle += Double(360 / labelNumber)
@@ -72,8 +79,6 @@ class CounterViewController: UIViewController {
             circularProgressView.angle = 360
             label.text = "Done!"
         }
-        
-        
     }
     
     /*
@@ -111,7 +116,7 @@ class CounterViewController: UIViewController {
     func proximityChanged(notification: NSNotification) {
       if let device = notification.object as? UIDevice {
         print ("\(device) detected!")
-        label.text = String(labelNumber - 1 )
+        update()
       }
     }
             
