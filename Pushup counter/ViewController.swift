@@ -33,6 +33,11 @@ class ViewController: UIViewController{
     
 
     @IBAction func barButtonPressed(_ sender: UIBarButtonItem) {
+        
+        infoAlert()
+        
+        
+        
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
@@ -42,6 +47,25 @@ class ViewController: UIViewController{
         
     }
     
+    func infoAlert() {
+        
+        
+        let alert = UIAlertController(title: "Quick tip", message: "1. Choose your push ups quantity goal. 2. Place phone on the floor opposite your chest 3. Press start button and just do push up", preferredStyle: .actionSheet)
+        
+       
+        
+        let cancel = UIAlertAction(title: "Ok", style: .default, handler: {
+            action in
+                
+        })
+        
+
+        alert.addAction(cancel)
+    
+        self.present(alert, animated: true, completion: nil)
+        
+        
+    }
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

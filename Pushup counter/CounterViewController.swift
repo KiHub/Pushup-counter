@@ -56,20 +56,26 @@ class CounterViewController: UIViewController {
        
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
+    
     @IBAction func doneBarButton(_ sender: UIBarButtonItem) {
       //  animation()
 //        labelNumber += 1
 //        label.text = String(labelNumber)
 //        circularProgressView.angle = Double(labelNumber)
-       update()
+      // update()
         
+        
+    
         
     }
     
     func update() {
         
         if currentNumber != labelNumber - 1 {
-            print("labekNumber:\(labelNumber)")
+          //  print("labekNumber:\(labelNumber)")
             circularProgressView.angle += Double(360 / labelNumber)
             currentNumber += 1
             label.text = String(currentNumber)
@@ -126,6 +132,7 @@ class CounterViewController: UIViewController {
     @objc func proximityChanged(notification: NSNotification) {
         if let device = notification.object as? UIDevice {
             if device.proximityState {
+                
               //  print("\(device) detected!")
              //   count += 1
                 update()

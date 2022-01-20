@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B621A32279A07CE00C007BF /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B621A31279A07CE00C007BF /* win.wav */; };
 		0B8C91DE27988A7900939C6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8C91DD27988A7900939C6E /* AppDelegate.swift */; };
 		0B8C91E027988A7900939C6E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8C91DF27988A7900939C6E /* SceneDelegate.swift */; };
 		0B8C91E227988A7900939C6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8C91E127988A7900939C6E /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B621A31279A07CE00C007BF /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = SOURCE_ROOT; };
 		0B8C91DA27988A7900939C6E /* Pushup counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pushup counter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8C91DD27988A7900939C6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B8C91DF27988A7900939C6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				0B8C91EB27988A7C00939C6E /* LaunchScreen.storyboard */,
 				0B8C91EE27988A7C00939C6E /* Info.plist */,
 				0B8C91E627988A7900939C6E /* Pushup_counter.xcdatamodeld */,
+				0B621A31279A07CE00C007BF /* win.wav */,
 			);
 			path = "Pushup counter";
 			sourceTree = "<group>";
@@ -94,7 +97,6 @@
 				75C7C6F27C3D946D120D8FA2 /* Pods-Pushup counter.debug.xcconfig */,
 				C93FB38BE45DF0B68D2E8716 /* Pods-Pushup counter.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -158,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B8C91ED27988A7C00939C6E /* LaunchScreen.storyboard in Resources */,
+				0B621A32279A07CE00C007BF /* win.wav in Resources */,
 				0B8C91EA27988A7C00939C6E /* Assets.xcassets in Resources */,
 				0B8C91E527988A7900939C6E /* Main.storyboard in Resources */,
 			);
