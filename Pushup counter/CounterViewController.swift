@@ -39,6 +39,7 @@ class CounterViewController: UIViewController {
         shapeLayer.strokeEnd = 0
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineCap = .round
+        
         view.layer.addSublayer(shapeLayer)
         
         activateProximitySensor()
@@ -69,12 +70,23 @@ class CounterViewController: UIViewController {
        
         
             let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+          //  basicAnimation.fromValue = 0
             basicAnimation.toValue = 1
             basicAnimation.duration = CFTimeInterval(labelNumber)
             basicAnimation.fillMode = CAMediaTimingFillMode.forwards
             basicAnimation.isRemovedOnCompletion = false
             shapeLayer.add(basicAnimation, forKey: "urSoBasic")
      
+        
+//        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+//
+//        basicAnimation.toValue = 1
+//        basicAnimation.duration = CFTimeInterval(labelNumber)
+//        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+//        basicAnimation.isRemovedOnCompletion = false
+//        shapeLayer.add(basicAnimation, forKey: "urSoBasic")
+ 
+        
         
     }
     
