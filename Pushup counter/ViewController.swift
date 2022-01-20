@@ -41,11 +41,7 @@ class ViewController: UIViewController{
         
     }
     
-//    override func  prepare(for: UIStoryboardSegue, sender: Any?) {
-//          if segue.identifier == "Segue" {
-//              guard let counterVC = segue.destination as? CounterViewController else {return}
-//            counterVC.lab
-//      }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let counterVC = segue.destination as? CounterViewController else {return}
