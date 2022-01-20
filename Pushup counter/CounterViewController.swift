@@ -11,6 +11,7 @@ class CounterViewController: UIViewController {
     
     let shapeLayer = CAShapeLayer()
     let trackLayer = CAShapeLayer()
+    var timer = Timer()
     
     var labelNumber = 55
     
@@ -34,7 +35,7 @@ class CounterViewController: UIViewController {
        
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeColor = #colorLiteral(red: 0.6520697474, green: 0.7128807902, blue: 0.7406589985, alpha: 0.8470588235)
-        shapeLayer.lineWidth = 10
+        shapeLayer.lineWidth = 20
         shapeLayer.strokeEnd = 0
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineCap = .round
@@ -45,6 +46,9 @@ class CounterViewController: UIViewController {
     }
     
     @IBAction func doneBarButton(_ sender: UIBarButtonItem) {
+        animation()
+      //  label.text = String(labelNumber - 1)
+        
     }
     
     /*
@@ -56,5 +60,22 @@ class CounterViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func animation() {
+      
+        
+       
+        //    timerWork = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+       
+        
+            let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+            basicAnimation.toValue = 1
+            basicAnimation.duration = CFTimeInterval(labelNumber)
+            basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+            basicAnimation.isRemovedOnCompletion = false
+            shapeLayer.add(basicAnimation, forKey: "urSoBasic")
+     
+        
+    }
 
 }
