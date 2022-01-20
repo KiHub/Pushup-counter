@@ -37,13 +37,14 @@ class ViewController: UIViewController{
         infoAlert()
         
         
-        
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
         
-   
         
+    }
+    
+    @IBAction func unwindToFirstVC(segue: UIStoryboardSegue) {
         
     }
     

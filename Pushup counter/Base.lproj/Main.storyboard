@@ -145,10 +145,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="COj-be-T24">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="checkmark.circle.fill" catalog="system" id="1lH-z6-GC9">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="multiply.circle.fill" catalog="system" id="1lH-z6-GC9">
                             <color key="tintColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="doneBarButton:" destination="RPx-Ti-4rA" id="esN-kZ-Jth"/>
+                                <segue destination="txg-He-d3C" kind="unwind" unwindAction="unwindToFirstVCWithSegue:" id="g8b-zj-6wu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -159,6 +160,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSE-KP-6es" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="txg-He-d3C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1989.8550724637682" y="116.51785714285714"/>
         </scene>
@@ -186,7 +188,7 @@
         <image name="Background2" width="530" height="919"/>
         <image name="Cup" width="170.5" height="170.5"/>
         <image name="With Icon" width="232" height="68"/>
-        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="multiply.circle.fill" catalog="system" width="128" height="121"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

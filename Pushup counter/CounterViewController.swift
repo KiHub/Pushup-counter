@@ -67,7 +67,7 @@ class CounterViewController: UIViewController {
 //        labelNumber += 1
 //        label.text = String(labelNumber)
 //        circularProgressView.angle = Double(labelNumber)
-       update()
+   //    update()
         
         
     
