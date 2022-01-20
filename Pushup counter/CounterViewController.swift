@@ -8,10 +8,15 @@
 import UIKit
 
 class CounterViewController: UIViewController {
+    
+    var labelNumber = 55
+    
+    @IBOutlet weak var label: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        label.text = String(labelNumber)
         // Do any additional setup after loading the view.
     }
     

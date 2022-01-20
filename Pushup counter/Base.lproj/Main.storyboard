@@ -28,7 +28,7 @@
                                 <state key="normal" image="With Icon"/>
                                 <connections>
                                     <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hrp-eo-tev"/>
-                                    <segue destination="RPx-Ti-4rA" kind="show" id="cpW-Wj-I0t"/>
+                                    <segue destination="RPx-Ti-4rA" kind="show" identifier="Segue" id="cpW-Wj-I0t"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuk-LZ-WK8">
@@ -58,8 +58,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="pickerOutlet" destination="uuk-LZ-WK8" id="sn2-Zh-Eay"/>
-                        <outlet property="pickerPressed" destination="uuk-LZ-WK8" id="CsR-JB-7cd"/>
+                        <outlet property="picker" destination="uuk-LZ-WK8" id="sn2-Zh-Eay"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -77,13 +76,21 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="5E6-Sw-ekM">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxe-2P-bt9">
+                                <rect key="frame" x="175.5" y="416" width="63" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
+                                <color key="textColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vrd-EN-9qC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hxe-2P-bt9" firstAttribute="centerY" secondItem="2MY-iZ-wfj" secondAttribute="centerY" id="7ud-0a-Xe8"/>
                             <constraint firstAttribute="bottom" secondItem="5E6-Sw-ekM" secondAttribute="bottom" id="MkX-yu-NIf"/>
                             <constraint firstItem="5E6-Sw-ekM" firstAttribute="trailing" secondItem="vrd-EN-9qC" secondAttribute="trailing" id="PXh-ye-UEC"/>
                             <constraint firstItem="5E6-Sw-ekM" firstAttribute="leading" secondItem="vrd-EN-9qC" secondAttribute="leading" id="TfC-AK-MzY"/>
+                            <constraint firstItem="hxe-2P-bt9" firstAttribute="centerX" secondItem="2MY-iZ-wfj" secondAttribute="centerX" id="iiU-Kb-2aQ"/>
                             <constraint firstItem="5E6-Sw-ekM" firstAttribute="top" secondItem="2MY-iZ-wfj" secondAttribute="top" id="tz5-pJ-UNN"/>
                         </constraints>
                     </view>
@@ -96,6 +103,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="label" destination="hxe-2P-bt9" id="ohI-YN-YZ6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSE-KP-6es" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
