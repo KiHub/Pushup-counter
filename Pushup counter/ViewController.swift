@@ -13,7 +13,7 @@ class ViewController: UIViewController{
     
     @IBOutlet weak var picker: UIPickerView!
     
-    var selected = 0
+    var selected = 25
     
   //  var pickerData = [String]()
     

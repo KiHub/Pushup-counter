@@ -113,20 +113,54 @@ class CounterViewController: UIViewController {
 //        
 //    }
     
-    func proximityChanged(notification: NSNotification) {
-      if let device = notification.object as? UIDevice {
-        print ("\(device) detected!")
-        update()
-      }
-    }
-            
+    
+    
     func activateProximitySensor() {
-      let device = UIDevice.current
+        let device = UIDevice.current
         device.isProximityMonitoringEnabled = true
         if device.isProximityMonitoringEnabled {
-            NotificationCenter.default.addObserver(self, selector: Selector(("proximityChanged:")), name: NSNotification.Name(rawValue: "UIDeviceProximityStateDidChangeNotification"), object: device)
+            NotificationCenter.default.addObserver(self, selector: #selector(proximityChanged(notification:)), name: UIDevice.proximityStateDidChangeNotification, object: device)
         }
-      }
+    }
+
+    @objc func proximityChanged(notification: NSNotification) {
+        if let device = notification.object as? UIDevice {
+            if device.proximityState {
+              //  print("\(device) detected!")
+             //   count += 1
+                update()
+            }
+        }
+    }
+    
+    
+//    @objc func proximityChanged(notification: NSNotification) {
+//      if let device = notification.object as? UIDevice {
+//        print ("\(device) detected!")
+//        update()
+//      }
+//    }
+//
+
+           
+//    func activateProximitySensor() {
+//      let device = UIDevice.current
+//        device.isProximityMonitoringEnabled = true
+//        if device.isProximityMonitoringEnabled {
+//            NotificationCenter.default.addObserver(
+//                self,
+//                selector: #selector(proximityChanged), name: NSNotification.Name.UIDevice.proximityStateDidChangeNotification, object: device)
+//        }
+//      }
+    
+    
+//    func activateProximitySensor() {
+//      let device = UIDevice.current
+//        device.isProximityMonitoringEnabled = true
+//        if device.isProximityMonitoringEnabled {
+//            NotificationCenter.default.addObserver(self, selector: Selector(("proximityChanged:")), name: NSNotification.Name(rawValue: "UIDeviceProximityStateDidChangeNotification"), object: device)
+//        }
+//      }
     
 
 }
