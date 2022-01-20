@@ -84,9 +84,21 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYu-Da-hm3" customClass="KDCircularProgress" customModule="KDCircularProgress">
                                 <rect key="frame" x="72" y="313" width="270" height="270"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cup" translatesAutoresizingMaskIntoConstraints="NO" id="8Rw-6R-1Cr">
+                                        <rect key="frame" x="62" y="62" width="146" height="146"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="146" id="6k6-s8-1xE"/>
+                                            <constraint firstAttribute="height" constant="146" id="iFi-MT-4Ob"/>
+                                            <constraint firstAttribute="width" secondItem="8Rw-6R-1Cr" secondAttribute="height" multiplier="1:1" id="lNb-Ff-kck"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="8Rw-6R-1Cr" firstAttribute="centerX" secondItem="qYu-Da-hm3" secondAttribute="centerX" id="AMR-s9-ags"/>
                                     <constraint firstAttribute="width" constant="270" id="Wbh-uz-2gA"/>
+                                    <constraint firstItem="8Rw-6R-1Cr" firstAttribute="centerY" secondItem="qYu-Da-hm3" secondAttribute="centerY" id="ZTU-0X-bLb"/>
                                     <constraint firstAttribute="height" constant="270" id="ang-lr-0Vh"/>
                                     <constraint firstAttribute="width" secondItem="qYu-Da-hm3" secondAttribute="height" multiplier="1:1" id="c15-06-3fz"/>
                                 </constraints>
@@ -142,6 +154,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="circularProgressView" destination="qYu-Da-hm3" id="opM-Vr-Siu"/>
+                        <outlet property="cupImage" destination="8Rw-6R-1Cr" id="wOz-QS-eFz"/>
                         <outlet property="label" destination="hxe-2P-bt9" id="ohI-YN-YZ6"/>
                     </connections>
                 </viewController>
@@ -171,6 +184,7 @@
     </scenes>
     <resources>
         <image name="Background2" width="530" height="919"/>
+        <image name="Cup" width="170.5" height="170.5"/>
         <image name="With Icon" width="232" height="68"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>

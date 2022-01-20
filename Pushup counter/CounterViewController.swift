@@ -12,11 +12,12 @@ class CounterViewController: UIViewController {
     
   //  let shapeLayer = CAShapeLayer()
    // let trackLayer = CAShapeLayer()
-    var timer = Timer()
-    
+ //   var timer = Timer()
+    let doneSound = SimpleSound(named: "win")
     var labelNumber = 55
     var currentNumber = 0
     
+    @IBOutlet weak var cupImage: UIImageView!
     @IBOutlet weak var circularProgressView: KDCircularProgress!
     @IBOutlet weak var label: UILabel!
     
@@ -24,6 +25,7 @@ class CounterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        // label.text = String(labelNumber)
+        cupImage.isHidden = true
         label.text = String(currentNumber)
         label.layer.shadowColor = #colorLiteral(red: 0.696803987, green: 0.5583711267, blue: 0.908914566, alpha: 1)
         label.layer.shadowOpacity = 0.4
@@ -65,7 +67,7 @@ class CounterViewController: UIViewController {
 //        labelNumber += 1
 //        label.text = String(labelNumber)
 //        circularProgressView.angle = Double(labelNumber)
-      // update()
+       update()
         
         
     
@@ -83,7 +85,10 @@ class CounterViewController: UIViewController {
             
         } else {
             circularProgressView.angle = 360
-            label.text = "Done!"
+          //  label.text = "Done!"
+            label.text = ""
+            cupImage.isHidden = false
+            doneSound.play()
         }
     }
     
