@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2lK-Y1-xq3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -82,13 +81,51 @@
                                 <color key="textColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYu-Da-hm3" customClass="KDCircularProgress" customModule="KDCircularProgress">
+                                <rect key="frame" x="72" y="313" width="270" height="270"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="Wbh-uz-2gA"/>
+                                    <constraint firstAttribute="height" constant="270" id="ang-lr-0Vh"/>
+                                    <constraint firstAttribute="width" secondItem="qYu-Da-hm3" secondAttribute="height" multiplier="1:1" id="c15-06-3fz"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                        <real key="value" value="267"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="270"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                        <color key="value" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="gradientRotateSpeed">
+                                        <real key="value" value="-1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                        <real key="value" value="-1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                        <color key="value" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor2">
+                                        <color key="value" red="0.67490029340000002" green="0.5636265278" blue="0.88630640510000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor3">
+                                        <color key="value" red="0.99607843139999996" green="0.76078431369999999" blue="0.37647058820000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vrd-EN-9qC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hxe-2P-bt9" firstAttribute="centerY" secondItem="2MY-iZ-wfj" secondAttribute="centerY" id="7ud-0a-Xe8"/>
+                            <constraint firstItem="qYu-Da-hm3" firstAttribute="centerY" secondItem="2MY-iZ-wfj" secondAttribute="centerY" id="Hcg-dy-srQ"/>
                             <constraint firstAttribute="bottom" secondItem="5E6-Sw-ekM" secondAttribute="bottom" id="MkX-yu-NIf"/>
                             <constraint firstItem="5E6-Sw-ekM" firstAttribute="trailing" secondItem="vrd-EN-9qC" secondAttribute="trailing" id="PXh-ye-UEC"/>
+                            <constraint firstItem="qYu-Da-hm3" firstAttribute="centerX" secondItem="2MY-iZ-wfj" secondAttribute="centerX" id="RsL-qz-kcb"/>
                             <constraint firstItem="5E6-Sw-ekM" firstAttribute="leading" secondItem="vrd-EN-9qC" secondAttribute="leading" id="TfC-AK-MzY"/>
                             <constraint firstItem="hxe-2P-bt9" firstAttribute="centerX" secondItem="2MY-iZ-wfj" secondAttribute="centerX" id="iiU-Kb-2aQ"/>
                             <constraint firstItem="5E6-Sw-ekM" firstAttribute="top" secondItem="2MY-iZ-wfj" secondAttribute="top" id="tz5-pJ-UNN"/>
@@ -104,6 +141,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="circularProgressView" destination="qYu-Da-hm3" id="opM-Vr-Siu"/>
                         <outlet property="label" destination="hxe-2P-bt9" id="ohI-YN-YZ6"/>
                     </connections>
                 </viewController>

@@ -64,7 +64,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
       //  return pickerData.count
-        return 300
+        return 360
     }
     
      func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
