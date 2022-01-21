@@ -60,6 +60,7 @@ class CounterViewController: UIViewController {
             //  label.text = "Done!"
             label.text = ""
             cupImage.isHidden = false
+            UIDevice.current.isProximityMonitoringEnabled = false
             doneSound.play()
         }
     }

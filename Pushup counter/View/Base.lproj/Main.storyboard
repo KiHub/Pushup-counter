@@ -149,7 +149,7 @@
                             <color key="tintColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="doneBarButton:" destination="RPx-Ti-4rA" id="esN-kZ-Jth"/>
-                                <segue destination="txg-He-d3C" kind="unwind" unwindAction="unwindToFirstVCWithSegue:" id="g8b-zj-6wu"/>
+                                <segue destination="1ef-uG-J2N" kind="show" id="K9M-7N-L2B"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -160,9 +160,35 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSE-KP-6es" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="txg-He-d3C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1989.8550724637682" y="116.51785714285714"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="sKE-mm-gsS">
+            <objects>
+                <viewController id="1ef-uG-J2N" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Fs-Dv-Phk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="Szd-NC-k21">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="urn-z1-11L"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Szd-NC-k21" firstAttribute="leading" secondItem="urn-z1-11L" secondAttribute="leading" id="3zi-AJ-Tt8"/>
+                            <constraint firstItem="Szd-NC-k21" firstAttribute="trailing" secondItem="urn-z1-11L" secondAttribute="trailing" id="Q1X-z8-A99"/>
+                            <constraint firstItem="Szd-NC-k21" firstAttribute="top" secondItem="2Fs-Dv-Phk" secondAttribute="top" id="ffq-bT-1Qq"/>
+                            <constraint firstAttribute="bottom" secondItem="Szd-NC-k21" secondAttribute="bottom" id="phG-ey-817"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="a2G-K0-aQM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qMq-Qf-Edl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2871" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BZU-pd-OWT">
