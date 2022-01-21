@@ -28,6 +28,7 @@ class CalendarViewController: UIViewController {
         } catch let error as NSError {
             print(error.localizedDescription)
         }
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     override func viewDidLoad() {

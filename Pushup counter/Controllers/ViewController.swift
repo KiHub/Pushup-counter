@@ -13,11 +13,16 @@ class ViewController: UIViewController{
     
     var selected = 25
     
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.picker.delegate = self
         self.picker.dataSource = self
         picker.selectRow(24, inComponent: 0, animated: true)
+        
     }
     
     @IBAction func barButtonPressed(_ sender: UIBarButtonItem) {
