@@ -23,16 +23,16 @@ class CounterViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        let context = getContext()
-//        let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
-//        do {
-//            days = try context.fetch(fetchRequest)
-//        } catch let error as NSError {
-//            print(error.localizedDescription)
-//        }
-//    }
+    //    override func viewWillAppear(_ animated: Bool) {
+    //        super.viewWillAppear(animated)
+    //        let context = getContext()
+    //        let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
+    //        do {
+    //            days = try context.fetch(fetchRequest)
+    //        } catch let error as NSError {
+    //            print(error.localizedDescription)
+    //        }
+    //    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,24 +47,16 @@ class CounterViewController: UIViewController {
         circularProgressView.angle = 0
         activateProximitySensor()
         formatter.dateFormat = "MM-dd-YYYY"
-        
-        
     }
-    
+    //MARK: - Deactivate proximity sensor
     override func viewWillDisappear(_ animated: Bool) {
-        UIApplication.shared.isIdleTimerDisabled = true
+        UIDevice.current.isProximityMonitoringEnabled = false
     }
     
     @IBAction func doneBarButton(_ sender: UIBarButtonItem) {
-        //  animation()
-        //        labelNumber += 1
-        //        label.text = String(labelNumber)
-        //        circularProgressView.angle = Double(labelNumber)
-        //    update()
-        
     }
-
     
+    //MARK: - Seve data using CoreData
     func saveDayDate(trainingDate: String) {
         let context = getContext()
         guard let entity = NSEntityDescription.entity(forEntityName: "Day", in: context)
@@ -85,16 +77,13 @@ class CounterViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
-    
+    //MARK: - Uodate counter
     func update() {
-        
         if currentNumber != labelNumber - 1 {
             //  print("labekNumber:\(labelNumber)")
             circularProgressView.angle += Double(360 / labelNumber)
             currentNumber += 1
             label.text = String(currentNumber)
-            //  circularProgressView.angle = Double((labelNumber * 100)/360)
-            
         } else {
             circularProgressView.angle = 360
             //  label.text = "Done!"
@@ -102,18 +91,18 @@ class CounterViewController: UIViewController {
             cupImage.isHidden = false
             UIDevice.current.isProximityMonitoringEnabled = false
             doneSound.play()
-            let currentDate = formatter.string(from: date)
-            print(currentDate)
-            print("Date:\(date)")
+            //            let currentDate = formatter.string(from: date)
+            //            print(currentDate)
+            //            print("Date:\(date)")
             
             let formatter = DateFormatter()
-                    formatter.dateFormat = "dd-MM-yyyy"
-                    let dateString = formatter.string(from: date)
+            formatter.dateFormat = "dd-MM-yyyy"
+            let dateString = formatter.string(from: date)
             
             saveDayDate(trainingDate: dateString)
         }
     }
-    //MARK: - Proximity sensor activate
+    //MARK: - Proximity sensor
     func activateProximitySensor() {
         let device = UIDevice.current
         device.isProximityMonitoringEnabled = true
@@ -125,7 +114,6 @@ class CounterViewController: UIViewController {
     @objc func proximityChanged(notification: NSNotification) {
         if let device = notification.object as? UIDevice {
             if device.proximityState {
-                
                 update()
             }
         }

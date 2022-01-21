@@ -9,49 +9,34 @@ import UIKit
 
 class ViewController: UIViewController{
     
-    
-    
     @IBOutlet weak var picker: UIPickerView!
     
     var selected = 25
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.picker.delegate = self
         self.picker.dataSource = self
         picker.selectRow(24, inComponent: 0, animated: true)
-        
     }
     
-    
-    
     @IBAction func barButtonPressed(_ sender: UIBarButtonItem) {
-        
         infoAlert()
-        
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
-        
     }
     
     @IBAction func unwindToFirstVC(segue: UIStoryboardSegue) {
-        
     }
-    
+    //MARK: - Alert
     func infoAlert() {
-        
         let alert = UIAlertController(title: "Quick tip", message: "1. Choose your push ups quantity goal. 2. Place phone on the floor opposite your chest 3. Press start button and just do push up", preferredStyle: .actionSheet)
-        
         let cancel = UIAlertAction(title: "Ok", style: .default, handler: {
             action in
         })
-        
         alert.addAction(cancel)
-        
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -71,13 +56,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
         return 360
     }
     
-    //     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    //       // return pickerData[row]
-    //        return String(row+1)
-    //    }
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
         selected = row + 1
         print(selected)
     }
@@ -97,5 +76,4 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
         view.addSubview(label)
         return view
     }
-    
 }
