@@ -12,7 +12,7 @@ import CoreData
 class CalendarViewController: UIViewController {
     
     var days: [Day] = []
-    var trainigDatesArray = Day()
+ //   var trainigDatesArray = Day()
     var datesWithEvent = ["01-01-2022", "10-01-2022", "05-02-2022", "10-02-2022"]
 //    var dateFormatter2: DateFormatter = {
 //        let formatter = DateFormatter()

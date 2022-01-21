@@ -23,16 +23,16 @@ class CounterViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let context = getContext()
-        let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
-        do {
-            days = try context.fetch(fetchRequest)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        let context = getContext()
+//        let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
+//        do {
+//            days = try context.fetch(fetchRequest)
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
