@@ -13,6 +13,8 @@ class CounterViewController: UIViewController {
     let doneSound = SimpleSound(named: "win")
     var labelNumber = 55
     var currentNumber = 0
+    let date = Date()
+    let formatter = DateFormatter()
     
     @IBOutlet weak var cupImage: UIImageView!
     @IBOutlet weak var circularProgressView: KDCircularProgress!
@@ -30,7 +32,7 @@ class CounterViewController: UIViewController {
         circularProgressView.startAngle = 270
         circularProgressView.angle = 0
         activateProximitySensor()
-        
+        formatter.dateFormat = "MM-dd-YYYY"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -62,6 +64,8 @@ class CounterViewController: UIViewController {
             cupImage.isHidden = false
             UIDevice.current.isProximityMonitoringEnabled = false
             doneSound.play()
+            let currentDate = formatter.string(from: date)
+            print(currentDate)
         }
     }
     //MARK: - Proximity sensor activate
