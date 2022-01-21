@@ -7,6 +7,7 @@
 
 import UIKit
 import KDCircularProgress
+import CoreData
 
 class CounterViewController: UIViewController {
     
@@ -15,10 +16,23 @@ class CounterViewController: UIViewController {
     var currentNumber = 0
     let date = Date()
     let formatter = DateFormatter()
+    var days: [Day] = []
     
     @IBOutlet weak var cupImage: UIImageView!
     @IBOutlet weak var circularProgressView: KDCircularProgress!
     @IBOutlet weak var label: UILabel!
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let context = getContext()
+        let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
+        do {
+            days = try context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +47,8 @@ class CounterViewController: UIViewController {
         circularProgressView.angle = 0
         activateProximitySensor()
         formatter.dateFormat = "MM-dd-YYYY"
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -46,6 +62,28 @@ class CounterViewController: UIViewController {
         //        circularProgressView.angle = Double(labelNumber)
         //    update()
         
+    }
+
+    
+    func saveDayDate(trainingDate: String) {
+        let context = getContext()
+        guard let entity = NSEntityDescription.entity(forEntityName: "Day", in: context)
+        else {return}
+        
+        let dayObject = Day(entity: entity, insertInto: context)
+        dayObject.trainingDate = trainingDate
+        do {
+            try context.save()
+            days.append(dayObject)
+            print("Testing append from core data to array: \(days)")
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func getContext() -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
     }
     
     func update() {
@@ -66,6 +104,13 @@ class CounterViewController: UIViewController {
             doneSound.play()
             let currentDate = formatter.string(from: date)
             print(currentDate)
+            print("Date:\(date)")
+            
+            let formatter = DateFormatter()
+                    formatter.dateFormat = "MM-dd-YYYY"
+                    let dateString = formatter.string(from: date)
+            
+            saveDayDate(trainingDate: dateString)
         }
     }
     //MARK: - Proximity sensor activate

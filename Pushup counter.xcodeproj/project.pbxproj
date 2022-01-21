@@ -71,6 +71,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0B621A3B279AD51B00C007BF /* Data model */ = {
+			isa = PBXGroup;
+			children = (
+				0B8C91E627988A7900939C6E /* Pushup_counter.xcdatamodeld */,
+			);
+			path = "Data model";
+			sourceTree = "<group>";
+		};
 		0B8C91D127988A7900939C6E = {
 			isa = PBXGroup;
 			children = (
@@ -94,12 +102,12 @@
 			children = (
 				0B8C91DD27988A7900939C6E /* AppDelegate.swift */,
 				0B8C91DF27988A7900939C6E /* SceneDelegate.swift */,
+				0B621A3B279AD51B00C007BF /* Data model */,
+				0B621A38279ABAEF00C007BF /* View */,
 				0B621A37279ABADB00C007BF /* Controllers */,
 				0B621A33279A08CC00C007BF /* SimpleSound.swift */,
-				0B621A38279ABAEF00C007BF /* View */,
 				0B8C91E927988A7C00939C6E /* Assets.xcassets */,
 				0B8C91EE27988A7C00939C6E /* Info.plist */,
-				0B8C91E627988A7900939C6E /* Pushup_counter.xcdatamodeld */,
 				0B621A31279A07CE00C007BF /* win.wav */,
 			);
 			path = "Pushup counter";
