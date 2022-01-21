@@ -107,7 +107,7 @@ class CounterViewController: UIViewController {
             print("Date:\(date)")
             
             let formatter = DateFormatter()
-                    formatter.dateFormat = "MM-dd-YYYY"
+                    formatter.dateFormat = "dd-MM-yyyy"
                     let dateString = formatter.string(from: date)
             
             saveDayDate(trainingDate: dateString)

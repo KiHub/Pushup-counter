@@ -14,11 +14,13 @@ class CalendarViewController: UIViewController {
     var days: [Day] = []
     var trainigDatesArray = Day()
     var datesWithEvent = ["01-01-2022", "10-01-2022", "05-02-2022", "10-02-2022"]
-    var dateFormatter2: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-YYYY"
-        return formatter
-    }()
+//    var dateFormatter2: DateFormatter = {
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "MM-dd-YYYY"
+//        return formatter
+//    }()
+   // var myTraining = ""
+    var myTrainings: [String] = []
     
     @IBOutlet weak var calendar: FSCalendar!
     
@@ -27,7 +29,10 @@ class CalendarViewController: UIViewController {
         let context = getContext()
         let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
         do {
+          
             days = try context.fetch(fetchRequest)
+            myTrainings = days.map { $0.trainingDate ?? "01-01-2022" }
+            print("Fetch array: \(myTrainings)")
         } catch let error as NSError {
             print(error.localizedDescription)
         }
@@ -37,10 +42,14 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         calendar.delegate = self
-        calendar.allowsMultipleSelection = true
+      //  calendar.allowsMultipleSelection = true
         // Do any additional setup after loading the view.
         
         
+        
+    }
+    
+    func checkedDays() {
         
     }
     
@@ -56,7 +65,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDelegateAppearan
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-YYYY"
+        formatter.dateFormat = "dd-MM-yyyy"
         let dateString = formatter.string(from: date)
         print("\(dateString)")
     }
@@ -106,13 +115,18 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDelegateAppearan
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
         
-        for item in datesWithEvent {
+//        for item in datesWithEvent {
+//            guard let excludeddate = formatter.date(from: item) else { return nil }
+//            if date.compare(excludeddate) == .orderedSame {
+//                return .systemOrange
+//            }
+//        }
+        for item in myTrainings {
             guard let excludeddate = formatter.date(from: item) else { return nil }
             if date.compare(excludeddate) == .orderedSame {
                 return .systemOrange
             }
         }
-        
         
         return nil
     }
