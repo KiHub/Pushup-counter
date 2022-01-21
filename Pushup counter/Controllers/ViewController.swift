@@ -8,39 +8,31 @@
 import UIKit
 
 class ViewController: UIViewController{
-   
+    
     
     
     @IBOutlet weak var picker: UIPickerView!
     
     var selected = 25
     
-  //  var pickerData = [String]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         self.picker.delegate = self
         self.picker.dataSource = self
         picker.selectRow(24, inComponent: 0, animated: true)
-     //   let y = picker.frame.origin.y
-        
-      //  picker.transform = CGAffineTransform(rotationAngle: -90 * (.pi/180))
-     //   picker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
         
     }
     
     
-
+    
     @IBAction func barButtonPressed(_ sender: UIBarButtonItem) {
         
         infoAlert()
         
-        
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
-        
         
     }
     
@@ -50,53 +42,39 @@ class ViewController: UIViewController{
     
     func infoAlert() {
         
-        
         let alert = UIAlertController(title: "Quick tip", message: "1. Choose your push ups quantity goal. 2. Place phone on the floor opposite your chest 3. Press start button and just do push up", preferredStyle: .actionSheet)
-        
-       
         
         let cancel = UIAlertAction(title: "Ok", style: .default, handler: {
             action in
-                
         })
         
-
         alert.addAction(cancel)
-    
+        
         self.present(alert, animated: true, completion: nil)
         
-        
     }
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let counterVC = segue.destination as? CounterViewController else {return}
         counterVC.labelNumber = selected
-      
-        
-        
     }
-   
-
-}
-
-extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
     
-  
+}
+//MARK: - PickerView settings
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-      //  return pickerData.count
         return 360
     }
     
-//     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//       // return pickerData[row]
-//        return String(row+1)
-//    }
+    //     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    //       // return pickerData[row]
+    //        return String(row+1)
+    //    }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
@@ -113,7 +91,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         label.text = String(row+1)
         label.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-       // view.transform = CGAffineTransform(rotationAngle: (90 * (.pi/180)))
+        // view.transform = CGAffineTransform(rotationAngle: (90 * (.pi/180)))
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 35, weight: UIFont.Weight.medium)
         view.addSubview(label)
