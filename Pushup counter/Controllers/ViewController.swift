@@ -37,7 +37,7 @@ class ViewController: UIViewController{
     //MARK: - Alert
     func infoAlert() {
         let color = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-        let alert = UIAlertController(title: "Quick tip", message: "1. Choose your push ups quantity goal. 2. Place phone on the floor opposite your chest 3. Press start button and just do push up 4. After, you can check days with completed exercise on calendar page", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Quick tip", message: "1. Choose your push ups quantity goal. 2. Place phone on the floor opposite your chest 3. Press start button and just do push up 4. When you push up corrctly, counter will update 5. After, you can check days with completed exercises on calendar page", preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "Ok", style: .default)
         cancel.setValue(color, forKey: "titleTextColor")
         alert.addAction(cancel)
