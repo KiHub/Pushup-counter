@@ -12,12 +12,17 @@ class TrainingDayCell: UITableViewCell {
     
     @IBOutlet weak var celllabel: UILabel!
     
-    @IBOutlet weak var cellBubble: UIView!
+    @IBOutlet weak var cellBubble: UIImageView!
+    
+    @IBOutlet weak var cellCheck: UIImageView!
+    //  @IBOutlet weak var celllabel: UILabel!
+    
+//    @IBOutlet weak var cellBubble: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        cellBubble.layer.cornerRadius = cellBubble.frame.size.height / 3
-    
+      //  cellBubble.layer.cornerRadius = cellBubble.frame.size.height / 3
+
         // Initialization code
     }
 
