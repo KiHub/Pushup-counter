@@ -17,6 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayCell" id="zmN-09-PL9">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zmN-09-PL9" id="tVY-qC-W6n">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="AWI-nY-PLF" kind="show" identifier="challengeSegue" id="hPc-nD-maA"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="5Zt-J1-dO2" id="b1r-0C-ITP"/>
                             <outlet property="delegate" destination="5Zt-J1-dO2" id="FyT-h9-52N"/>
@@ -466,11 +479,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="circularProgressView" destination="0eH-yY-gjH" id="nQQ-XQ-dXX"/>
+                        <outlet property="circularProgressView" destination="0eH-yY-gjH" id="wIt-6D-mzV"/>
                         <outlet property="counterLabel" destination="aJC-PD-1Nc" id="yQB-eH-vUn"/>
                         <outlet property="cupImage" destination="3ab-sO-eCe" id="2QG-eQ-ffS"/>
                         <outlet property="label" destination="aJC-PD-1Nc" id="ng0-3c-yDB"/>
-                        <outlet property="progressView" destination="0eH-yY-gjH" id="wIt-6D-mzV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUz-E1-cSx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

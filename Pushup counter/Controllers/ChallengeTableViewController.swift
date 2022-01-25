@@ -45,7 +45,7 @@ class ChallengeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UITabBar.setTransparentTabbar()
+     //   UITabBar.setTransparentTabbar()
         tableView.backgroundView = UIImageView(image: UIImage(named: "Background2.jpg"))
         tableView.register(UINib(nibName: "TrainingDayCell", bundle: nil), forCellReuseIdentifier: "DayCell")
         // Uncomment the following line to preserve selection between presentations
@@ -93,14 +93,14 @@ class ChallengeTableViewController: UITableViewController {
         print(indexPath.row)
         
         performSegue(withIdentifier: "challengeSegue", sender: tableView)
-        
+//        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            guard let counterChallengeVC = segue.destination as? ChallengeCounterViewController else {return}
+//            counterChallengeVC.labelNumber = traininDays[indexPath.row].firstSet
+//        }
         
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let counterChallengeVC = segue.destination as? ChallengeCounterViewController else {return}
-//        counterChallengeVC.labelNumber = 500
-//    }
+  
 
     /*
     // Override to support conditional editing of the table view.
@@ -149,12 +149,4 @@ class ChallengeTableViewController: UITableViewController {
 
 }
 
-extension UITabBar {
-
-static func setTransparentTabbar() {
-  UITabBar.appearance().backgroundImage = UIImage(named: "Background2.jpg")
-  UITabBar.appearance().shadowImage     = UIImage(named: "Background2.jpg")
-  UITabBar.appearance().clipsToBounds   = true
- }
-}
 
