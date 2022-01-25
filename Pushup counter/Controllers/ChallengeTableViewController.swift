@@ -91,6 +91,15 @@ class ChallengeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+        
+        performSegue(withIdentifier: "challengeSegue", sender: nil)
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let counterChallengeVC = segue.destination as? ChallengeCounterViewController else {return}
+   //     counterChallengeVC.labelNumber = selected
     }
 
     /*

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Challenge Table View Controller-->
+        <!--30 day push-up-->
         <scene sceneID="uW2-yF-CEM">
             <objects>
                 <tableViewController id="5Zt-J1-dO2" customClass="ChallengeTableViewController" customModule="Pushup_counter" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,13 +22,17 @@
                             <outlet property="delegate" destination="5Zt-J1-dO2" id="FyT-h9-52N"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Xjd-U3-FXr">
+                    <navigationItem key="navigationItem" title="30 day push-up" id="Xjd-U3-FXr">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ywD-zA-B8w"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="slider.horizontal.2.rectangle.and.arrow.triangle.2.circlepath" catalog="system" id="rtT-bi-thI">
                             <connections>
                                 <segue destination="alx-Yp-KkE" kind="show" id="I3J-1X-cvX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="AWI-nY-PLF" kind="show" identifier="challengeSegue" id="MlR-jk-Vcv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vl-BN-5cb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cx8-gN-5Ef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2899" y="-599"/>
+            <point key="canvasLocation" x="2871" y="-1496"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="NYg-X6-OPG">
@@ -135,6 +139,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jaw-HC-qqh">
+                        <barButtonItem key="backBarButtonItem" title=" " id="KDb-3Q-3ej"/>
                         <barButtonItem key="rightBarButtonItem" image="questionmark.circle.fill" catalog="system" id="wtc-lT-MHr">
                             <color key="tintColor" red="0.25098039215686274" green="0.23137254901960785" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -230,6 +235,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="COj-be-T24">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ya4-0j-pTa"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="checkmark.circle.fill" catalog="system" id="1lH-z6-GC9">
                             <color key="tintColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -246,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSE-KP-6es" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2900" y="116.51785714285714"/>
+            <point key="canvasLocation" x="2841" y="129"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="sKE-mm-gsS">
@@ -331,6 +337,12 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.24793019890000001" green="0.23210102320000001" blue="0.56474155189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.24793019890000001" green="0.23210102320000001" blue="0.56474155189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -362,6 +374,109 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RT4-kb-28W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-71" y="-262"/>
+        </scene>
+        <!--Challenge Counter View Controller-->
+        <scene sceneID="Wyv-H6-5bH">
+            <objects>
+                <viewController id="AWI-nY-PLF" customClass="ChallengeCounterViewController" customModule="Pushup_counter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Bw-Ig-IgU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="ssZ-Rk-dcM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJC-PD-1Nc">
+                                <rect key="frame" x="175.5" y="416" width="63" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
+                                <color key="textColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0eH-yY-gjH" customClass="KDCircularProgress" customModule="KDCircularProgress">
+                                <rect key="frame" x="72" y="313" width="270" height="270"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cup" translatesAutoresizingMaskIntoConstraints="NO" id="3ab-sO-eCe">
+                                        <rect key="frame" x="62" y="62" width="146" height="146"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="146" id="0Ot-qI-GZO"/>
+                                            <constraint firstAttribute="width" constant="146" id="JTr-ek-My5"/>
+                                            <constraint firstAttribute="width" secondItem="3ab-sO-eCe" secondAttribute="height" multiplier="1:1" id="jPO-4y-jRC"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="3ab-sO-eCe" firstAttribute="centerY" secondItem="0eH-yY-gjH" secondAttribute="centerY" id="5oR-7j-zvi"/>
+                                    <constraint firstAttribute="height" constant="270" id="Ae3-is-Srd"/>
+                                    <constraint firstAttribute="width" constant="270" id="HmX-y2-EZY"/>
+                                    <constraint firstAttribute="width" secondItem="0eH-yY-gjH" secondAttribute="height" multiplier="1:1" id="Pag-FB-OUJ"/>
+                                    <constraint firstItem="3ab-sO-eCe" firstAttribute="centerX" secondItem="0eH-yY-gjH" secondAttribute="centerX" id="n9E-CF-umq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                        <real key="value" value="267"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="270"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                        <color key="value" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="gradientRotateSpeed">
+                                        <real key="value" value="-1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                        <real key="value" value="-1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                        <color key="value" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor2">
+                                        <color key="value" red="0.67490029340000002" green="0.5636265278" blue="0.88630640510000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor3">
+                                        <color key="value" red="0.99607843139999996" green="0.76078431369999999" blue="0.37647058820000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="3ab-sO-eCe"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Y6b-mK-PRd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aJC-PD-1Nc" firstAttribute="centerY" secondItem="6Bw-Ig-IgU" secondAttribute="centerY" id="CxU-OJ-6IU"/>
+                            <constraint firstAttribute="bottom" secondItem="ssZ-Rk-dcM" secondAttribute="bottom" id="De5-j8-Yg5"/>
+                            <constraint firstItem="ssZ-Rk-dcM" firstAttribute="leading" secondItem="Y6b-mK-PRd" secondAttribute="leading" id="GOy-9P-nuD"/>
+                            <constraint firstItem="aJC-PD-1Nc" firstAttribute="centerX" secondItem="6Bw-Ig-IgU" secondAttribute="centerX" id="N87-JU-kRB"/>
+                            <constraint firstItem="0eH-yY-gjH" firstAttribute="centerX" secondItem="6Bw-Ig-IgU" secondAttribute="centerX" id="dCB-gp-Mr8"/>
+                            <constraint firstItem="0eH-yY-gjH" firstAttribute="centerY" secondItem="6Bw-Ig-IgU" secondAttribute="centerY" id="fFz-7G-SwD"/>
+                            <constraint firstItem="ssZ-Rk-dcM" firstAttribute="trailing" secondItem="Y6b-mK-PRd" secondAttribute="trailing" id="vx3-TK-NB2"/>
+                            <constraint firstItem="ssZ-Rk-dcM" firstAttribute="top" secondItem="6Bw-Ig-IgU" secondAttribute="top" id="xAk-vo-HLf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CGr-cg-ydC">
+                        <barButtonItem key="backBarButtonItem" title=" " id="PEm-hC-dXL"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="checkmark.circle.fill" catalog="system" id="Ocd-iV-da9">
+                            <color key="tintColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="doneBarButton:" destination="AWI-nY-PLF" id="QPy-Q8-5YF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="circularProgressView" destination="0eH-yY-gjH" id="nQQ-XQ-dXX"/>
+                        <outlet property="cupImage" destination="3ab-sO-eCe" id="I8p-C2-UTZ"/>
+                        <outlet property="label" destination="aJC-PD-1Nc" id="ng0-3c-yDB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mUz-E1-cSx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2870" y="-639"/>
         </scene>
     </scenes>
     <resources>
