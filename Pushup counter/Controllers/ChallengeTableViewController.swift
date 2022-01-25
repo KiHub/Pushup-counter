@@ -92,15 +92,15 @@ class ChallengeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         
-        performSegue(withIdentifier: "challengeSegue", sender: nil)
+        performSegue(withIdentifier: "challengeSegue", sender: tableView)
         
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let counterChallengeVC = segue.destination as? ChallengeCounterViewController else {return}
-   //     counterChallengeVC.labelNumber = selected
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let counterChallengeVC = segue.destination as? ChallengeCounterViewController else {return}
+//        counterChallengeVC.labelNumber = 500
+//    }
 
     /*
     // Override to support conditional editing of the table view.

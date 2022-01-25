@@ -30,9 +30,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="AWI-nY-PLF" kind="show" identifier="challengeSegue" id="MlR-jk-Vcv"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vl-BN-5cb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -470,8 +467,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="circularProgressView" destination="0eH-yY-gjH" id="nQQ-XQ-dXX"/>
-                        <outlet property="cupImage" destination="3ab-sO-eCe" id="I8p-C2-UTZ"/>
+                        <outlet property="counterLabel" destination="aJC-PD-1Nc" id="yQB-eH-vUn"/>
+                        <outlet property="cupImage" destination="3ab-sO-eCe" id="2QG-eQ-ffS"/>
                         <outlet property="label" destination="aJC-PD-1Nc" id="ng0-3c-yDB"/>
+                        <outlet property="progressView" destination="0eH-yY-gjH" id="wIt-6D-mzV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUz-E1-cSx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

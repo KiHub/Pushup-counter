@@ -8,10 +8,19 @@
 import UIKit
 import KDCircularProgress
 
-class ChallengeCounterViewController: UIViewController {
 
+
+class ChallengeCounterViewController: UIViewController {
+    
+    var labelNumber = 0
+    
+    @IBOutlet weak var progressView: KDCircularProgress!
+    @IBOutlet weak var counterLabel: UILabel!
+    @IBOutlet weak var cupImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        counterLabel.text = String(labelNumber)
 
         // Do any additional setup after loading the view.
     }
