@@ -96,12 +96,47 @@
                                 <color key="textColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8x7-fJ-QbB" customClass="KDCircularProgress" customModule="KDCircularProgress">
+                                <rect key="frame" x="72" y="313" width="270" height="270"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="HdV-EF-2J7"/>
+                                    <constraint firstAttribute="width" secondItem="8x7-fJ-QbB" secondAttribute="height" multiplier="1:1" id="cz3-lw-VkG"/>
+                                    <constraint firstAttribute="height" constant="270" id="xXU-fE-skf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                        <real key="value" value="267"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="270"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                        <color key="value" red="0.24793019890000001" green="0.23210102320000001" blue="0.56474155189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                        <color key="value" red="0.24793019890000001" green="0.23210102320000001" blue="0.56474155189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor2">
+                                        <color key="value" red="0.67490029340000002" green="0.5636265278" blue="0.88630640510000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor3">
+                                        <color key="value" red="0.99607843139999996" green="0.76078431369999999" blue="0.37647058820000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="gradientRotateSpeed">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b2L-Fd-uP9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="W8F-UL-BG1" firstAttribute="centerX" secondItem="zRq-q3-kZY" secondAttribute="centerX" id="CDX-Lk-Jyv"/>
+                            <constraint firstItem="8x7-fJ-QbB" firstAttribute="centerX" secondItem="zRq-q3-kZY" secondAttribute="centerX" id="D4T-7N-ozh"/>
                             <constraint firstItem="ivT-CL-ifH" firstAttribute="trailing" secondItem="b2L-Fd-uP9" secondAttribute="trailing" id="FdT-FQ-iQo"/>
+                            <constraint firstItem="8x7-fJ-QbB" firstAttribute="centerY" secondItem="zRq-q3-kZY" secondAttribute="centerY" id="MZ4-Us-aKa"/>
                             <constraint firstItem="ivT-CL-ifH" firstAttribute="top" secondItem="zRq-q3-kZY" secondAttribute="top" id="RfL-Uw-hDy"/>
                             <constraint firstAttribute="bottom" secondItem="ivT-CL-ifH" secondAttribute="bottom" id="Yum-yR-CvX"/>
                             <constraint firstItem="W8F-UL-BG1" firstAttribute="centerY" secondItem="zRq-q3-kZY" secondAttribute="centerY" id="csT-Tu-yed"/>
@@ -115,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyl-N7-FtY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2913" y="-620"/>
+            <point key="canvasLocation" x="2911.594202898551" y="-620.08928571428567"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

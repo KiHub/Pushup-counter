@@ -27,6 +27,10 @@ class ChallengeCounterViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        UIDevice.current.isProximityMonitoringEnabled = true
+        UIApplication.shared.isIdleTimerDisabled = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +38,13 @@ class ChallengeCounterViewController: UIViewController {
         print(setOne)
         print(setTwo)
         print(setThree)
+      //  circularProgressView.startAngle = 270
+      //  circularProgressView.angle = 0
+        activateProximitySensor()
       
         
-        label.text = String(setOne)
+       // label.text = String(setOne)
+        label.text = String(currentNumber)
 //        counterLabel.text = String(labelNumber)
 //
 //        cupImage.isHidden = true
@@ -54,17 +62,21 @@ class ChallengeCounterViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        UIDevice.current.isProximityMonitoringEnabled = false
+      //  UIApplication.shared.isIdleTimerDisabled = false
+    }
 
     func update() {
-        if currentNumber != labelNumber - 1 {
+        if currentNumber != setOne - 1 {
             //  print("labekNumber:\(labelNumber)")
-            circularProgressView.angle += Double(360 / labelNumber)
+            circularProgressView.angle += Double(360 / setOne)
             currentNumber += 1
-            counterLabel.text = String(currentNumber)
+            label.text = String(currentNumber)
         } else {
             circularProgressView.angle = 360
             //  label.text = "Done!"
-            counterLabel.text = ""
+            label.text = ""
          //   cupImage.isHidden = false
             UIDevice.current.isProximityMonitoringEnabled = false
             doneSound.play()
