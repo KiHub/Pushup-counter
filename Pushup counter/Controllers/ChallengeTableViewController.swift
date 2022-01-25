@@ -95,11 +95,22 @@ class ChallengeTableViewController: UITableViewController {
         performSegue(withIdentifier: "challengeSegue", sender: tableView)
 //        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //            guard let counterChallengeVC = segue.destination as? ChallengeCounterViewController else {return}
-//            counterChallengeVC.labelNumber = traininDays[indexPath.row].firstSet
+//            counterChallengeVC.labelNumber = 500
+//           // traininDays[indexPath.row].firstSet
 //        }
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "challengeSegue" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let challengeCounterVC = segue.destination as! ChallengeCounterViewController
+                challengeCounterVC.setOne = traininDays[indexPath.row].firstSet
+                challengeCounterVC.setTwo = traininDays[indexPath.row].secondSet
+                challengeCounterVC.setThree = traininDays[indexPath.row].thirdSet
+            }
+        }
+    }
   
 
     /*

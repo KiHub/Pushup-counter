@@ -12,8 +12,12 @@ import KDCircularProgress
 
 class ChallengeCounterViewController: UIViewController {
     
-    var labelNumber = 0
     var currentNumber = 0
+    var labelNumber = 0
+    
+    var setOne = 0
+    var setTwo = 0
+    var setThree = 0
     let formatter = DateFormatter()
     let doneSound = SimpleSound(named: "win")
     
@@ -21,21 +25,31 @@ class ChallengeCounterViewController: UIViewController {
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var cupImage: UIImageView!
     
+    @IBOutlet weak var label: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        counterLabel.text = String(labelNumber)
         
-        cupImage.isHidden = true
-        counterLabel.text = String(currentNumber)
-        counterLabel.layer.shadowColor = #colorLiteral(red: 0.696803987, green: 0.5583711267, blue: 0.908914566, alpha: 1)
-        counterLabel.layer.shadowOpacity = 0.4
-        counterLabel.layer.shadowOffset = .init(width: 3, height: 3)
-        counterLabel.layer.shadowRadius = 2
-        // circularProgressView.angle = Double(labelNumber)
-        circularProgressView.startAngle = 270
-        circularProgressView.angle = 0
-        activateProximitySensor()
-        formatter.dateFormat = "MM-dd-YYYY"
+        print(setOne)
+        print(setTwo)
+        print(setThree)
+      
+        
+        label.text = String(setOne)
+//        counterLabel.text = String(labelNumber)
+//
+//        cupImage.isHidden = true
+//        counterLabel.text = String(currentNumber)
+//        counterLabel.layer.shadowColor = #colorLiteral(red: 0.696803987, green: 0.5583711267, blue: 0.908914566, alpha: 1)
+//        counterLabel.layer.shadowOpacity = 0.4
+//        counterLabel.layer.shadowOffset = .init(width: 3, height: 3)
+//        counterLabel.layer.shadowRadius = 2
+//        // circularProgressView.angle = Double(labelNumber)
+//        circularProgressView.startAngle = 270
+//        circularProgressView.angle = 0
+//        activateProximitySensor()
+//        formatter.dateFormat = "MM-dd-YYYY"
 
         // Do any additional setup after loading the view.
     }

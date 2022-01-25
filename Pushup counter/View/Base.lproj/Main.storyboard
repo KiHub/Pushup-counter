@@ -26,7 +26,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="AWI-nY-PLF" kind="show" identifier="challengeSegue" id="hPc-nD-maA"/>
+                                    <segue destination="5BP-7N-uYz" kind="show" identifier="challengeSegue" id="fGo-NN-fjC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="2871" y="-1496"/>
         </scene>
-        <!--View Controller-->
+        <!--Challenge Counter View Controller-->
         <scene sceneID="NYg-X6-OPG">
             <objects>
-                <viewController id="5BP-7N-uYz" sceneMemberID="viewController">
+                <viewController id="5BP-7N-uYz" customClass="ChallengeCounterViewController" customModule="Pushup_counter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zRq-q3-kZY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,21 +90,32 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="ivT-CL-ifH">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8F-UL-BG1">
+                                <rect key="frame" x="175.5" y="416" width="63" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
+                                <color key="textColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b2L-Fd-uP9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="W8F-UL-BG1" firstAttribute="centerX" secondItem="zRq-q3-kZY" secondAttribute="centerX" id="CDX-Lk-Jyv"/>
                             <constraint firstItem="ivT-CL-ifH" firstAttribute="trailing" secondItem="b2L-Fd-uP9" secondAttribute="trailing" id="FdT-FQ-iQo"/>
                             <constraint firstItem="ivT-CL-ifH" firstAttribute="top" secondItem="zRq-q3-kZY" secondAttribute="top" id="RfL-Uw-hDy"/>
                             <constraint firstAttribute="bottom" secondItem="ivT-CL-ifH" secondAttribute="bottom" id="Yum-yR-CvX"/>
+                            <constraint firstItem="W8F-UL-BG1" firstAttribute="centerY" secondItem="zRq-q3-kZY" secondAttribute="centerY" id="csT-Tu-yed"/>
                             <constraint firstItem="ivT-CL-ifH" firstAttribute="leading" secondItem="b2L-Fd-uP9" secondAttribute="leading" id="uaw-Ec-E5z"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="opQ-mB-7BC"/>
+                    <connections>
+                        <outlet property="label" destination="W8F-UL-BG1" id="TRb-Pj-PDP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyl-N7-FtY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4938" y="-599"/>
+            <point key="canvasLocation" x="2913" y="-620"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -243,6 +254,11 @@
                             <constraint firstItem="hxe-2P-bt9" firstAttribute="centerX" secondItem="2MY-iZ-wfj" secondAttribute="centerX" id="iiU-Kb-2aQ"/>
                             <constraint firstItem="5E6-Sw-ekM" firstAttribute="top" secondItem="2MY-iZ-wfj" secondAttribute="top" id="tz5-pJ-UNN"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qYu-Da-hm3"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="COj-be-T24">
                         <barButtonItem key="backBarButtonItem" title=" " id="ya4-0j-pTa"/>
@@ -385,10 +401,10 @@
             </objects>
             <point key="canvasLocation" x="-71" y="-262"/>
         </scene>
-        <!--Challenge Counter View Controller-->
+        <!--View Controller-->
         <scene sceneID="Wyv-H6-5bH">
             <objects>
-                <viewController id="AWI-nY-PLF" customClass="ChallengeCounterViewController" customModule="Pushup_counter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AWI-nY-PLF" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Bw-Ig-IgU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -487,7 +503,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUz-E1-cSx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2870" y="-639"/>
+            <point key="canvasLocation" x="4519" y="-620"/>
         </scene>
     </scenes>
     <resources>
