@@ -289,11 +289,6 @@
                             <constraint firstItem="hxe-2P-bt9" firstAttribute="centerX" secondItem="2MY-iZ-wfj" secondAttribute="centerX" id="iiU-Kb-2aQ"/>
                             <constraint firstItem="5E6-Sw-ekM" firstAttribute="top" secondItem="2MY-iZ-wfj" secondAttribute="top" id="tz5-pJ-UNN"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="qYu-Da-hm3"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="COj-be-T24">
                         <barButtonItem key="backBarButtonItem" title=" " id="ya4-0j-pTa"/>

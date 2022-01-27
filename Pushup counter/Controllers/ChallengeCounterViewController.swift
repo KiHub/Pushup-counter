@@ -21,7 +21,7 @@ class ChallengeCounterViewController: UIViewController {
     let formatter = DateFormatter()
     let doneSound = SimpleSound(named: "win")
     
-    @IBOutlet weak var circularProgressView: KDCircularProgress!
+    @IBOutlet weak var circularProgressViewCH: KDCircularProgress!
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var cupImage: UIImageView!
     
@@ -34,6 +34,8 @@ class ChallengeCounterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         print(setOne)
         print(setTwo)
@@ -70,11 +72,11 @@ class ChallengeCounterViewController: UIViewController {
     func update() {
         if currentNumber != setOne - 1 {
             //  print("labekNumber:\(labelNumber)")
-            circularProgressView.angle += Double(360 / setOne)
+         //   circularProgressView.angle += Double(360 / setOne)
             currentNumber += 1
             label.text = String(currentNumber)
         } else {
-            circularProgressView.angle = 360
+       //     circularProgressView.angle = 360
             //  label.text = "Done!"
             label.text = ""
          //   cupImage.isHidden = false
