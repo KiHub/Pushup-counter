@@ -17,6 +17,8 @@ class ChallengeCounterViewController: UIViewController {
     var currentNumberThree = 0
     var labelNumber = 0
     
+    var switcher = false
+    
     var currentSet = 0
     var setOne = 0
     var setTwo = 0
@@ -37,6 +39,7 @@ class ChallengeCounterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         currentSet = setOne
      //   guard let progress = circularProgressViewCH else { return print("ERROR") }
         circularProgressViewCH.startAngle = 270
@@ -97,16 +100,60 @@ class ChallengeCounterViewController: UIViewController {
 //        
 //    }
     
-
+//    func update2() {
+//        if currentNumber != currentSet - 1 {
+//            //  print("labekNumber:\(labelNumber)")
+//            circularProgressViewCH.angle += Double(360 / currentSet)
+//            currentNumber += 1
+//            label.text = String(currentNumber)
+//            switcher = true
+//        } else if switcher == true {
+//            circularProgressViewCH.angle = 0
+//
+//            currentSet = setTwo
+//            doneSound.play()
+//         //   currentSet = setTwo
+//            currentNumber = 0
+//
+//        }
+//
+//
+//        else {
+//          circularProgressViewCH.angle = 0
+//            //  label.text = "Done!"
+//
+//            //MARK: - ToDo Rest Timer
+//
+//            if currentSet == setTwo {
+//                label.text = ""
+//                cupImage.isHidden = false
+//                UIDevice.current.isProximityMonitoringEnabled = false
+//            }
+//        //    label.text = "\(currentSet)"
+//          //  cupImage.isHidden = false
+//         //   UIDevice.current.isProximityMonitoringEnabled = false
+//            currentSet = setTwo
+//            doneSound.play()
+//         //   currentSet = setTwo
+//            currentNumber = 0
+//        }
+//    }
+    
     func update() {
         if currentNumber != currentSet - 1 {
             //  print("labekNumber:\(labelNumber)")
             circularProgressViewCH.angle += Double(360 / currentSet)
             currentNumber += 1
             label.text = String(currentNumber)
-        } else {
+            
+        } else
+        
+        
+        {
           circularProgressViewCH.angle = 0
-              label.text = "Done!"
+             label.text = "Rest!"
+            
+            //MARK: - ToDo Rest Timer
             
             if currentSet == setTwo {
                 label.text = ""
@@ -120,6 +167,9 @@ class ChallengeCounterViewController: UIViewController {
             doneSound.play()
          //   currentSet = setTwo
             currentNumber = 0
+            
+            
+            
          //   currentNumber = 0
          //   restAlertFirst()
             //MARK: - TO DO Rest Alert
