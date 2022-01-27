@@ -35,8 +35,11 @@ class ChallengeCounterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let progress = circularProgressViewCH else { return print("ERROR") }
-        progress.angle = 0
+     //   guard let progress = circularProgressViewCH else { return print("ERROR") }
+        circularProgressViewCH.startAngle = 270
+        circularProgressViewCH.angle = 0
+        cupImage.isHidden = true
+    //    progress.angle = 0
       //  circularProgressViewCH.startAngle = 270
      //   circularProgressViewCH.angle = 0 ?? 55
         
@@ -75,14 +78,14 @@ class ChallengeCounterViewController: UIViewController {
     func update() {
         if currentNumber != setOne - 1 {
             //  print("labekNumber:\(labelNumber)")
-         //   circularProgressView.angle += Double(360 / setOne)
+            circularProgressViewCH.angle += Double(360 / setOne)
             currentNumber += 1
             label.text = String(currentNumber)
         } else {
-       //     circularProgressView.angle = 360
+          circularProgressViewCH.angle = 360
             //  label.text = "Done!"
             label.text = ""
-         //   cupImage.isHidden = false
+            cupImage.isHidden = false
             UIDevice.current.isProximityMonitoringEnabled = false
             doneSound.play()
             //            let currentDate = formatter.string(from: date)
