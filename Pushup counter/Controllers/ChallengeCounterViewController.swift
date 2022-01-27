@@ -151,25 +151,28 @@ class ChallengeCounterViewController: UIViewController {
         
         {
           circularProgressViewCH.angle = 0
-             label.text = "Rest!"
+             label.text = "Rest"
             
-            //MARK: - ToDo Rest Timer
-            
-            if currentSet == setTwo {
-                label.text = ""
-                cupImage.isHidden = false
-                UIDevice.current.isProximityMonitoringEnabled = false
-            }
-        //    label.text = "\(currentSet)"
-          //  cupImage.isHidden = false
-         //   UIDevice.current.isProximityMonitoringEnabled = false
-            currentSet = setTwo
             doneSound.play()
-         //   currentSet = setTwo
             currentNumber = 0
+            UIDevice.current.isProximityMonitoringEnabled = false
+            //MARK: - ToDo Rest Timer
+            if currentSet != setTwo {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 30.00) {
+                UIDevice.current.isProximityMonitoringEnabled = true
+            }
+            }
+            if currentSet == setTwo {
+            label.text = ""
+            cupImage.isHidden = false
+            UIDevice.current.isProximityMonitoringEnabled = false
             
+            }
+            currentSet = setTwo
             
-            
+            //    label.text = "\(currentSet)"
+              //  cupImage.isHidden = false
+             //   UIDevice.current.isProximityMonitoringEnabled = false
          //   currentNumber = 0
          //   restAlertFirst()
             //MARK: - TO DO Rest Alert
