@@ -35,7 +35,10 @@ class ChallengeCounterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        guard let progress = circularProgressViewCH else { return print("ERROR") }
+        progress.angle = 0
+      //  circularProgressViewCH.startAngle = 270
+     //   circularProgressViewCH.angle = 0 ?? 55
         
         print(setOne)
         print(setTwo)

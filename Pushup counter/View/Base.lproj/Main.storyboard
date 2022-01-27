@@ -112,9 +112,6 @@
                                         <real key="value" value="270"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
-                                        <color key="value" red="0.24793019890000001" green="0.23210102320000001" blue="0.56474155189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
                                         <color key="value" red="0.24793019890000001" green="0.23210102320000001" blue="0.56474155189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
@@ -125,7 +122,10 @@
                                         <color key="value" red="0.99607843139999996" green="0.76078431369999999" blue="0.37647058820000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="gradientRotateSpeed">
-                                        <real key="value" value="0.0"/>
+                                        <real key="value" value="-1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                        <real key="value" value="-1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
