@@ -19,6 +19,9 @@ class ChallengeCounterViewController: UIViewController {
     
     var switcher = false
     
+    var timer: Timer!
+    var timeRemaining = 30
+    
     var currentSet = 0
     var setOne = 0
     var setTwo = 0
@@ -78,7 +81,7 @@ class ChallengeCounterViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         UIDevice.current.isProximityMonitoringEnabled = false
-      //  UIApplication.shared.isIdleTimerDisabled = false
+       UIApplication.shared.isIdleTimerDisabled = false
     }
     
 //    func updateUI() {
@@ -172,7 +175,9 @@ class ChallengeCounterViewController: UIViewController {
             }
             if currentSet == setTwo {
             label.text = ""
-            cupImage.isHidden = false
+          //  cupImage.isHidden = false
+                plancOption()
+                //MARK: - TO DO save data to CD
             UIDevice.current.isProximityMonitoringEnabled = false
             
             }
@@ -234,6 +239,13 @@ class ChallengeCounterViewController: UIViewController {
             
         }
     }
+    
+    func plancOption() {
+        circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: 30, completion: nil)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
+        
+    }
+    
     func restAlertFirst() {
         let color = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
         let alert = UIAlertController(title: "Rest", message: "Take 30-60 second for rest", preferredStyle: .actionSheet)
@@ -257,6 +269,16 @@ class ChallengeCounterViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @objc func step() {
+        if timeRemaining > 0 {
+            timeRemaining -= 1
+        } else {
+            cupImage.isHidden = false
+            timer.invalidate()
+            timeRemaining = 30
+        }
+        counterLabel.text = "\(timeRemaining)"
+    }
     
     //MARK: - Proximity sensor
     func activateProximitySensor() {
