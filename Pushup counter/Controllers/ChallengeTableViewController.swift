@@ -42,6 +42,10 @@ class ChallengeTableViewController: UITableViewController {
         TrainingDay(dayNumber: 30, firstSet: 50, secondSet: 0, thirdSet: 0, done: false)
         
     ]
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -140,8 +140,10 @@ class ChallengeCounterViewController: UIViewController {
 //    }
     
     func update() {
+       
         if currentNumber != currentSet - 1 {
             //  print("labekNumber:\(labelNumber)")
+            print(currentSet)
             circularProgressViewCH.angle += Double(360 / currentSet)
             currentNumber += 1
             label.text = String(currentNumber)
@@ -157,9 +159,15 @@ class ChallengeCounterViewController: UIViewController {
             currentNumber = 0
             UIDevice.current.isProximityMonitoringEnabled = false
             //MARK: - ToDo Rest Timer
+            
+            
+            
             if currentSet != setTwo {
+                circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: 30, completion: nil)
+           //     circularProgressViewCH.animate(toAngle: 360, duration: 30, completion: nil)
             DispatchQueue.main.asyncAfter(deadline: .now() + 30.00) {
                 UIDevice.current.isProximityMonitoringEnabled = true
+                self.circularProgressViewCH.angle = 0
             }
             }
             if currentSet == setTwo {
@@ -169,7 +177,8 @@ class ChallengeCounterViewController: UIViewController {
             
             }
             currentSet = setTwo
-            
+          //  circularProgressViewCH.angle = 0
+           
             //    label.text = "\(currentSet)"
               //  cupImage.isHidden = false
              //   UIDevice.current.isProximityMonitoringEnabled = false
