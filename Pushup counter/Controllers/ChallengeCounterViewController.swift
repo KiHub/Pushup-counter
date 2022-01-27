@@ -13,8 +13,11 @@ import KDCircularProgress
 class ChallengeCounterViewController: UIViewController {
     
     var currentNumber = 0
+    var currentNumberTwo = 0
+    var currentNumberThree = 0
     var labelNumber = 0
     
+    var currentSet = 0
     var setOne = 0
     var setTwo = 0
     var setThree = 0
@@ -34,7 +37,7 @@ class ChallengeCounterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        currentSet = setOne
      //   guard let progress = circularProgressViewCH else { return print("ERROR") }
         circularProgressViewCH.startAngle = 270
         circularProgressViewCH.angle = 0
@@ -42,7 +45,7 @@ class ChallengeCounterViewController: UIViewController {
     //    progress.angle = 0
       //  circularProgressViewCH.startAngle = 270
      //   circularProgressViewCH.angle = 0 ?? 55
-        
+        currentNumber = 0
         print(setOne)
         print(setTwo)
         print(setThree)
@@ -74,20 +77,53 @@ class ChallengeCounterViewController: UIViewController {
         UIDevice.current.isProximityMonitoringEnabled = false
       //  UIApplication.shared.isIdleTimerDisabled = false
     }
+    
+//    func updateUI() {
+//        
+//        for set in setOne, setTwo, setThree {
+//            if currentNumber != set - 1 {
+//                
+//                circularProgressViewCH.angle += Double(360 / set)
+//                currentNumber += 1
+//               
+//                label.text = String(currentNumber)
+//            } else {
+//                label.text = "Done!"
+//                doneSound.play()
+//                currentNumber = 0
+//                circularProgressViewCH.angle = 0
+//            }
+//        }
+//        
+//    }
+    
 
     func update() {
-        if currentNumber != setOne - 1 {
+        if currentNumber != currentSet - 1 {
             //  print("labekNumber:\(labelNumber)")
-            circularProgressViewCH.angle += Double(360 / setOne)
+            circularProgressViewCH.angle += Double(360 / currentSet)
             currentNumber += 1
             label.text = String(currentNumber)
         } else {
-          circularProgressViewCH.angle = 360
-            //  label.text = "Done!"
-            label.text = ""
-            cupImage.isHidden = false
-            UIDevice.current.isProximityMonitoringEnabled = false
+          circularProgressViewCH.angle = 0
+              label.text = "Done!"
+            
+            if currentSet == setTwo {
+                label.text = ""
+                cupImage.isHidden = false
+                UIDevice.current.isProximityMonitoringEnabled = false
+            }
+        //    label.text = "\(currentSet)"
+          //  cupImage.isHidden = false
+         //   UIDevice.current.isProximityMonitoringEnabled = false
+            currentSet = setTwo
             doneSound.play()
+         //   currentSet = setTwo
+            currentNumber = 0
+         //   currentNumber = 0
+         //   restAlertFirst()
+            //MARK: - TO DO Rest Alert
+            
             //            let currentDate = formatter.string(from: date)
             //            print(currentDate)
             //            print("Date:\(date)")
@@ -97,8 +133,69 @@ class ChallengeCounterViewController: UIViewController {
       //      let dateString = formatter.string(from: date)
             
        //     saveDayDate(trainingDate: dateString)
+//
+//            if currentNumberTwo != setTwo - 1 {
+//
+//                circularProgressViewCH.angle += Double(360 / setTwo)
+//                currentNumberTwo += 1
+//                label.text = String(currentNumberTwo)
+//            } else {
+//                circularProgressViewCH.angle = 0
+//                    label.text = "Done!"
+//                currentNumberTwo = 0
+//                //  label.text = ""
+//                  cupImage.isHidden = false
+//              //    UIDevice.current.isProximityMonitoringEnabled = false
+//                  doneSound.play()
+//          //      currentSet = setThree
+//       //         restAlertSecond()
+//         //         currentNumber = 0
+//
+////                if currentNumber != currentSet - 1 {
+////                    circularProgressViewCH.angle += Double(360 / currentSet)
+////                    currentNumber += 1
+////                    label.text = String(currentNumber)
+////                } else {
+////                    circularProgressViewCH.angle = 360
+////                    label.text = "Done!"
+////                    currentNumber = 0
+////                    //  label.text = ""
+////                      cupImage.isHidden = false
+////                      UIDevice.current.isProximityMonitoringEnabled = false
+////                      doneSound.play()
+////                      currentNumber = 0
+////
+////
+////                }
+//
+//            }
+            
         }
     }
+    func restAlertFirst() {
+        let color = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
+        let alert = UIAlertController(title: "Rest", message: "Take 30-60 second for rest", preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "Next set", style: .default)
+       
+     //   UIDevice.current.isProximityMonitoringEnabled = false
+        currentNumber = 0
+        currentSet = setTwo
+        cancel.setValue(color, forKey: "titleTextColor")
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
+    func restAlertSecond() {
+        let color = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
+        let alert = UIAlertController(title: "Rest", message: "Take 30-60 second for rest", preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "Next set", style: .default)
+        currentNumber = 0
+        currentSet = setThree
+        cancel.setValue(color, forKey: "titleTextColor")
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     //MARK: - Proximity sensor
     func activateProximitySensor() {
         let device = UIDevice.current
@@ -112,6 +209,7 @@ class ChallengeCounterViewController: UIViewController {
         if let device = notification.object as? UIDevice {
             if device.proximityState {
                 update()
+               // updateUI()
             }
         }
     }
