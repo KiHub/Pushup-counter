@@ -20,7 +20,10 @@ class ChallengeCounterViewController: UIViewController {
     var switcher = false
     
     var timer: Timer!
+    var timerPlanc: Timer!
     var timeRemaining = 30
+    var timeRemainingPlank = 30
+    
     
     var currentSet = 0
     var setOne = 0
@@ -35,6 +38,8 @@ class ChallengeCounterViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
     
+    @IBOutlet weak var exerciseLabel: UILabel!
+    
     override func viewWillAppear(_ animated: Bool) {
         UIDevice.current.isProximityMonitoringEnabled = true
         UIApplication.shared.isIdleTimerDisabled = true
@@ -42,7 +47,8 @@ class ChallengeCounterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+       
+        timeRemainingPlank = setThree
         currentSet = setOne
      //   guard let progress = circularProgressViewCH else { return print("ERROR") }
         circularProgressViewCH.startAngle = 270
@@ -61,7 +67,7 @@ class ChallengeCounterViewController: UIViewController {
       
         
        // label.text = String(setOne)
-        label.text = String(currentNumber)
+        counterLabel.text = String(currentNumber)
 //        counterLabel.text = String(labelNumber)
 //
 //        cupImage.isHidden = true
@@ -80,39 +86,46 @@ class ChallengeCounterViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        UIDevice.current.isProximityMonitoringEnabled = false
+    //    UIDevice.current.isProximityMonitoringEnabled = false
        UIApplication.shared.isIdleTimerDisabled = false
     }
     
 
     
     func update() {
-       
+        
         if currentNumber != currentSet - 1 {
+            exerciseLabel.text = "push up"
             //  print("labekNumber:\(labelNumber)")
             print(currentSet)
             circularProgressViewCH.angle += Double(360 / currentSet)
             currentNumber += 1
-            label.text = String(currentNumber)
+            counterLabel.text = String(currentNumber)
             
         } else {
           circularProgressViewCH.angle = 0
-            label.text = "Rest"
+            exerciseLabel.text = "rest"
+         //   counterLabel.text = "Rest"
             doneSound.play()
+          //  counterLabel.text = String(currentSet)
             currentNumber = 0
             UIDevice.current.isProximityMonitoringEnabled = false
             //MARK: - ToDo Rest Timer
             
             if currentSet != setTwo {
+                timeRemaining = setThree
+                exerciseLabel.text = "rest"
                 circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepOne), userInfo: nil, repeats: true)
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(setThree)) {
                 UIDevice.current.isProximityMonitoringEnabled = true
                 self.circularProgressViewCH.angle = 0
-                self.label.text = "0"
+                self.counterLabel.text = "0"
+                    self.exerciseLabel.text = "push up"
             }
             }
             if currentSet == setTwo {
-            label.text = ""
+       //     counterLabel.text = ""
                 UIDevice.current.isProximityMonitoringEnabled = false
           //  cupImage.isHidden = false
                 plancOption()
@@ -123,16 +136,23 @@ class ChallengeCounterViewController: UIViewController {
         }
     }
     func plancOption() {
+        exerciseLabel.text = "rest"
         timeRemaining = setThree
-        label.text = "Rest"
+        
+      //  counterLabel.text = "Rest"
         circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepOne), userInfo: nil, repeats: true)
+        
      
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(setThree)) { [self] in
           //  UIDevice.current.isProximityMonitoringEnabled = true
+            timeRemainingPlank = setThree
             circularProgressViewCH.angle = 0
+            exerciseLabel.text = "full plank"
+          //  timeRemaining = setThree
          //   self.label.text = "0"
             circularProgressViewCH.animate(fromAngle: 0, toAngle: 360, duration: TimeInterval(setThree), completion: nil)
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
+            timerPlanc = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
         }
         
         
@@ -161,18 +181,32 @@ class ChallengeCounterViewController: UIViewController {
         alert.addAction(cancel)
         self.present(alert, animated: true, completion: nil)
     }
-    
-    @objc func step() {
+    @objc func stepOne() {
         if timeRemaining > 0 {
             timeRemaining -= 1
+        } else {
+          //  cupImage.isHidden = false
+          //  doneSound.play()
+            timer.invalidate()
+        //    timeRemaining = setThree
+          //  exerciseLabel.text = ""
+            //MARK: - ToDo Save data and set check mark
+        }
+        counterLabel.text = "\(timeRemaining)"
+    }
+    
+    @objc func step() {
+        if timeRemainingPlank > 0 {
+            timeRemainingPlank -= 1
         } else {
             cupImage.isHidden = false
             doneSound.play()
             timer.invalidate()
-            timeRemaining = setThree
+            timeRemainingPlank = setThree
+            exerciseLabel.text = ""
             //MARK: - ToDo Save data and set check mark
         }
-        counterLabel.text = "\(timeRemaining)"
+        counterLabel.text = "\(timeRemainingPlank)"
     }
     
     //MARK: - Proximity sensor
