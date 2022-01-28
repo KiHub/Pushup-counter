@@ -84,63 +84,7 @@ class ChallengeCounterViewController: UIViewController {
        UIApplication.shared.isIdleTimerDisabled = false
     }
     
-//    func updateUI() {
-//        
-//        for set in setOne, setTwo, setThree {
-//            if currentNumber != set - 1 {
-//                
-//                circularProgressViewCH.angle += Double(360 / set)
-//                currentNumber += 1
-//               
-//                label.text = String(currentNumber)
-//            } else {
-//                label.text = "Done!"
-//                doneSound.play()
-//                currentNumber = 0
-//                circularProgressViewCH.angle = 0
-//            }
-//        }
-//        
-//    }
-    
-//    func update2() {
-//        if currentNumber != currentSet - 1 {
-//            //  print("labekNumber:\(labelNumber)")
-//            circularProgressViewCH.angle += Double(360 / currentSet)
-//            currentNumber += 1
-//            label.text = String(currentNumber)
-//            switcher = true
-//        } else if switcher == true {
-//            circularProgressViewCH.angle = 0
-//
-//            currentSet = setTwo
-//            doneSound.play()
-//         //   currentSet = setTwo
-//            currentNumber = 0
-//
-//        }
-//
-//
-//        else {
-//          circularProgressViewCH.angle = 0
-//            //  label.text = "Done!"
-//
-//            //MARK: - ToDo Rest Timer
-//
-//            if currentSet == setTwo {
-//                label.text = ""
-//                cupImage.isHidden = false
-//                UIDevice.current.isProximityMonitoringEnabled = false
-//            }
-//        //    label.text = "\(currentSet)"
-//          //  cupImage.isHidden = false
-//         //   UIDevice.current.isProximityMonitoringEnabled = false
-//            currentSet = setTwo
-//            doneSound.play()
-//         //   currentSet = setTwo
-//            currentNumber = 0
-//        }
-//    }
+
     
     func update() {
        
@@ -167,82 +111,45 @@ class ChallengeCounterViewController: UIViewController {
             
             if currentSet != setTwo {
                 circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: 30, completion: nil)
-           //     circularProgressViewCH.animate(toAngle: 360, duration: 30, completion: nil)
+         
             DispatchQueue.main.asyncAfter(deadline: .now() + 30.00) {
                 UIDevice.current.isProximityMonitoringEnabled = true
                 self.circularProgressViewCH.angle = 0
+                self.label.text = "0"
             }
             }
             if currentSet == setTwo {
             label.text = ""
+                UIDevice.current.isProximityMonitoringEnabled = false
+
+            
+                
           //  cupImage.isHidden = false
+                
+                
                 plancOption()
                 //MARK: - TO DO save data to CD
-            UIDevice.current.isProximityMonitoringEnabled = false
+    //        UIDevice.current.isProximityMonitoringEnabled = false
             
             }
             currentSet = setTwo
-          //  circularProgressViewCH.angle = 0
-           
-            //    label.text = "\(currentSet)"
-              //  cupImage.isHidden = false
-             //   UIDevice.current.isProximityMonitoringEnabled = false
-         //   currentNumber = 0
-         //   restAlertFirst()
-            //MARK: - TO DO Rest Alert
-            
-            //            let currentDate = formatter.string(from: date)
-            //            print(currentDate)
-            //            print("Date:\(date)")
-            
-       //     let formatter = DateFormatter()
-     //       formatter.dateFormat = "dd-MM-yyyy"
-      //      let dateString = formatter.string(from: date)
-            
-       //     saveDayDate(trainingDate: dateString)
-//
-//            if currentNumberTwo != setTwo - 1 {
-//
-//                circularProgressViewCH.angle += Double(360 / setTwo)
-//                currentNumberTwo += 1
-//                label.text = String(currentNumberTwo)
-//            } else {
-//                circularProgressViewCH.angle = 0
-//                    label.text = "Done!"
-//                currentNumberTwo = 0
-//                //  label.text = ""
-//                  cupImage.isHidden = false
-//              //    UIDevice.current.isProximityMonitoringEnabled = false
-//                  doneSound.play()
-//          //      currentSet = setThree
-//       //         restAlertSecond()
-//         //         currentNumber = 0
-//
-////                if currentNumber != currentSet - 1 {
-////                    circularProgressViewCH.angle += Double(360 / currentSet)
-////                    currentNumber += 1
-////                    label.text = String(currentNumber)
-////                } else {
-////                    circularProgressViewCH.angle = 360
-////                    label.text = "Done!"
-////                    currentNumber = 0
-////                    //  label.text = ""
-////                      cupImage.isHidden = false
-////                      UIDevice.current.isProximityMonitoringEnabled = false
-////                      doneSound.play()
-////                      currentNumber = 0
-////
-////
-////                }
-//
-//            }
-            
+         
         }
     }
     
     func plancOption() {
+        label.text = "Rest"
         circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: 30, completion: nil)
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
+     
+        DispatchQueue.main.asyncAfter(deadline: .now() + 30.00) { [self] in
+          //  UIDevice.current.isProximityMonitoringEnabled = true
+            circularProgressViewCH.angle = 0
+         //   self.label.text = "0"
+            circularProgressViewCH.animate(fromAngle: 0, toAngle: 360, duration: 30, completion: nil)
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
+        }
+        
+        
         
     }
     
@@ -274,6 +181,7 @@ class ChallengeCounterViewController: UIViewController {
             timeRemaining -= 1
         } else {
             cupImage.isHidden = false
+            doneSound.play()
             timer.invalidate()
             timeRemaining = 30
         }
