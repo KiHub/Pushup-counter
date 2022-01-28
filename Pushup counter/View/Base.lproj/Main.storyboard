@@ -91,8 +91,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8F-UL-BG1">
-                                <rect key="frame" x="175.5" y="416" width="63" height="64"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
+                                <rect key="frame" x="175.5" y="412" width="63.5" height="72.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="53"/>
                                 <color key="textColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -238,8 +238,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxe-2P-bt9">
-                                <rect key="frame" x="175.5" y="416" width="63" height="64"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
+                                <rect key="frame" x="175.5" y="412" width="63.5" height="72.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="53"/>
                                 <color key="textColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

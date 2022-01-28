@@ -25,7 +25,7 @@ class ChallengeCounterViewController: UIViewController {
     var currentSet = 0
     var setOne = 0
     var setTwo = 0
-    var setThree = 0
+    var setThree = 30
     let formatter = DateFormatter()
     let doneSound = SimpleSound(named: "win")
     
@@ -95,24 +95,17 @@ class ChallengeCounterViewController: UIViewController {
             currentNumber += 1
             label.text = String(currentNumber)
             
-        } else
-        
-        
-        {
+        } else {
           circularProgressViewCH.angle = 0
-             label.text = "Rest"
-            
+            label.text = "Rest"
             doneSound.play()
             currentNumber = 0
             UIDevice.current.isProximityMonitoringEnabled = false
             //MARK: - ToDo Rest Timer
             
-            
-            
             if currentSet != setTwo {
-                circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: 30, completion: nil)
-         
-            DispatchQueue.main.asyncAfter(deadline: .now() + 30.00) {
+                circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(setThree)) {
                 UIDevice.current.isProximityMonitoringEnabled = true
                 self.circularProgressViewCH.angle = 0
                 self.label.text = "0"
@@ -121,31 +114,24 @@ class ChallengeCounterViewController: UIViewController {
             if currentSet == setTwo {
             label.text = ""
                 UIDevice.current.isProximityMonitoringEnabled = false
-
-            
-                
           //  cupImage.isHidden = false
-                
-                
                 plancOption()
                 //MARK: - TO DO save data to CD
     //        UIDevice.current.isProximityMonitoringEnabled = false
-            
             }
             currentSet = setTwo
-         
         }
     }
-    
     func plancOption() {
+        timeRemaining = setThree
         label.text = "Rest"
-        circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: 30, completion: nil)
+        circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
      
-        DispatchQueue.main.asyncAfter(deadline: .now() + 30.00) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(setThree)) { [self] in
           //  UIDevice.current.isProximityMonitoringEnabled = true
             circularProgressViewCH.angle = 0
          //   self.label.text = "0"
-            circularProgressViewCH.animate(fromAngle: 0, toAngle: 360, duration: 30, completion: nil)
+            circularProgressViewCH.animate(fromAngle: 0, toAngle: 360, duration: TimeInterval(setThree), completion: nil)
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
         }
         
@@ -183,7 +169,8 @@ class ChallengeCounterViewController: UIViewController {
             cupImage.isHidden = false
             doneSound.play()
             timer.invalidate()
-            timeRemaining = 30
+            timeRemaining = setThree
+            //MARK: - ToDo Save data and set check mark
         }
         counterLabel.text = "\(timeRemaining)"
     }
