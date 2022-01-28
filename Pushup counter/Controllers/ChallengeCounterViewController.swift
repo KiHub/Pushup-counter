@@ -118,21 +118,24 @@ class ChallengeCounterViewController: UIViewController {
                 circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepOne), userInfo: nil, repeats: true)
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(setThree)) {
-                UIDevice.current.isProximityMonitoringEnabled = true
+               UIDevice.current.isProximityMonitoringEnabled = true
                 self.circularProgressViewCH.angle = 0
                 self.counterLabel.text = "0"
-                    self.exerciseLabel.text = "push up"
+                self.exerciseLabel.text = "push up"
             }
-            }
-            if currentSet == setTwo {
+            } else {
+       //     if currentSet == setTwo {
        //     counterLabel.text = ""
                 UIDevice.current.isProximityMonitoringEnabled = false
           //  cupImage.isHidden = false
                 plancOption()
+             //   currentNumber = 0
+             //   currentSet = setOne
                 //MARK: - TO DO save data to CD
     //        UIDevice.current.isProximityMonitoringEnabled = false
             }
             currentSet = setTwo
+          //  UIDevice.current.isProximityMonitoringEnabled = true
         }
     }
     func plancOption() {
@@ -155,6 +158,17 @@ class ChallengeCounterViewController: UIViewController {
             timerPlanc = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
         }
         
+        
+        
+    }
+    
+    func reset() {
+        timeRemainingPlank = setThree
+        timeRemaining = setThree
+        currentSet = setOne
+        currentNumber = 0
+        timer.invalidate()
+        timerPlanc.invalidate()
         
         
     }
@@ -201,9 +215,15 @@ class ChallengeCounterViewController: UIViewController {
         } else {
             cupImage.isHidden = false
             doneSound.play()
-            timer.invalidate()
+            timerPlanc.invalidate()
             timeRemainingPlank = setThree
             exerciseLabel.text = ""
+            reset()
+            currentSet = setOne
+            
+            UIDevice.current.isProximityMonitoringEnabled = false
+            UIApplication.shared.isIdleTimerDisabled = false
+            
             //MARK: - ToDo Save data and set check mark
         }
         counterLabel.text = "\(timeRemainingPlank)"
