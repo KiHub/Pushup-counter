@@ -91,7 +91,11 @@ class ChallengeTableViewController: UITableViewController {
 //
 //        cell.cellBubble.layer.addSublayer(gradientLayer)
         
-        cell.celllabel.text = "Day \(traininDays[indexPath.row].dayNumber): \(traininDays[indexPath.row].firstSet)-\(traininDays[indexPath.row].secondSet)-\(traininDays[indexPath.row].thirdSet)"
+   //     cell.dayLabel.text = "Day \(traininDays[indexPath.row].dayNumber): \(traininDays[indexPath.row].firstSet)-\(traininDays[indexPath.row].secondSet)-\(traininDays[indexPath.row].thirdSet)"
+        
+        cell.dayLabel.text = "Day \(traininDays[indexPath.row].dayNumber)"
+        cell.pushUpLabel.text = "Push up \(traininDays[indexPath.row].firstSet)-\(traininDays[indexPath.row].secondSet)"
+        cell.plankLabel.text = "Full plank \(traininDays[indexPath.row].thirdSet)"
 
         return cell
     }

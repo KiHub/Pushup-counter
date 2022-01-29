@@ -10,7 +10,11 @@ import UIKit
 class TrainingDayCell: UITableViewCell {
     
     
-    @IBOutlet weak var celllabel: UILabel!
+    @IBOutlet weak var dayLabel: UILabel!
+    
+    @IBOutlet weak var pushUpLabel: UILabel!
+    
+    @IBOutlet weak var plankLabel: UILabel!
     
     @IBOutlet weak var cellBubble: UIImageView!
     

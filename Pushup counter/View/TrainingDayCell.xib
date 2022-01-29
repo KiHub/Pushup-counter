@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,34 +18,64 @@
                 <rect key="frame" x="0.0" y="0.0" width="554" height="125"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonGoLong" translatesAutoresizingMaskIntoConstraints="NO" id="WDu-Y3-TM7">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonNew" translatesAutoresizingMaskIntoConstraints="NO" id="WDu-Y3-TM7">
                         <rect key="frame" x="0.0" y="8" width="554" height="117"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7e-M5-htV">
-                        <rect key="frame" x="60" y="47.5" width="59" height="30"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleAspectFit" spacingType="standard" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuK-Xk-bW2">
+                        <rect key="frame" x="40" y="20" width="474" height="85"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="I7e-M5-htV">
+                                <rect key="frame" x="0.0" y="0.0" width="323" height="85"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MeJ-dD-8yt">
+                                <rect key="frame" x="331" y="0.0" width="117" height="85"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Push up 16 - 6" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="k2U-cN-eYY">
+                                        <rect key="frame" x="0.0" y="0.0" width="117" height="25"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Full plank 26" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kof-c0-a23">
+                                        <rect key="frame" x="0.0" y="25" width="117" height="60"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Go" translatesAutoresizingMaskIntoConstraints="NO" id="47G-b3-ORc">
+                                <rect key="frame" x="456" y="0.0" width="18" height="85"/>
+                            </imageView>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="iuK-Xk-bW2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="900" constant="20" id="3FX-1g-pS8"/>
                     <constraint firstItem="WDu-Y3-TM7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LlK-QD-kKy"/>
                     <constraint firstItem="WDu-Y3-TM7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="O1U-Kn-tpI"/>
                     <constraint firstAttribute="trailing" secondItem="WDu-Y3-TM7" secondAttribute="trailing" id="Qsw-G7-eNi"/>
-                    <constraint firstItem="I7e-M5-htV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="UFJ-6a-9RB"/>
-                    <constraint firstItem="I7e-M5-htV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="baM-cX-q7d"/>
+                    <constraint firstItem="iuK-Xk-bW2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="Z4b-n4-VE9"/>
+                    <constraint firstAttribute="bottom" secondItem="iuK-Xk-bW2" secondAttribute="bottom" priority="900" constant="20" id="gJj-Kd-XYe"/>
+                    <constraint firstAttribute="trailing" secondItem="iuK-Xk-bW2" secondAttribute="trailing" constant="40" id="mco-jx-mXJ"/>
                     <constraint firstAttribute="bottom" secondItem="WDu-Y3-TM7" secondAttribute="bottom" id="upf-xg-hLu"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cellBubble" destination="WDu-Y3-TM7" id="Gip-uk-Ycb"/>
-                <outlet property="celllabel" destination="I7e-M5-htV" id="fOU-XU-l1B"/>
+                <outlet property="dayLabel" destination="I7e-M5-htV" id="fOU-XU-l1B"/>
+                <outlet property="plankLabel" destination="kof-c0-a23" id="c52-Rd-eNV"/>
+                <outlet property="pushUpLabel" destination="k2U-cN-eYY" id="a3g-i2-4hf"/>
             </connections>
-            <point key="canvasLocation" x="298.55072463768118" y="110.15625"/>
+            <point key="canvasLocation" x="339.13043478260875" y="118.19196428571428"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ButtonGoLong" width="407" height="68"/>
+        <image name="ButtonNew" width="407" height="83"/>
+        <image name="Go" width="18" height="14"/>
     </resources>
 </document>
