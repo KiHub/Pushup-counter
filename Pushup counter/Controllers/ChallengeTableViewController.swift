@@ -75,6 +75,9 @@ class ChallengeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DayCell", for: indexPath) as! TrainingDayCell
         cell.backgroundColor = .clear
+        
+        
+     //   cell.cellBubble.image = UIImage(named: "ButtonDoneLong")
      //   cell.cellBubble.layer.backgroundColor = CAGradientLayer
         
 //        let gradientLayer = CAGradientLayer()

@@ -106,7 +106,8 @@ class ChallengeCounterViewController: UIViewController {
             circularProgressViewCH.angle += Double(360 / currentSet)
             currentNumber += 1
             counterLabel.text = String(currentNumber)
-            
+            print("CurrentNumber\(currentNumber)")
+            print("currentSet\(currentSet)")
         } else {
           circularProgressViewCH.angle = 0
             thumbUp()
@@ -134,7 +135,7 @@ class ChallengeCounterViewController: UIViewController {
             } else {
        //     if currentSet == setTwo {
        //     counterLabel.text = ""
-                UIDevice.current.isProximityMonitoringEnabled = false
+  //??              UIDevice.current.isProximityMonitoringEnabled = false
           //  cupImage.isHidden = false
                 plancOption()
              //   currentNumber = 0
@@ -204,28 +205,28 @@ class ChallengeCounterViewController: UIViewController {
         
     }
     
-    func restAlertFirst() {
-        let color = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-        let alert = UIAlertController(title: "Rest", message: "Take 30-60 second for rest", preferredStyle: .actionSheet)
-        let cancel = UIAlertAction(title: "Next set", style: .default)
-       
-     //   UIDevice.current.isProximityMonitoringEnabled = false
-        currentNumber = 0
-        currentSet = setTwo
-        cancel.setValue(color, forKey: "titleTextColor")
-        alert.addAction(cancel)
-        self.present(alert, animated: true, completion: nil)
-    }
-    func restAlertSecond() {
-        let color = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-        let alert = UIAlertController(title: "Rest", message: "Take 30-60 second for rest", preferredStyle: .actionSheet)
-        let cancel = UIAlertAction(title: "Next set", style: .default)
-        currentNumber = 0
-        currentSet = setThree
-        cancel.setValue(color, forKey: "titleTextColor")
-        alert.addAction(cancel)
-        self.present(alert, animated: true, completion: nil)
-    }
+//    func restAlertFirst() {
+//        let color = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
+//        let alert = UIAlertController(title: "Rest", message: "Take 30-60 second for rest", preferredStyle: .actionSheet)
+//        let cancel = UIAlertAction(title: "Next set", style: .default)
+//
+//     //   UIDevice.current.isProximityMonitoringEnabled = false
+//        currentNumber = 0
+//        currentSet = setTwo
+//        cancel.setValue(color, forKey: "titleTextColor")
+//        alert.addAction(cancel)
+//        self.present(alert, animated: true, completion: nil)
+//    }
+//    func restAlertSecond() {
+//        let color = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
+//        let alert = UIAlertController(title: "Rest", message: "Take 30-60 second for rest", preferredStyle: .actionSheet)
+//        let cancel = UIAlertAction(title: "Next set", style: .default)
+//        currentNumber = 0
+//        currentSet = setThree
+//        cancel.setValue(color, forKey: "titleTextColor")
+//        alert.addAction(cancel)
+//        self.present(alert, animated: true, completion: nil)
+//    }
     @objc func stepOne() {
         if timeRemaining > 0 {
             timeRemaining -= 1
@@ -251,7 +252,7 @@ class ChallengeCounterViewController: UIViewController {
             timeRemainingPlank = setThree
             exerciseLabel.text = ""
             reset()
-            currentSet = setOne
+         //   currentSet = setOne
             
             UIDevice.current.isProximityMonitoringEnabled = false
             UIApplication.shared.isIdleTimerDisabled = false
