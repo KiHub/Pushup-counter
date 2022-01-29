@@ -40,6 +40,9 @@ class ChallengeCounterViewController: UIViewController {
     
     @IBOutlet weak var exerciseLabel: UILabel!
     
+    @IBOutlet weak var thumbImage: UIImageView!
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         UIDevice.current.isProximityMonitoringEnabled = true
         UIApplication.shared.isIdleTimerDisabled = true
@@ -47,13 +50,14 @@ class ChallengeCounterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        exerciseLabel.alpha = 0.7
         timeRemainingPlank = setThree
         currentSet = setOne
      //   guard let progress = circularProgressViewCH else { return print("ERROR") }
         circularProgressViewCH.startAngle = 270
         circularProgressViewCH.angle = 0
         cupImage.isHidden = true
+        thumbImage.isHidden = true
     //    progress.angle = 0
       //  circularProgressViewCH.startAngle = 270
      //   circularProgressViewCH.angle = 0 ?? 55
@@ -88,6 +92,7 @@ class ChallengeCounterViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
     //    UIDevice.current.isProximityMonitoringEnabled = false
        UIApplication.shared.isIdleTimerDisabled = false
+        reset()
     }
     
 
@@ -104,9 +109,11 @@ class ChallengeCounterViewController: UIViewController {
             
         } else {
           circularProgressViewCH.angle = 0
+            thumbUp()
             exerciseLabel.text = "rest"
          //   counterLabel.text = "Rest"
             doneSound.play()
+         //   thumbImage.isHidden = false
           //  counterLabel.text = String(currentSet)
             currentNumber = 0
             UIDevice.current.isProximityMonitoringEnabled = false
@@ -114,6 +121,7 @@ class ChallengeCounterViewController: UIViewController {
             
             if currentSet != setTwo {
                 timeRemaining = setThree
+              
                 exerciseLabel.text = "rest"
                 circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepOne), userInfo: nil, repeats: true)
@@ -162,14 +170,37 @@ class ChallengeCounterViewController: UIViewController {
         
     }
     
+    func thumbUp() {
+        
+        thumbImage.isHidden = false
+        thumbImage.alpha = 1.0
+        counterLabel.isHidden = true
+
+        UIView.animate(withDuration: 0.5, delay: 1.0, options: [], animations: {
+
+                    self.thumbImage.alpha = 0.0
+
+                }) { (finished: Bool) in
+
+                    self.thumbImage.isHidden = true
+                    self.counterLabel.isHidden = false
+                }
+    }
+    
     func reset() {
         timeRemainingPlank = setThree
         timeRemaining = setThree
         currentSet = setOne
         currentNumber = 0
-        timer.invalidate()
-        timerPlanc.invalidate()
+        circularProgressViewCH.angle = 0
+        UIDevice.current.isProximityMonitoringEnabled = false
+        if timer != nil {
+            timer.invalidate()
+        }
         
+        if timerPlanc != nil {
+            timerPlanc.invalidate()
+        }
         
     }
     
@@ -214,6 +245,7 @@ class ChallengeCounterViewController: UIViewController {
             timeRemainingPlank -= 1
         } else {
             cupImage.isHidden = false
+            
             doneSound.play()
             timerPlanc.invalidate()
             timeRemainingPlank = setThree

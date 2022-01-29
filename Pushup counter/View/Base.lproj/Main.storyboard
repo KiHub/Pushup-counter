@@ -107,10 +107,20 @@
                                             <constraint firstAttribute="width" secondItem="Ydb-rJ-DNh" secondAttribute="height" multiplier="1:1" id="jgc-92-WRD"/>
                                         </constraints>
                                     </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thumb" translatesAutoresizingMaskIntoConstraints="NO" id="lSS-BN-ZAy" userLabel="Thumb Image">
+                                        <rect key="frame" x="62" y="62" width="146" height="146"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="146" id="Vds-T0-2nZ"/>
+                                            <constraint firstAttribute="width" secondItem="lSS-BN-ZAy" secondAttribute="height" multiplier="1:1" id="sBO-iV-3FU"/>
+                                            <constraint firstAttribute="width" constant="146" id="ulN-zE-eZI"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="lSS-BN-ZAy" firstAttribute="centerX" secondItem="8x7-fJ-QbB" secondAttribute="centerX" id="2ui-8B-Mur"/>
                                     <constraint firstAttribute="width" constant="270" id="HdV-EF-2J7"/>
+                                    <constraint firstItem="lSS-BN-ZAy" firstAttribute="centerY" secondItem="8x7-fJ-QbB" secondAttribute="centerY" id="bPs-cy-hqS"/>
                                     <constraint firstAttribute="width" secondItem="8x7-fJ-QbB" secondAttribute="height" multiplier="1:1" id="cz3-lw-VkG"/>
                                     <constraint firstItem="Ydb-rJ-DNh" firstAttribute="centerX" secondItem="8x7-fJ-QbB" secondAttribute="centerX" id="n8I-YQ-kKh"/>
                                     <constraint firstAttribute="height" constant="270" id="xXU-fE-skf"/>
@@ -171,6 +181,7 @@
                         <outlet property="cupImage" destination="Ydb-rJ-DNh" id="WGh-93-nvO"/>
                         <outlet property="exerciseLabel" destination="5WR-v5-OSu" id="ABy-e5-luP"/>
                         <outlet property="label" destination="W8F-UL-BG1" id="TRb-Pj-PDP"/>
+                        <outlet property="thumbImage" destination="lSS-BN-ZAy" id="vE0-cw-Zjv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyl-N7-FtY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -564,6 +575,7 @@
     <resources>
         <image name="Background2" width="530" height="919"/>
         <image name="Cup" width="170.5" height="170.5"/>
+        <image name="Thumb" width="133" height="133"/>
         <image name="With Icon" width="232" height="68"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="infinity.circle.fill" catalog="system" width="128" height="121"/>
