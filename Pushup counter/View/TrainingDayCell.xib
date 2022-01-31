@@ -67,6 +67,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cellBubble" destination="WDu-Y3-TM7" id="Gip-uk-Ycb"/>
+                <outlet property="cellCheck" destination="47G-b3-ORc" id="Xm2-Vh-bkW"/>
                 <outlet property="dayLabel" destination="I7e-M5-htV" id="fOU-XU-l1B"/>
                 <outlet property="plankLabel" destination="kof-c0-a23" id="c52-Rd-eNV"/>
                 <outlet property="pushUpLabel" destination="k2U-cN-eYY" id="a3g-i2-4hf"/>

@@ -3,7 +3,12 @@
     <entity name="Day" representedClassName="Day" syncable="YES" codeGenerationType="class">
         <attribute name="trainingDate" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="DayDone" representedClassName="DayDone" syncable="YES" codeGenerationType="class">
+        <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="numberDay" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <elements>
         <element name="Day" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="DayDone" positionX="-63" positionY="-9" width="128" height="59"/>
     </elements>
 </model>

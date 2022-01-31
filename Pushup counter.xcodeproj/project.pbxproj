@@ -15,6 +15,7 @@
 		0B621A42279F62F600C007BF /* TrainingDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B621A40279F62F600C007BF /* TrainingDayCell.swift */; };
 		0B621A43279F62F600C007BF /* TrainingDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B621A41279F62F600C007BF /* TrainingDayCell.xib */; };
 		0B7E347927A05F010096E795 /* ChallengeCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E347827A05F010096E795 /* ChallengeCounterViewController.swift */; };
+		0B7E347B27A6C9F10096E795 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B7E347A27A6C9F10096E795 /* data.plist */; };
 		0B8C91DE27988A7900939C6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8C91DD27988A7900939C6E /* AppDelegate.swift */; };
 		0B8C91E027988A7900939C6E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8C91DF27988A7900939C6E /* SceneDelegate.swift */; };
 		0B8C91E227988A7900939C6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8C91E127988A7900939C6E /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 		0B621A40279F62F600C007BF /* TrainingDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDayCell.swift; sourceTree = "<group>"; };
 		0B621A41279F62F600C007BF /* TrainingDayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingDayCell.xib; sourceTree = "<group>"; };
 		0B7E347827A05F010096E795 /* ChallengeCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCounterViewController.swift; sourceTree = "<group>"; };
+		0B7E347A27A6C9F10096E795 /* data.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 		0B8C91DA27988A7900939C6E /* Pushup counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pushup counter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8C91DD27988A7900939C6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B8C91DF27988A7900939C6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				0B8C91E627988A7900939C6E /* Pushup_counter.xcdatamodeld */,
 				0B621A3E279F561200C007BF /* Day.swift */,
+				0B7E347A27A6C9F10096E795 /* data.plist */,
 			);
 			path = "Data model";
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7E347B27A6C9F10096E795 /* data.plist in Resources */,
 				0B621A43279F62F600C007BF /* TrainingDayCell.xib in Resources */,
 				0B8C91ED27988A7C00939C6E /* LaunchScreen.storyboard in Resources */,
 				0B621A32279A07CE00C007BF /* win.wav in Resources */,

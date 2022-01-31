@@ -7,6 +7,7 @@
 
 import UIKit
 import KDCircularProgress
+import CoreData
 
 
 
@@ -24,7 +25,7 @@ class ChallengeCounterViewController: UIViewController {
     var timeRemaining = 30
     var timeRemainingPlank = 30
     
-    
+    var dayNumber = 0
     var currentSet = 0
     var setOne = 0
     var setTwo = 0
@@ -46,13 +47,15 @@ class ChallengeCounterViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         UIDevice.current.isProximityMonitoringEnabled = true
         UIApplication.shared.isIdleTimerDisabled = true
+        reset()
+        currentSet = setOne
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         exerciseLabel.alpha = 0.7
         timeRemainingPlank = setThree
-        currentSet = setOne
+      //  currentSet = setOne
      //   guard let progress = circularProgressViewCH else { return print("ERROR") }
         circularProgressViewCH.startAngle = 270
         circularProgressViewCH.angle = 0
@@ -92,12 +95,15 @@ class ChallengeCounterViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
     //    UIDevice.current.isProximityMonitoringEnabled = false
        UIApplication.shared.isIdleTimerDisabled = false
+        UIDevice.current.isProximityMonitoringEnabled = false
         reset()
     }
     
 
     
     func update() {
+        
+//        exerciseLabel.text == "rest" ? (UIDevice.current.isProximityMonitoringEnabled = false) : (UIDevice.current.isProximityMonitoringEnabled = true)
         
         if currentNumber != currentSet - 1 {
             exerciseLabel.text = "push up"
@@ -117,7 +123,9 @@ class ChallengeCounterViewController: UIViewController {
          //   thumbImage.isHidden = false
           //  counterLabel.text = String(currentSet)
             currentNumber = 0
+            if   exerciseLabel.text == "rest" {
             UIDevice.current.isProximityMonitoringEnabled = false
+            }
             //MARK: - ToDo Rest Timer
             
             if currentSet != setTwo {
@@ -133,18 +141,14 @@ class ChallengeCounterViewController: UIViewController {
                 self.exerciseLabel.text = "push up"
             }
             } else {
-       //     if currentSet == setTwo {
-       //     counterLabel.text = ""
-  //??              UIDevice.current.isProximityMonitoringEnabled = false
-          //  cupImage.isHidden = false
+
                 plancOption()
-             //   currentNumber = 0
-             //   currentSet = setOne
+
                 //MARK: - TO DO save data to CD
-    //        UIDevice.current.isProximityMonitoringEnabled = false
+
             }
             currentSet = setTwo
-          //  UIDevice.current.isProximityMonitoringEnabled = true
+         
         }
     }
     func plancOption() {
@@ -194,7 +198,7 @@ class ChallengeCounterViewController: UIViewController {
         currentSet = setOne
         currentNumber = 0
         circularProgressViewCH.angle = 0
-        UIDevice.current.isProximityMonitoringEnabled = false
+  //      UIDevice.current.isProximityMonitoringEnabled = false
         if timer != nil {
             timer.invalidate()
         }
@@ -202,6 +206,7 @@ class ChallengeCounterViewController: UIViewController {
         if timerPlanc != nil {
             timerPlanc.invalidate()
         }
+        
         
     }
     
@@ -260,6 +265,51 @@ class ChallengeCounterViewController: UIViewController {
             //MARK: - ToDo Save data and set check mark
         }
         counterLabel.text = "\(timeRemainingPlank)"
+    }
+    
+//    func saveDoneDate(dayDone: Bool) {
+//        let context = getContext()
+//        guard let entity = NSEntityDescription.entity(forEntityName: "DayDone", in: context)
+//        else {return}
+//        
+//        let trainingDayObject = DayDone(entity: entity, insertInto: context)
+//        
+//        trainingDayObject.done
+//        dayObject.trainingDate = trainingDate
+//        do {
+//            try context.save()
+//            days.append(dayObject)
+//            print("Testing append from core data to array: \(days)")
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
+//    }
+//
+    func saveDoneData() {
+        
+        let context = getContext()
+        guard let entity = NSEntityDescription.entity(forEntityName: "DayDone", in: context)
+        else {return}
+        
+        let dayDoneObject = DayDone(entity: entity, insertInto: context)
+        
+        dayDoneObject.numberDay = Int64(dayNumber)
+   //     dayDoneObject.numberDay = dayNumber
+        dayDoneObject.done = true
+        do {
+            try context.save()
+            print("Data saved")
+         //   days.append(dayDoneObject)
+        //    print("Testing append from core data to array: \(days)")
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    func getContext() -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
     }
     
     //MARK: - Proximity sensor

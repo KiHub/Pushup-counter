@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import CoreData
+
 
 class ChallengeTableViewController: UITableViewController {
     
     var traininDays: [TrainingDay] = [
         TrainingDay(dayNumber: 1, firstSet: 4, secondSet: 2, thirdSet: 10, done: false),
-        TrainingDay(dayNumber: 2, firstSet: 6, secondSet: 3, thirdSet: 12, done: false),
+        TrainingDay(dayNumber: 2, firstSet: 6, secondSet: 3, thirdSet: 12, done: true),
         TrainingDay(dayNumber: 3, firstSet: 6, secondSet: 4, thirdSet: 14, done: false),
         TrainingDay(dayNumber: 4, firstSet: 8, secondSet: 4, thirdSet: 16, done: false),
         TrainingDay(dayNumber: 5, firstSet: 10, secondSet: 4, thirdSet: 18, done: false),
@@ -42,6 +44,10 @@ class ChallengeTableViewController: UITableViewController {
         TrainingDay(dayNumber: 30, firstSet: 50, secondSet: 5, thirdSet: 30, done: false)
         
     ]
+    
+    var doneDays: [DayDone] = []
+    var doneMyTrainings: [String] = []
+    
     
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.isIdleTimerDisabled = false
@@ -93,6 +99,11 @@ class ChallengeTableViewController: UITableViewController {
         
    //     cell.dayLabel.text = "Day \(traininDays[indexPath.row].dayNumber): \(traininDays[indexPath.row].firstSet)-\(traininDays[indexPath.row].secondSet)-\(traininDays[indexPath.row].thirdSet)"
         
+        if traininDays[indexPath.row].done == true {
+            cell.cellBubble.image = UIImage(named: "ButtonDone")
+            cell.cellCheck.image = UIImage(named: "Check2")
+        }
+        
         cell.dayLabel.text = "Day \(traininDays[indexPath.row].dayNumber)"
         cell.pushUpLabel.text = "Push up \(traininDays[indexPath.row].firstSet)-\(traininDays[indexPath.row].secondSet)"
         cell.plankLabel.text = "Full plank \(traininDays[indexPath.row].thirdSet)"
@@ -119,6 +130,7 @@ class ChallengeTableViewController: UITableViewController {
                 challengeCounterVC.setOne = traininDays[indexPath.row].firstSet
                 challengeCounterVC.setTwo = traininDays[indexPath.row].secondSet
                 challengeCounterVC.setThree = traininDays[indexPath.row].thirdSet
+                challengeCounterVC.dayNumber = traininDays[indexPath.row].dayNumber
             }
         }
     }
@@ -168,6 +180,29 @@ class ChallengeTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func loadData() {
+        
+        let context = getContext()
+        let fetchRequest: NSFetchRequest<DayDone> = DayDone.fetchRequest()
+        do {
+            
+      //      doneDays = try context.fetch(fetchRequest)
+      //      doneMyTrainings = doneDays.map { $0.done ?? false }
+       //     print("Fetch array: \(doneMyTrainings)")
+            
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    func getContext() -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+    
+    
 
 }
 
