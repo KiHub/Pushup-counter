@@ -30,6 +30,9 @@ class ChallengeCounterViewController: UIViewController {
     var setOne = 0
     var setTwo = 0
     var setThree = 30
+    
+  //  var indexPath = 0
+    
     let formatter = DateFormatter()
     let doneSound = SimpleSound(named: "win")
     
@@ -285,32 +288,49 @@ class ChallengeCounterViewController: UIViewController {
 //        }
 //    }
 //
-    func saveDoneData() {
-        
-        let context = getContext()
-        guard let entity = NSEntityDescription.entity(forEntityName: "DayDone", in: context)
-        else {return}
-        
-        let dayDoneObject = DayDone(entity: entity, insertInto: context)
-        
-        dayDoneObject.numberDay = Int64(dayNumber)
-   //     dayDoneObject.numberDay = dayNumber
-        dayDoneObject.done = true
-        do {
-            try context.save()
-            print("Data saved")
-         //   days.append(dayDoneObject)
-        //    print("Testing append from core data to array: \(days)")
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        
-    }
+//    func saveDoneData() {
+//
+//        let context = getContext()
+//        guard let entity = NSEntityDescription.entity(forEntityName: "DayDone", in: context)
+//        else {return}
+//
+//        let dayDoneObject = DayDone(entity: entity, insertInto: context)
+//
+//        dayDoneObject.numberDay = Int64(dayNumber)
+//   //     dayDoneObject.numberDay = dayNumber
+//        dayDoneObject.done = true
+//        do {
+//            try context.save()
+//            print("Data saved")
+//         //   days.append(dayDoneObject)
+//        //    print("Testing append from core data to array: \(days)")
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
+//
+//    }
     
     func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
+    
+//    func saveDoneDate(doneDate: Bool) {
+//        let context = getContext()
+//        guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
+//        else {return}
+//        
+//        let daysChallengeObject = DayChallenge(entity: entity, insertInto: context)
+//        daysChallengeObject.done = doneDate
+//
+//        do {
+//            try context.save()
+//        //    days.append(dayObject)
+//        //    print("Testing append from core data to array: \(days)")
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
+//    }
     
     //MARK: - Proximity sensor
     func activateProximitySensor() {

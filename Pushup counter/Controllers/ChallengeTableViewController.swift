@@ -13,7 +13,7 @@ class ChallengeTableViewController: UITableViewController {
     
     var traininDays: [TrainingDay] = [
         TrainingDay(dayNumber: 1, firstSet: 4, secondSet: 2, thirdSet: 10, done: false),
-        TrainingDay(dayNumber: 2, firstSet: 6, secondSet: 3, thirdSet: 12, done: true),
+        TrainingDay(dayNumber: 2, firstSet: 6, secondSet: 3, thirdSet: 12, done: false),
         TrainingDay(dayNumber: 3, firstSet: 6, secondSet: 4, thirdSet: 14, done: false),
         TrainingDay(dayNumber: 4, firstSet: 8, secondSet: 4, thirdSet: 16, done: false),
         TrainingDay(dayNumber: 5, firstSet: 10, secondSet: 4, thirdSet: 18, done: false),
@@ -45,7 +45,45 @@ class ChallengeTableViewController: UITableViewController {
         
     ]
     
-    var doneDays: [DayDone] = []
+    var testArray = [TrainingDay]()
+    
+    
+//    var trainingDone = [
+//        done: false,
+//       done: true,
+//        done: false,
+//      done: false,
+//       done: false,
+//        done: false,
+//      done: false,
+//        done: false,
+//       done: false,
+//       done: false,
+//    done: false,
+//      done: false,
+//  done: false,
+//     done: false,
+//         done: false,
+//        done: false,
+//       done: false,
+//        done: false,
+//     done: false,
+//       done: false,
+//       done: false,
+//        done: false,
+//   done: false,
+//        done: false,
+//    done: false,
+//     done: false,
+//done: false,
+//   done: false,
+//        done: false,
+//       done: false
+//
+//    ]
+    
+    
+  //  var doneDays: [DayDone] = []
     var doneMyTrainings: [String] = []
     
     
@@ -55,6 +93,11 @@ class ChallengeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
+       
+        
+        
      //   UITabBar.setTransparentTabbar()
         tableView.backgroundView = UIImageView(image: UIImage(named: "Background2.jpg"))
         tableView.register(UINib(nibName: "TrainingDayCell", bundle: nil), forCellReuseIdentifier: "DayCell")
@@ -79,7 +122,16 @@ class ChallengeTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DayCell", for: indexPath) as! TrainingDayCell
+    //   let cell = tableView.dequeueReusableCell(withIdentifier: "DayCell", for: indexPath) as! TrainingDayCell
+        
+    //    let cell = UITableViewCell(style: .default, reuseIdentifier: "DayCell") as! TrainingDayCell
+        
+        let cellIdentifier = "DayCell"
+          let cell = tableView.dequeueReusableCell(
+            withIdentifier: cellIdentifier
+          ) as? TrainingDayCell ?? TrainingDayCell(style: .value2, reuseIdentifier: cellIdentifier)
+
+        cell.selectionStyle = .none
         cell.backgroundColor = .clear
         
         
@@ -131,6 +183,7 @@ class ChallengeTableViewController: UITableViewController {
                 challengeCounterVC.setTwo = traininDays[indexPath.row].secondSet
                 challengeCounterVC.setThree = traininDays[indexPath.row].thirdSet
                 challengeCounterVC.dayNumber = traininDays[indexPath.row].dayNumber
+                
             }
         }
     }
@@ -181,21 +234,73 @@ class ChallengeTableViewController: UITableViewController {
     }
     */
     
-    func loadData() {
-        
+    
+    func savePreloadData() {
         let context = getContext()
-        let fetchRequest: NSFetchRequest<DayDone> = DayDone.fetchRequest()
-        do {
+        guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
+        else {return}
+        
+        let daysChallengeObject =  DayChallenge(entity: entity, insertInto: context)
+        
+        for trainigDay in traininDays {
             
-      //      doneDays = try context.fetch(fetchRequest)
-      //      doneMyTrainings = doneDays.map { $0.done ?? false }
-       //     print("Fetch array: \(doneMyTrainings)")
+            daysChallengeObject.dayNumber = Int64(trainigDay.dayNumber)
+            daysChallengeObject.firstSet = Int64(trainigDay.firstSet)
+            daysChallengeObject.secondSet = Int64(trainigDay.secondSet)
+            daysChallengeObject.thirdSet = Int64(trainigDay.thirdSet)
+            daysChallengeObject.done = trainigDay.done
             
-        } catch let error as NSError {
-            print(error.localizedDescription)
+         //   dayObject.trainingDate = trainingDate
+            do {
+                try context.save()
+              //  testArray.append(traininDays)
+                testArray.append(trainigDay)
+                print(testArray)
+           //     days.append(dayObject)
+             //   print("Testing append from core data to array: \(days)")
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+            
         }
         
+
     }
+    
+//    func saveDoneDate(doneDate: Bool) {
+//        let context = getContext()
+//        guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
+//        else {return}
+//        
+//        let daysChallengeObject = DayChallenge(entity: entity, insertInto: context)
+//        daysChallengeObject[]
+//            .done = doneDate
+//
+//        do {
+//            try context.save()
+//        //    days.append(dayObject)
+//        //    print("Testing append from core data to array: \(days)")
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
+//    }
+    
+    
+//    func loadData() {
+//
+//        let context = getContext()
+//        let fetchRequest: NSFetchRequest<DayDone> = DayDone.fetchRequest()
+//        do {
+//
+//      //      doneDays = try context.fetch(fetchRequest)
+//      //      doneMyTrainings = doneDays.map { $0.done ?? false }
+//       //     print("Fetch array: \(doneMyTrainings)")
+//
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
+//
+//    }
     
     func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
