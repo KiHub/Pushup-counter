@@ -37,7 +37,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="30 day push-up" id="Xjd-U3-FXr">
                         <barButtonItem key="backBarButtonItem" title=" " id="ywD-zA-B8w"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="slider.horizontal.2.rectangle.and.arrow.triangle.2.circlepath" catalog="system" id="rtT-bi-thI">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Item" image="slider.horizontal.2.rectangle.and.arrow.triangle.2.circlepath" catalog="system" id="rtT-bi-thI">
                             <connections>
                                 <segue destination="alx-Yp-KkE" kind="show" id="I3J-1X-cvX"/>
                             </connections>

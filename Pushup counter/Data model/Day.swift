@@ -16,3 +16,13 @@ struct TrainingDay {
     let done: Bool
     
 }
+
+struct TrainingDay64 {
+   // let dayName: String
+    let dayNumber: Int64
+    let firstSet: Int64
+    let secondSet: Int64
+    let thirdSet: Int64
+    let done: Bool
+    
+}

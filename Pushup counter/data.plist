@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>dayNumber</key>
+		<integer>1</integer>
+		<key>firstSet</key>
+		<integer>4</integer>
+		<key>secondSet</key>
+		<integer>2</integer>
+		<key>thirdSet</key>
+		<integer>10</integer>
+		<key>done</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>dayNumber</key>
+		<integer>2</integer>
+		<key>firstSet</key>
+		<integer>6</integer>
+		<key>secondSet</key>
+		<integer>3</integer>
+		<key>thirdSet</key>
+		<integer>12</integer>
+		<key>done</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>dayNumber</key>
+		<integer>3</integer>
+		<key>firstSet</key>
+		<integer>6</integer>
+		<key>secondSet</key>
+		<integer>4</integer>
+		<key>thirdSet</key>
+		<integer>14</integer>
+		<key>done</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>New item</key>
+		<dict>
+			<key>dayNumber</key>
+			<integer>0</integer>
+			<key>firstSet</key>
+			<integer>0</integer>
+			<key>secondSet</key>
+			<integer>0</integer>
+			<key>thirdSet</key>
+			<integer>0</integer>
+			<key>done</key>
+			<false/>
+		</dict>
+		<key>dayNumber</key>
+		<integer>4</integer>
+		<key>firstSet</key>
+		<integer>8</integer>
+		<key>secondSet</key>
+		<integer>4</integer>
+		<key>thirdSet</key>
+		<integer>16</integer>
+		<key>done</key>
+		<false/>
+	</dict>
+</array>
+</plist>

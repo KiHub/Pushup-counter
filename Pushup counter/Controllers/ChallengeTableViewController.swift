@@ -11,6 +11,8 @@ import CoreData
 
 class ChallengeTableViewController: UITableViewController {
     
+    let defaults = UserDefaults.standard
+    
     var traininDays: [TrainingDay] = [
         TrainingDay(dayNumber: 1, firstSet: 4, secondSet: 2, thirdSet: 10, done: false),
         TrainingDay(dayNumber: 2, firstSet: 6, secondSet: 3, thirdSet: 12, done: false),
@@ -94,8 +96,19 @@ class ChallengeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-       
+    //    getDataFromFile()
+        
+        if defaults.bool(forKey: "First launch") == true {
+            print("Not first launch")
+            defaults.set(true, forKey: "First launch")
+        } else {
+            print("First launch")
+        //    getDataFromFile()
+            defaults.set(true, forKey: "First launch")
+        }
+        
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+    //   savePreloadData()
         
         
      //   UITabBar.setTransparentTabbar()
@@ -151,6 +164,20 @@ class ChallengeTableViewController: UITableViewController {
         
    //     cell.dayLabel.text = "Day \(traininDays[indexPath.row].dayNumber): \(traininDays[indexPath.row].firstSet)-\(traininDays[indexPath.row].secondSet)-\(traininDays[indexPath.row].thirdSet)"
         
+        if defaults.bool(forKey: "\(traininDays[indexPath.row].dayNumber)") == true {
+            cell.cellCheck.image = UIImage(named: "Check2")
+        }
+//            print("Not first launch")
+//            defaults.set(true, forKey: "First launch")
+//        } else {
+//            print("First launch")
+//        //    getDataFromFile()
+//            defaults.set(true, forKey: "First launch")
+//        }
+        
+      //  defaults.set(true, forKey: <#T##String#>)
+        
+        
         if traininDays[indexPath.row].done == true {
             cell.cellBubble.image = UIImage(named: "ButtonDone")
             cell.cellCheck.image = UIImage(named: "Check2")
@@ -165,6 +192,8 @@ class ChallengeTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+        
+      
         
         performSegue(withIdentifier: "challengeSegue", sender: tableView)
 //        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -242,7 +271,9 @@ class ChallengeTableViewController: UITableViewController {
         
         let daysChallengeObject =  DayChallenge(entity: entity, insertInto: context)
         
-        for trainigDay in traininDays {
+        for trainigDay in traininDays[0...29] {
+            
+       //     TrainingDay(dayNumber: <#T##Int#>, firstSet: <#T##Int#>, secondSet: <#T##Int#>, thirdSet: <#T##Int#>, done: <#T##Bool#>)
             
             daysChallengeObject.dayNumber = Int64(trainigDay.dayNumber)
             daysChallengeObject.firstSet = Int64(trainigDay.firstSet)
@@ -255,18 +286,34 @@ class ChallengeTableViewController: UITableViewController {
                 try context.save()
               //  testArray.append(traininDays)
                 testArray.append(trainigDay)
-                print(testArray)
+                print("TestArray: \(testArray)")
            //     days.append(dayObject)
              //   print("Testing append from core data to array: \(days)")
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
-            
         }
-        
-
     }
     
+    func getDataFromFile() {
+        guard let pathToFile = Bundle.main.path(forResource: "data", ofType: "plist"),
+        let dataArray = NSArray(contentsOfFile: pathToFile) else { return  }
+        print(dataArray)
+        let context = getContext()
+        for dictionary in dataArray {
+         guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge64", in: context) else {return}
+            let dayOfChallenge = NSManagedObject(entity: entity, insertInto: context) as! DayChallenge64
+            let dayOfChallengeDictionary = dictionary as! [String : AnyObject]
+            
+            dayOfChallenge.dayNumber = dayOfChallengeDictionary["dayNumber"] as? Int64 ?? 0
+            dayOfChallenge.firstSet = dayOfChallengeDictionary["firstSet"] as? Int64 ?? 0
+            dayOfChallenge.secondSet = dayOfChallengeDictionary["secondSet"] as? Int64 ?? 0
+            dayOfChallenge.thirdSet = dayOfChallengeDictionary["thirdSet"] as? Int64 ?? 0
+            dayOfChallenge.done = dayOfChallengeDictionary["done"] as? Bool ?? false
+    
+        }
+      
+    }
 //    func saveDoneDate(doneDate: Bool) {
 //        let context = getContext()
 //        guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
@@ -310,5 +357,5 @@ class ChallengeTableViewController: UITableViewController {
     
 
 }
-
+    
 

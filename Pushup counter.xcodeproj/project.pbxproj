@@ -92,7 +92,6 @@
 			children = (
 				0B8C91E627988A7900939C6E /* Pushup_counter.xcdatamodeld */,
 				0B621A3E279F561200C007BF /* Day.swift */,
-				0B7E347A27A6C9F10096E795 /* data.plist */,
 			);
 			path = "Data model";
 			sourceTree = "<group>";
@@ -125,6 +124,7 @@
 				0B621A37279ABADB00C007BF /* Controllers */,
 				0B621A33279A08CC00C007BF /* SimpleSound.swift */,
 				0B8C91E927988A7C00939C6E /* Assets.xcassets */,
+				0B7E347A27A6C9F10096E795 /* data.plist */,
 				0B8C91EE27988A7C00939C6E /* Info.plist */,
 				0B621A31279A07CE00C007BF /* win.wav */,
 			);
@@ -424,6 +424,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 327B2F3V2J;
 				INFOPLIST_FILE = "Pushup counter/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -445,6 +446,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 327B2F3V2J;
 				INFOPLIST_FILE = "Pushup counter/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
