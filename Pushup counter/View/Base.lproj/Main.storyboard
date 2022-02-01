@@ -30,6 +30,7 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="5Zt-J1-dO2" id="b1r-0C-ITP"/>
                             <outlet property="delegate" destination="5Zt-J1-dO2" id="FyT-h9-52N"/>

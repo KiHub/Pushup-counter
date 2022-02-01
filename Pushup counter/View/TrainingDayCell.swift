@@ -9,7 +9,7 @@ import UIKit
 
 class TrainingDayCell: UITableViewCell {
     
-    
+ 
     @IBOutlet weak var dayLabel: UILabel!
     
     @IBOutlet weak var pushUpLabel: UILabel!

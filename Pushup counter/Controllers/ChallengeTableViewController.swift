@@ -91,6 +91,7 @@ class ChallengeTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.isIdleTimerDisabled = false
+        tableView.reloadData()
     }
 
     override func viewDidLoad() {
@@ -137,7 +138,8 @@ class ChallengeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     //   let cell = tableView.dequeueReusableCell(withIdentifier: "DayCell", for: indexPath) as! TrainingDayCell
         
-    //    let cell = UITableViewCell(style: .default, reuseIdentifier: "DayCell") as! TrainingDayCell
+   //     let cell = UITableViewCell(style: .value2, reuseIdentifier: "DayCell") as! TrainingDayCell
+        
         
         let cellIdentifier = "DayCell"
           let cell = tableView.dequeueReusableCell(
@@ -166,6 +168,7 @@ class ChallengeTableViewController: UITableViewController {
         
         if defaults.bool(forKey: "\(traininDays[indexPath.row].dayNumber)") == true {
             cell.cellCheck.image = UIImage(named: "Check2")
+        //    cell.cellBubble.image = UIImage(named: "ButtonDone")
         }
 //            print("Not first launch")
 //            defaults.set(true, forKey: "First launch")
@@ -178,10 +181,10 @@ class ChallengeTableViewController: UITableViewController {
       //  defaults.set(true, forKey: <#T##String#>)
         
         
-        if traininDays[indexPath.row].done == true {
-            cell.cellBubble.image = UIImage(named: "ButtonDone")
-            cell.cellCheck.image = UIImage(named: "Check2")
-        }
+//        if traininDays[indexPath.row].done == true {
+//            cell.cellBubble.image = UIImage(named: "ButtonDone")
+//            cell.cellCheck.image = UIImage(named: "Check2")
+//        }
         
         cell.dayLabel.text = "Day \(traininDays[indexPath.row].dayNumber)"
         cell.pushUpLabel.text = "Push up \(traininDays[indexPath.row].firstSet)-\(traininDays[indexPath.row].secondSet)"
@@ -189,6 +192,9 @@ class ChallengeTableViewController: UITableViewController {
 
         return cell
     }
+    
+    
+    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
@@ -203,6 +209,8 @@ class ChallengeTableViewController: UITableViewController {
 //        }
         
     }
+    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "challengeSegue" {
