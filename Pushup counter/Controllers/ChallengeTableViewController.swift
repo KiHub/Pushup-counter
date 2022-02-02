@@ -379,6 +379,34 @@ class ChallengeTableViewController: UITableViewController {
              // Шаг 5: сохранение в массив, обновление пользовательского интерфейса
       //  people.append(person)
     }
+    
+//    private func saveDataDone(dayNumber: Int64, done: Bool) {
+// 
+//        
+//        let context = getContext()
+//        
+//   
+//        let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
+//        
+//        let newDay = NSManagedObject(entity: entity!, insertInto: context)
+//        
+//             // Шаг 3: Сохраните значение в текстовом поле для человека
+//        newDay.setValue(dayNumber, forKey: "dayNumber")
+//        newDay.setValue(firstSet, forKey: "firstSet")
+//        newDay.setValue(secondSet, forKey: "secondSet")
+//        newDay.setValue(thirdSet, forKey: "thirdSet")
+//        newDay.setValue(done, forKey: "done")
+//        
+//             // Шаг 4: Сохраните сущность в управляемый объект. Если сохранить не удалось, продолжайте
+//        do {
+//            try context.save()
+//        } catch  {
+//                     fatalError ("Error saving data to CD")
+//        }
+        
+             // Шаг 5: сохранение в массив, обновление пользовательского интерфейса
+      //  people.append(person)
+ //   }
 
     func loadDataFromCD() {
         let context = getContext()
@@ -392,25 +420,25 @@ class ChallengeTableViewController: UITableViewController {
         
     }
     
-    func getDataFromFile() {
-        guard let pathToFile = Bundle.main.path(forResource: "data", ofType: "plist"),
-        let dataArray = NSArray(contentsOfFile: pathToFile) else { return  }
-        print(dataArray)
-        let context = getContext()
-        for dictionary in dataArray {
-         guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge64", in: context) else {return}
-            let dayOfChallenge = NSManagedObject(entity: entity, insertInto: context) as! DayChallenge64
-            let dayOfChallengeDictionary = dictionary as! [String : AnyObject]
-            
-            dayOfChallenge.dayNumber = dayOfChallengeDictionary["dayNumber"] as? Int64 ?? 0
-            dayOfChallenge.firstSet = dayOfChallengeDictionary["firstSet"] as? Int64 ?? 0
-            dayOfChallenge.secondSet = dayOfChallengeDictionary["secondSet"] as? Int64 ?? 0
-            dayOfChallenge.thirdSet = dayOfChallengeDictionary["thirdSet"] as? Int64 ?? 0
-            dayOfChallenge.done = dayOfChallengeDictionary["done"] as? Bool ?? false
-    
-        }
-      
-    }
+//    func getDataFromFile() {
+//        guard let pathToFile = Bundle.main.path(forResource: "data", ofType: "plist"),
+//        let dataArray = NSArray(contentsOfFile: pathToFile) else { return  }
+//        print(dataArray)
+//        let context = getContext()
+//        for dictionary in dataArray {
+//         guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge64", in: context) else {return}
+//            let dayOfChallenge = NSManagedObject(entity: entity, insertInto: context) as! DayChallenge64
+//            let dayOfChallengeDictionary = dictionary as! [String : AnyObject]
+//
+//            dayOfChallenge.dayNumber = dayOfChallengeDictionary["dayNumber"] as? Int64 ?? 0
+//            dayOfChallenge.firstSet = dayOfChallengeDictionary["firstSet"] as? Int64 ?? 0
+//            dayOfChallenge.secondSet = dayOfChallengeDictionary["secondSet"] as? Int64 ?? 0
+//            dayOfChallenge.thirdSet = dayOfChallengeDictionary["thirdSet"] as? Int64 ?? 0
+//            dayOfChallenge.done = dayOfChallengeDictionary["done"] as? Bool ?? false
+//
+//        }
+//
+//    }
 //    func saveDoneDate(doneDate: Bool) {
 //        let context = getContext()
 //        guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)

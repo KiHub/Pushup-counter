@@ -81,6 +81,13 @@ class ChallengeCounterViewController: UIViewController {
       //  circularProgressView.angle = 0
         activateProximitySensor()
       
+//        fetchedTrainingDaysArray[row].done = true
+//
+//        for traininDay in fetchedTrainingDaysArray {
+//           // print(traininDay)
+//            saveDataToCD(dayNumber: Int64(traininDay.dayNumber), firstSet: Int64(traininDay.firstSet), secondSet: Int64(traininDay.secondSet), thirdSet: Int64(traininDay.thirdSet), done: traininDay.done)
+//        }
+        
         
        // label.text = String(setOne)
         counterLabel.text = String(currentNumber)
@@ -268,6 +275,14 @@ class ChallengeCounterViewController: UIViewController {
         } else {
             cupImage.isHidden = false
             
+//            fetchedTrainingDaysArray[row].done = true
+//
+//            for traininDay in fetchedTrainingDaysArray {
+//               // print(traininDay)
+//                saveDataToCD(dayNumber: Int64(traininDay.dayNumber), firstSet: Int64(traininDay.firstSet), secondSet: Int64(traininDay.secondSet), thirdSet: Int64(traininDay.thirdSet), done: traininDay.done)
+//            }
+            
+            
             doneSound.play()
             timerPlanc.invalidate()
             timeRemainingPlank = setThree
@@ -408,6 +423,38 @@ class ChallengeCounterViewController: UIViewController {
 //            print(error.localizedDescription)
 //        }
 //    }
+    
+//    private func saveDataToCD(dayNumber: Int64, firstSet: Int64, secondSet: Int64, thirdSet: Int64, done: Bool) {
+//        // Шаг 1. Получение общего агента и диспетчера управляемых объектов
+//  //      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        
+//   //     let managedObectContext = appDelegate.persistentContainer.viewContext
+//        
+//        let context = getContext()
+//        
+//             // Шаг 2: Создание объекта
+//        let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
+//        
+//        let newDay = NSManagedObject(entity: entity!, insertInto: context)
+//        
+//             // Шаг 3: Сохраните значение в текстовом поле для человека
+//        newDay.setValue(dayNumber, forKey: "dayNumber")
+//        newDay.setValue(firstSet, forKey: "firstSet")
+//        newDay.setValue(secondSet, forKey: "secondSet")
+//        newDay.setValue(thirdSet, forKey: "thirdSet")
+//        newDay.setValue(done, forKey: "done")
+//        
+//             // Шаг 4: Сохраните сущность в управляемый объект. Если сохранить не удалось, продолжайте
+//        do {
+//            try context.save()
+//        } catch  {
+//                     fatalError ("Error saving data to CD")
+//        }
+//        
+//             // Шаг 5: сохранение в массив, обновление пользовательского интерфейса
+//      //  people.append(person)
+//    }
+    
     
     func loadDataFromCD() {
         let context = getContext()
