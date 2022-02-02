@@ -13,7 +13,7 @@ import CoreData
 
 class ChallengeCounterViewController: UIViewController {
     
-    let defaults = UserDefaults.standard
+  //  let defaults = UserDefaults.standard
     
     var currentNumber = 0
     var currentNumberTwo = 0
@@ -262,7 +262,7 @@ class ChallengeCounterViewController: UIViewController {
             timeRemainingPlank = setThree
             exerciseLabel.text = ""
             
-            defaults.set(true, forKey: "\(dayNumber)")
+         //   defaults.set(true, forKey: "\(dayNumber)")
             
             reset()
          //   currentSet = setOne

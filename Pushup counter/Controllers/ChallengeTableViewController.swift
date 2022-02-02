@@ -96,6 +96,9 @@ class ChallengeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+  
+        
+   
         
     //    getDataFromFile()
         
@@ -105,6 +108,10 @@ class ChallengeTableViewController: UITableViewController {
         } else {
             print("First launch")
         //    getDataFromFile()
+            for traininDay in traininDays {
+                print(traininDay)
+                saveDataToCD(dayNumber: Int64(traininDay.dayNumber), firstSet: Int64(traininDay.firstSet), secondSet: Int64(traininDay.secondSet), thirdSet: Int64(traininDay.thirdSet), done: traininDay.done)
+            }
             defaults.set(true, forKey: "First launch")
         }
         
@@ -166,10 +173,10 @@ class ChallengeTableViewController: UITableViewController {
         
    //     cell.dayLabel.text = "Day \(traininDays[indexPath.row].dayNumber): \(traininDays[indexPath.row].firstSet)-\(traininDays[indexPath.row].secondSet)-\(traininDays[indexPath.row].thirdSet)"
         
-        if defaults.bool(forKey: "\(traininDays[indexPath.row].dayNumber)") == true {
-            cell.cellCheck.image = UIImage(named: "Check2")
-        //    cell.cellBubble.image = UIImage(named: "ButtonDone")
-        }
+//        if defaults.bool(forKey: "\(traininDays[indexPath.row].dayNumber)") == true {
+//            cell.cellCheck.image = UIImage(named: "Check2")
+//        //    cell.cellBubble.image = UIImage(named: "ButtonDone")
+//        }
 //            print("Not first launch")
 //            defaults.set(true, forKey: "First launch")
 //        } else {
@@ -302,6 +309,36 @@ class ChallengeTableViewController: UITableViewController {
             }
         }
     }
+    
+    private func saveDataToCD(dayNumber: Int64, firstSet: Int64, secondSet: Int64, thirdSet: Int64, done: Bool) {
+        // Шаг 1. Получение общего агента и диспетчера управляемых объектов
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let managedObectContext = appDelegate.persistentContainer.viewContext
+        
+             // Шаг 2: Создание объекта
+        let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: managedObectContext)
+        
+        let newDay = NSManagedObject(entity: entity!, insertInto: managedObectContext)
+        
+             // Шаг 3: Сохраните значение в текстовом поле для человека
+        newDay.setValue(dayNumber, forKey: "dayNumber")
+        newDay.setValue(firstSet, forKey: "firstSet")
+        newDay.setValue(secondSet, forKey: "secondSet")
+        newDay.setValue(thirdSet, forKey: "thirdSet")
+        newDay.setValue(done, forKey: "done")
+        
+             // Шаг 4: Сохраните сущность в управляемый объект. Если сохранить не удалось, продолжайте
+        do {
+            try managedObectContext.save()
+        } catch  {
+                     fatalError ("Невозможно сохранить")
+        }
+        
+             // Шаг 5: сохранение в массив, обновление пользовательского интерфейса
+      //  people.append(person)
+    }
+
     
     func getDataFromFile() {
         guard let pathToFile = Bundle.main.path(forResource: "data", ofType: "plist"),

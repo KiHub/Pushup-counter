@@ -17,9 +17,11 @@
         <attribute name="secondSet" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="thirdSet" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="PreloadDay" representedClassName="PreloadDay" syncable="YES" codeGenerationType="class"/>
     <elements>
         <element name="Day" positionX="-63" positionY="-18" width="128" height="44"/>
         <element name="DayChallenge" positionX="-63" positionY="-9" width="128" height="104"/>
         <element name="DayChallenge64" positionX="-45" positionY="45" width="128" height="104"/>
+        <element name="PreloadDay" positionX="-27" positionY="81" width="128" height="29"/>
     </elements>
 </model>
