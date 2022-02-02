@@ -11,6 +11,8 @@ import CoreData
 
 class ChallengeTableViewController: UITableViewController {
     
+    
+ 
     let defaults = UserDefaults.standard
     
     var traininDays: [TrainingDay] = [
@@ -47,7 +49,7 @@ class ChallengeTableViewController: UITableViewController {
         
     ]
     
-    var testArray = [TrainingDay]()
+    var fetchedTrainingDaysArray = [DayChallenge]()
     
     
 //    var trainingDone = [
@@ -91,6 +93,13 @@ class ChallengeTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.isIdleTimerDisabled = false
+        if fetchedTrainingDaysArray.isEmpty {
+            for traininDay in traininDays {
+               // print(traininDay)
+                saveDataToCD(dayNumber: Int64(traininDay.dayNumber), firstSet: Int64(traininDay.firstSet), secondSet: Int64(traininDay.secondSet), thirdSet: Int64(traininDay.thirdSet), done: traininDay.done)
+            }
+        }
+        loadDataFromCD()
         tableView.reloadData()
     }
 
@@ -98,22 +107,34 @@ class ChallengeTableViewController: UITableViewController {
         super.viewDidLoad()
   
         
-   
+        
+    //    print("Test array: \(fetchTrainingDaysArray[0].dayNumber)")
+    //    print("Test array: \(fetchTrainingDaysArray[0].firstSet)")
+        
+      //  testArray[0]
         
     //    getDataFromFile()
         
-        if defaults.bool(forKey: "First launch") == true {
-            print("Not first launch")
-            defaults.set(true, forKey: "First launch")
-        } else {
-            print("First launch")
-        //    getDataFromFile()
-            for traininDay in traininDays {
-                print(traininDay)
-                saveDataToCD(dayNumber: Int64(traininDay.dayNumber), firstSet: Int64(traininDay.firstSet), secondSet: Int64(traininDay.secondSet), thirdSet: Int64(traininDay.thirdSet), done: traininDay.done)
-            }
-            defaults.set(true, forKey: "First launch")
-        }
+        
+//        if fetchedTrainingDaysArray.isEmpty {
+//            for traininDay in traininDays {
+//               // print(traininDay)
+//                saveDataToCD(dayNumber: Int64(traininDay.dayNumber), firstSet: Int64(traininDay.firstSet), secondSet: Int64(traininDay.secondSet), thirdSet: Int64(traininDay.thirdSet), done: traininDay.done)
+//            }
+//        }
+        
+//        if defaults.bool(forKey: "First launch") == true {
+//            print("Not first launch")
+//            defaults.set(true, forKey: "First launch")
+//        } else {
+//            print("First launch")
+//        //    getDataFromFile()
+//            for traininDay in traininDays {
+//                print(traininDay)
+//                saveDataToCD(dayNumber: Int64(traininDay.dayNumber), firstSet: Int64(traininDay.firstSet), secondSet: Int64(traininDay.secondSet), thirdSet: Int64(traininDay.thirdSet), done: traininDay.done)
+//            }
+//            defaults.set(true, forKey: "First launch")
+//        }
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     //   savePreloadData()
@@ -128,6 +149,8 @@ class ChallengeTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+ 
 
     // MARK: - Table view data source
 
@@ -188,14 +211,15 @@ class ChallengeTableViewController: UITableViewController {
       //  defaults.set(true, forKey: <#T##String#>)
         
         
-//        if traininDays[indexPath.row].done == true {
-//            cell.cellBubble.image = UIImage(named: "ButtonDone")
-//            cell.cellCheck.image = UIImage(named: "Check2")
-//        }
         
-        cell.dayLabel.text = "Day \(traininDays[indexPath.row].dayNumber)"
-        cell.pushUpLabel.text = "Push up \(traininDays[indexPath.row].firstSet)-\(traininDays[indexPath.row].secondSet)"
-        cell.plankLabel.text = "Full plank \(traininDays[indexPath.row].thirdSet)"
+        if fetchedTrainingDaysArray[indexPath.row].done == true {
+            cell.cellBubble.image = UIImage(named: "ButtonDone")
+            cell.cellCheck.image = UIImage(named: "Check2")
+        }
+        
+        cell.dayLabel.text = "Day \(fetchedTrainingDaysArray[indexPath.row].dayNumber)"
+        cell.pushUpLabel.text = "Push up \(fetchedTrainingDaysArray[indexPath.row].firstSet)-\(fetchedTrainingDaysArray[indexPath.row].secondSet)"
+        cell.plankLabel.text = "Full plank \(fetchedTrainingDaysArray[indexPath.row].thirdSet)"
 
         return cell
     }
@@ -206,8 +230,11 @@ class ChallengeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         
-      
-        
+    //    fetchedTrainingDaysArray[row].setValue(true, forKey: "done")
+    //    saveData()
+     //   tableView.reloadData()
+    //    fetchedTrainingDaysArray[indexPath.row].done = true
+     //   saveData()
         performSegue(withIdentifier: "challengeSegue", sender: tableView)
 //        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //            guard let counterChallengeVC = segue.destination as? ChallengeCounterViewController else {return}
@@ -223,11 +250,12 @@ class ChallengeTableViewController: UITableViewController {
         if segue.identifier == "challengeSegue" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let challengeCounterVC = segue.destination as! ChallengeCounterViewController
-                challengeCounterVC.setOne = traininDays[indexPath.row].firstSet
-                challengeCounterVC.setTwo = traininDays[indexPath.row].secondSet
-                challengeCounterVC.setThree = traininDays[indexPath.row].thirdSet
-                challengeCounterVC.dayNumber = traininDays[indexPath.row].dayNumber
-                
+                challengeCounterVC.setOne = Int(fetchedTrainingDaysArray[indexPath.row].firstSet)
+                challengeCounterVC.setTwo = Int(fetchedTrainingDaysArray[indexPath.row].secondSet)
+                challengeCounterVC.setThree = Int(fetchedTrainingDaysArray[indexPath.row].thirdSet)
+                challengeCounterVC.dayNumber = Int(fetchedTrainingDaysArray[indexPath.row].dayNumber)
+                challengeCounterVC.row = indexPath.row
+            //    challengeCounterVC.done = fetchTrainingDaysArray[indexPath.row].done
             }
         }
     }
@@ -277,7 +305,18 @@ class ChallengeTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func saveData() {
+        let context = getContext()
+        
+        do {
+            try context.save()
+         
+        //    print("TestArray: \(fetchedTrainingDaysArray)")
     
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
     
     func savePreloadData() {
         let context = getContext()
@@ -300,8 +339,8 @@ class ChallengeTableViewController: UITableViewController {
             do {
                 try context.save()
               //  testArray.append(traininDays)
-                testArray.append(trainigDay)
-                print("TestArray: \(testArray)")
+           //     testArray.append(trainigDay)
+                print("TestArray: \(fetchedTrainingDaysArray)")
            //     days.append(dayObject)
              //   print("Testing append from core data to array: \(days)")
             } catch let error as NSError {
@@ -312,14 +351,16 @@ class ChallengeTableViewController: UITableViewController {
     
     private func saveDataToCD(dayNumber: Int64, firstSet: Int64, secondSet: Int64, thirdSet: Int64, done: Bool) {
         // Шаг 1. Получение общего агента и диспетчера управляемых объектов
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+  //      let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        let managedObectContext = appDelegate.persistentContainer.viewContext
+   //     let managedObectContext = appDelegate.persistentContainer.viewContext
+        
+        let context = getContext()
         
              // Шаг 2: Создание объекта
-        let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: managedObectContext)
+        let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
         
-        let newDay = NSManagedObject(entity: entity!, insertInto: managedObectContext)
+        let newDay = NSManagedObject(entity: entity!, insertInto: context)
         
              // Шаг 3: Сохраните значение в текстовом поле для человека
         newDay.setValue(dayNumber, forKey: "dayNumber")
@@ -330,15 +371,26 @@ class ChallengeTableViewController: UITableViewController {
         
              // Шаг 4: Сохраните сущность в управляемый объект. Если сохранить не удалось, продолжайте
         do {
-            try managedObectContext.save()
+            try context.save()
         } catch  {
-                     fatalError ("Невозможно сохранить")
+                     fatalError ("Error saving data to CD")
         }
         
              // Шаг 5: сохранение в массив, обновление пользовательского интерфейса
       //  people.append(person)
     }
 
+    func loadDataFromCD() {
+        let context = getContext()
+        
+        let request : NSFetchRequest<DayChallenge> = DayChallenge.fetchRequest()
+        do {
+            fetchedTrainingDaysArray = try context.fetch(request)
+        } catch {
+            print("Error fetching data")
+        }
+        
+    }
     
     func getDataFromFile() {
         guard let pathToFile = Bundle.main.path(forResource: "data", ofType: "plist"),
@@ -399,8 +451,8 @@ class ChallengeTableViewController: UITableViewController {
         return appDelegate.persistentContainer.viewContext
     }
     
-    
+
 
 }
-    
+
 

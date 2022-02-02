@@ -14,6 +14,7 @@ import CoreData
 class ChallengeCounterViewController: UIViewController {
     
   //  let defaults = UserDefaults.standard
+    var fetchedTrainingDaysArray = [DayChallenge]()
     
     var currentNumber = 0
     var currentNumberTwo = 0
@@ -32,7 +33,10 @@ class ChallengeCounterViewController: UIViewController {
     var setOne = 0
     var setTwo = 0
     var setThree = 30
+    var row = 0
+  //  var done = false
     
+ //   var fetchedTrainingDaysArray = [DayChallenge]()
   //  var indexPath = 0
     
     let formatter = DateFormatter()
@@ -94,6 +98,9 @@ class ChallengeCounterViewController: UIViewController {
 //        activateProximitySensor()
 //        formatter.dateFormat = "MM-dd-YYYY"
 
+    
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -182,6 +189,10 @@ class ChallengeCounterViewController: UIViewController {
     
     func thumbUp() {
         
+   //     fetchedTrainingDaysArray[row].done.setValue(true, forKey: "done")
+        
+    //    saveData()
+        
         thumbImage.isHidden = false
         thumbImage.alpha = 1.0
         counterLabel.isHidden = true
@@ -262,6 +273,11 @@ class ChallengeCounterViewController: UIViewController {
             timeRemainingPlank = setThree
             exerciseLabel.text = ""
             
+            
+            //MARK: - ToDo Update done property in core data
+       
+           
+         //   saveDoneStatus()
          //   defaults.set(true, forKey: "\(dayNumber)")
             
             reset()
@@ -314,6 +330,96 @@ class ChallengeCounterViewController: UIViewController {
 //        }
 //
 //    }
+//    func loadDataFromCD() {
+//        let context = getContext()
+//
+//        let request : NSFetchRequest<DayChallenge> = DayChallenge.fetchRequest()
+//        do {
+//            fetchedTrainingDaysArray = try context.fetch(request)
+//        } catch {
+//            print("Error fetching data")
+//        }
+//
+//    }
+    
+//    func saveDoneStatus() {
+//       let context = getContext()
+//
+
+//  //      let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
+//
+//    //    let newDay = NSManagedObject(entity: entity!, insertInto: context)
+//
+
+//
+//    //    newDay.setValue(done, forKey: "done")
+//     //   fetchedTrainingDaysArray[dayNumber].setValue(done, forKey: "done")
+//        fetchedTrainingDaysArray[dayNumber].done = true
+
+//        do {
+//            try context.save()
+//        } catch  {
+//                     fatalError ("Error saving done property")
+//        }
+//
+//
+//    }
+    
+//    func saveDone() {
+//        let context = getContext()
+//       guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
+//        else {return}
+//
+//       let daysChallengeObject =  DayChallenge(entity: entity, insertInto: context)
+//
+//        daysChallengeObject.done
+//
+//       //     TrainingDay(dayNumber: <#T##Int#>, firstSet: <#T##Int#>, secondSet: <#T##Int#>, thirdSet: <#T##Int#>, done: <#T##Bool#>)
+//         //   daysChallengeObject[row].done = true
+//        fetchedTrainingDaysArray[row].done = true
+//
+//         //   dayObject.trainingDate = trainingDate
+//            do {
+//                try context.save()
+//
+//                print("Done status saved!")
+//
+//            } catch let error as NSError {
+//                print(error.localizedDescription)
+//            }
+//
+//    }
+//
+//    func saveData() {
+//        let context = getContext()
+//        guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
+//        else {return}
+//
+//        let daysChallengeObject =  DayChallenge(entity: entity, insertInto: context)
+//
+//        daysChallengeObject[row].done = true
+//
+//        do {
+//            try context.save()
+//
+//        //    print("TestArray: \(fetchedTrainingDaysArray)")
+//
+//        } catch let error as NSError {
+//            print(error.localizedDescription)
+//        }
+//    }
+    
+    func loadDataFromCD() {
+        let context = getContext()
+        
+        let request : NSFetchRequest<DayChallenge> = DayChallenge.fetchRequest()
+        do {
+            fetchedTrainingDaysArray = try context.fetch(request)
+        } catch {
+            print("Error fetching data")
+        }
+        
+    }
     
     func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
