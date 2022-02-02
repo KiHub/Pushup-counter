@@ -70,9 +70,12 @@ class ChallengeCounterViewController: UIViewController {
         circularProgressViewCH.angle = 0
         cupImage.isHidden = true
         thumbImage.isHidden = true
-    //    progress.angle = 0
-      //  circularProgressViewCH.startAngle = 270
-     //   circularProgressViewCH.angle = 0 ?? 55
+        
+        counterLabel.layer.shadowColor = #colorLiteral(red: 0.696803987, green: 0.5583711267, blue: 0.908914566, alpha: 1)
+        counterLabel.layer.shadowOpacity = 0.4
+        counterLabel.layer.shadowOffset = .init(width: 3, height: 3)
+        counterLabel.layer.shadowRadius = 2
+
         currentNumber = 0
         print(setOne)
         print(setTwo)
@@ -80,35 +83,9 @@ class ChallengeCounterViewController: UIViewController {
       //  circularProgressView.startAngle = 270
       //  circularProgressView.angle = 0
         activateProximitySensor()
-      
-//        fetchedTrainingDaysArray[row].done = true
-//
-//        for traininDay in fetchedTrainingDaysArray {
-//           // print(traininDay)
-//            saveDataToCD(dayNumber: Int64(traininDay.dayNumber), firstSet: Int64(traininDay.firstSet), secondSet: Int64(traininDay.secondSet), thirdSet: Int64(traininDay.thirdSet), done: traininDay.done)
-//        }
-        
-        
-       // label.text = String(setOne)
-        counterLabel.text = String(currentNumber)
-//        counterLabel.text = String(labelNumber)
-//
-//        cupImage.isHidden = true
-//        counterLabel.text = String(currentNumber)
-//        counterLabel.layer.shadowColor = #colorLiteral(red: 0.696803987, green: 0.5583711267, blue: 0.908914566, alpha: 1)
-//        counterLabel.layer.shadowOpacity = 0.4
-//        counterLabel.layer.shadowOffset = .init(width: 3, height: 3)
-//        counterLabel.layer.shadowRadius = 2
-//        // circularProgressView.angle = Double(labelNumber)
-//        circularProgressView.startAngle = 270
-//        circularProgressView.angle = 0
-//        activateProximitySensor()
-//        formatter.dateFormat = "MM-dd-YYYY"
 
-    
-        
-        
-        // Do any additional setup after loading the view.
+        counterLabel.text = String(currentNumber)
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -233,28 +210,7 @@ class ChallengeCounterViewController: UIViewController {
         
     }
     
-//    func restAlertFirst() {
-//        let color = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-//        let alert = UIAlertController(title: "Rest", message: "Take 30-60 second for rest", preferredStyle: .actionSheet)
-//        let cancel = UIAlertAction(title: "Next set", style: .default)
-//
-//     //   UIDevice.current.isProximityMonitoringEnabled = false
-//        currentNumber = 0
-//        currentSet = setTwo
-//        cancel.setValue(color, forKey: "titleTextColor")
-//        alert.addAction(cancel)
-//        self.present(alert, animated: true, completion: nil)
-//    }
-//    func restAlertSecond() {
-//        let color = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-//        let alert = UIAlertController(title: "Rest", message: "Take 30-60 second for rest", preferredStyle: .actionSheet)
-//        let cancel = UIAlertAction(title: "Next set", style: .default)
-//        currentNumber = 0
-//        currentSet = setThree
-//        cancel.setValue(color, forKey: "titleTextColor")
-//        alert.addAction(cancel)
-//        self.present(alert, animated: true, completion: nil)
-//    }
+
     @objc func stepOne() {
         if timeRemaining > 0 {
             timeRemaining -= 1
@@ -275,13 +231,8 @@ class ChallengeCounterViewController: UIViewController {
         } else {
             cupImage.isHidden = false
             
-//            fetchedTrainingDaysArray[row].done = true
-//
-//            for traininDay in fetchedTrainingDaysArray {
-//               // print(traininDay)
-//                saveDataToCD(dayNumber: Int64(traininDay.dayNumber), firstSet: Int64(traininDay.firstSet), secondSet: Int64(traininDay.secondSet), thirdSet: Int64(traininDay.thirdSet), done: traininDay.done)
-//            }
-            
+
+            //MARK: - TO DO add save func
             
             doneSound.play()
             timerPlanc.invalidate()
@@ -306,155 +257,7 @@ class ChallengeCounterViewController: UIViewController {
         counterLabel.text = "\(timeRemainingPlank)"
     }
     
-//    func saveDoneDate(dayDone: Bool) {
-//        let context = getContext()
-//        guard let entity = NSEntityDescription.entity(forEntityName: "DayDone", in: context)
-//        else {return}
-//        
-//        let trainingDayObject = DayDone(entity: entity, insertInto: context)
-//        
-//        trainingDayObject.done
-//        dayObject.trainingDate = trainingDate
-//        do {
-//            try context.save()
-//            days.append(dayObject)
-//            print("Testing append from core data to array: \(days)")
-//        } catch let error as NSError {
-//            print(error.localizedDescription)
-//        }
-//    }
-//
-//    func saveDoneData() {
-//
-//        let context = getContext()
-//        guard let entity = NSEntityDescription.entity(forEntityName: "DayDone", in: context)
-//        else {return}
-//
-//        let dayDoneObject = DayDone(entity: entity, insertInto: context)
-//
-//        dayDoneObject.numberDay = Int64(dayNumber)
-//   //     dayDoneObject.numberDay = dayNumber
-//        dayDoneObject.done = true
-//        do {
-//            try context.save()
-//            print("Data saved")
-//         //   days.append(dayDoneObject)
-//        //    print("Testing append from core data to array: \(days)")
-//        } catch let error as NSError {
-//            print(error.localizedDescription)
-//        }
-//
-//    }
-//    func loadDataFromCD() {
-//        let context = getContext()
-//
-//        let request : NSFetchRequest<DayChallenge> = DayChallenge.fetchRequest()
-//        do {
-//            fetchedTrainingDaysArray = try context.fetch(request)
-//        } catch {
-//            print("Error fetching data")
-//        }
-//
-//    }
-    
-//    func saveDoneStatus() {
-//       let context = getContext()
-//
 
-//  //      let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
-//
-//    //    let newDay = NSManagedObject(entity: entity!, insertInto: context)
-//
-
-//
-//    //    newDay.setValue(done, forKey: "done")
-//     //   fetchedTrainingDaysArray[dayNumber].setValue(done, forKey: "done")
-//        fetchedTrainingDaysArray[dayNumber].done = true
-
-//        do {
-//            try context.save()
-//        } catch  {
-//                     fatalError ("Error saving done property")
-//        }
-//
-//
-//    }
-    
-//    func saveDone() {
-//        let context = getContext()
-//       guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
-//        else {return}
-//
-//       let daysChallengeObject =  DayChallenge(entity: entity, insertInto: context)
-//
-//        daysChallengeObject.done
-//
-//       //     TrainingDay(dayNumber: <#T##Int#>, firstSet: <#T##Int#>, secondSet: <#T##Int#>, thirdSet: <#T##Int#>, done: <#T##Bool#>)
-//         //   daysChallengeObject[row].done = true
-//        fetchedTrainingDaysArray[row].done = true
-//
-//         //   dayObject.trainingDate = trainingDate
-//            do {
-//                try context.save()
-//
-//                print("Done status saved!")
-//
-//            } catch let error as NSError {
-//                print(error.localizedDescription)
-//            }
-//
-//    }
-//
-//    func saveData() {
-//        let context = getContext()
-//        guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
-//        else {return}
-//
-//        let daysChallengeObject =  DayChallenge(entity: entity, insertInto: context)
-//
-//        daysChallengeObject[row].done = true
-//
-//        do {
-//            try context.save()
-//
-//        //    print("TestArray: \(fetchedTrainingDaysArray)")
-//
-//        } catch let error as NSError {
-//            print(error.localizedDescription)
-//        }
-//    }
-    
-//    private func saveDataToCD(dayNumber: Int64, firstSet: Int64, secondSet: Int64, thirdSet: Int64, done: Bool) {
-//        // Шаг 1. Получение общего агента и диспетчера управляемых объектов
-//  //      let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        
-//   //     let managedObectContext = appDelegate.persistentContainer.viewContext
-//        
-//        let context = getContext()
-//        
-//             // Шаг 2: Создание объекта
-//        let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
-//        
-//        let newDay = NSManagedObject(entity: entity!, insertInto: context)
-//        
-//             // Шаг 3: Сохраните значение в текстовом поле для человека
-//        newDay.setValue(dayNumber, forKey: "dayNumber")
-//        newDay.setValue(firstSet, forKey: "firstSet")
-//        newDay.setValue(secondSet, forKey: "secondSet")
-//        newDay.setValue(thirdSet, forKey: "thirdSet")
-//        newDay.setValue(done, forKey: "done")
-//        
-//             // Шаг 4: Сохраните сущность в управляемый объект. Если сохранить не удалось, продолжайте
-//        do {
-//            try context.save()
-//        } catch  {
-//                     fatalError ("Error saving data to CD")
-//        }
-//        
-//             // Шаг 5: сохранение в массив, обновление пользовательского интерфейса
-//      //  people.append(person)
-//    }
-    
     
     func loadDataFromCD() {
         let context = getContext()
@@ -473,22 +276,7 @@ class ChallengeCounterViewController: UIViewController {
         return appDelegate.persistentContainer.viewContext
     }
     
-//    func saveDoneDate(doneDate: Bool) {
-//        let context = getContext()
-//        guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
-//        else {return}
-//        
-//        let daysChallengeObject = DayChallenge(entity: entity, insertInto: context)
-//        daysChallengeObject.done = doneDate
-//
-//        do {
-//            try context.save()
-//        //    days.append(dayObject)
-//        //    print("Testing append from core data to array: \(days)")
-//        } catch let error as NSError {
-//            print(error.localizedDescription)
-//        }
-//    }
+
     
     //MARK: - Proximity sensor
     func activateProximitySensor() {

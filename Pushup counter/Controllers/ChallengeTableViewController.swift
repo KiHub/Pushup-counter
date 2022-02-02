@@ -52,40 +52,7 @@ class ChallengeTableViewController: UITableViewController {
     var fetchedTrainingDaysArray = [DayChallenge]()
     
     
-//    var trainingDone = [
-//        done: false,
-//       done: true,
-//        done: false,
-//      done: false,
-//       done: false,
-//        done: false,
-//      done: false,
-//        done: false,
-//       done: false,
-//       done: false,
-//    done: false,
-//      done: false,
-//  done: false,
-//     done: false,
-//         done: false,
-//        done: false,
-//       done: false,
-//        done: false,
-//     done: false,
-//       done: false,
-//       done: false,
-//        done: false,
-//   done: false,
-//        done: false,
-//    done: false,
-//     done: false,
-//done: false,
-//   done: false,
-//        done: false,
-//       done: false
-//
-//    ]
-    
+
     
   //  var doneDays: [DayDone] = []
     var doneMyTrainings: [String] = []
@@ -108,33 +75,7 @@ class ChallengeTableViewController: UITableViewController {
   
         
         
-    //    print("Test array: \(fetchTrainingDaysArray[0].dayNumber)")
-    //    print("Test array: \(fetchTrainingDaysArray[0].firstSet)")
-        
-      //  testArray[0]
-        
-    //    getDataFromFile()
-        
-        
-//        if fetchedTrainingDaysArray.isEmpty {
-//            for traininDay in traininDays {
-//               // print(traininDay)
-//                saveDataToCD(dayNumber: Int64(traininDay.dayNumber), firstSet: Int64(traininDay.firstSet), secondSet: Int64(traininDay.secondSet), thirdSet: Int64(traininDay.thirdSet), done: traininDay.done)
-//            }
-//        }
-        
-//        if defaults.bool(forKey: "First launch") == true {
-//            print("Not first launch")
-//            defaults.set(true, forKey: "First launch")
-//        } else {
-//            print("First launch")
-//        //    getDataFromFile()
-//            for traininDay in traininDays {
-//                print(traininDay)
-//                saveDataToCD(dayNumber: Int64(traininDay.dayNumber), firstSet: Int64(traininDay.firstSet), secondSet: Int64(traininDay.secondSet), thirdSet: Int64(traininDay.thirdSet), done: traininDay.done)
-//            }
-//            defaults.set(true, forKey: "First launch")
-//        }
+
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     //   savePreloadData()
@@ -180,37 +121,7 @@ class ChallengeTableViewController: UITableViewController {
         cell.backgroundColor = .clear
         
         
-     //   cell.cellBubble.image = UIImage(named: "ButtonDoneLong")
-     //   cell.cellBubble.layer.backgroundColor = CAGradientLayer
-        
-//        let gradientLayer = CAGradientLayer()
-//
-//        gradientLayer.colors = [UIColor.red.cgColor,
-//                                UIColor.yellow.cgColor,
-//                                UIColor.green.cgColor,
-//                                UIColor.blue.cgColor]
-//        gradientLayer.frame = cell.cellBubble.bounds
-//      //  gradientLayer.transform = CATransform3DMakeRotation(CGFloat.pi / 2, 0, 0, 1)
-//
-//        cell.cellBubble.layer.addSublayer(gradientLayer)
-        
-   //     cell.dayLabel.text = "Day \(traininDays[indexPath.row].dayNumber): \(traininDays[indexPath.row].firstSet)-\(traininDays[indexPath.row].secondSet)-\(traininDays[indexPath.row].thirdSet)"
-        
-//        if defaults.bool(forKey: "\(traininDays[indexPath.row].dayNumber)") == true {
-//            cell.cellCheck.image = UIImage(named: "Check2")
-//        //    cell.cellBubble.image = UIImage(named: "ButtonDone")
-//        }
-//            print("Not first launch")
-//            defaults.set(true, forKey: "First launch")
-//        } else {
-//            print("First launch")
-//        //    getDataFromFile()
-//            defaults.set(true, forKey: "First launch")
-//        }
-        
-      //  defaults.set(true, forKey: <#T##String#>)
-        
-        
+
         
         if fetchedTrainingDaysArray[indexPath.row].done == true {
             cell.cellBubble.image = UIImage(named: "ButtonDone")
@@ -261,50 +172,11 @@ class ChallengeTableViewController: UITableViewController {
     }
   
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
+
     func saveData() {
         let context = getContext()
         
@@ -420,59 +292,8 @@ class ChallengeTableViewController: UITableViewController {
         
     }
     
-//    func getDataFromFile() {
-//        guard let pathToFile = Bundle.main.path(forResource: "data", ofType: "plist"),
-//        let dataArray = NSArray(contentsOfFile: pathToFile) else { return  }
-//        print(dataArray)
-//        let context = getContext()
-//        for dictionary in dataArray {
-//         guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge64", in: context) else {return}
-//            let dayOfChallenge = NSManagedObject(entity: entity, insertInto: context) as! DayChallenge64
-//            let dayOfChallengeDictionary = dictionary as! [String : AnyObject]
-//
-//            dayOfChallenge.dayNumber = dayOfChallengeDictionary["dayNumber"] as? Int64 ?? 0
-//            dayOfChallenge.firstSet = dayOfChallengeDictionary["firstSet"] as? Int64 ?? 0
-//            dayOfChallenge.secondSet = dayOfChallengeDictionary["secondSet"] as? Int64 ?? 0
-//            dayOfChallenge.thirdSet = dayOfChallengeDictionary["thirdSet"] as? Int64 ?? 0
-//            dayOfChallenge.done = dayOfChallengeDictionary["done"] as? Bool ?? false
-//
-//        }
-//
-//    }
-//    func saveDoneDate(doneDate: Bool) {
-//        let context = getContext()
-//        guard let entity = NSEntityDescription.entity(forEntityName: "DayChallenge", in: context)
-//        else {return}
-//        
-//        let daysChallengeObject = DayChallenge(entity: entity, insertInto: context)
-//        daysChallengeObject[]
-//            .done = doneDate
-//
-//        do {
-//            try context.save()
-//        //    days.append(dayObject)
-//        //    print("Testing append from core data to array: \(days)")
-//        } catch let error as NSError {
-//            print(error.localizedDescription)
-//        }
-//    }
-    
-    
-//    func loadData() {
-//
-//        let context = getContext()
-//        let fetchRequest: NSFetchRequest<DayDone> = DayDone.fetchRequest()
-//        do {
-//
-//      //      doneDays = try context.fetch(fetchRequest)
-//      //      doneMyTrainings = doneDays.map { $0.done ?? false }
-//       //     print("Fetch array: \(doneMyTrainings)")
-//
-//        } catch let error as NSError {
-//            print(error.localizedDescription)
-//        }
-//
-//    }
+
+
     
     func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
