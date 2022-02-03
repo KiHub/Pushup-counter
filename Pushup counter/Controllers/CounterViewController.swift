@@ -149,7 +149,7 @@ class CounterViewController: UIViewController {
     
     func updateWithSets() {
         
-        if currentSet != sets {
+  //      if currentSet != sets {
            // circularProgressView.angle = 0
             circularProgressView.alpha = 1.0
             label.text = "0"
@@ -171,7 +171,7 @@ class CounterViewController: UIViewController {
             
             if currentSet != sets {
             thumbUp()
-                UIDevice.current.isProximityMonitoringEnabled = false
+             //   UIDevice.current.isProximityMonitoringEnabled = false
                 doneSound.play()
                 currentNumber = 0
                
@@ -197,7 +197,7 @@ class CounterViewController: UIViewController {
             print("Part2")
         
         }
-        }
+    //    }
 //        else {
 //            circularProgressView.alpha = 1.0
 //            circularProgressView.angle = 360

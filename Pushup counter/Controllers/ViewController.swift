@@ -25,7 +25,7 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         self.picker.delegate = self
         self.picker.dataSource = self
-        picker.selectRow(25, inComponent: 0, animated: true)
+        picker.selectRow(24, inComponent: 0, animated: true)
         picker.selectRow(2, inComponent: 1, animated: true)
         
     }
@@ -95,7 +95,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
         
         switch component {
         case 0:
-            selected = row
+            selected = row + 1
             print("selected: \(selected)")
         case 1:
             selectedSet = row + 1
@@ -122,7 +122,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
             label.textAlignment = .center
             label.font = UIFont.systemFont(ofSize: 35, weight: UIFont.Weight.medium)
             view.addSubview(label)
-            label.text = String(row)
+            label.text = String(row + 1)
             return view
         case 1:
             label.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
