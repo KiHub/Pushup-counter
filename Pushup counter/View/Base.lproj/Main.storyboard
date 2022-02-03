@@ -276,6 +276,14 @@
                                             <constraint firstAttribute="width" secondItem="8Rw-6R-1Cr" secondAttribute="height" multiplier="1:1" id="lNb-Ff-kck"/>
                                         </constraints>
                                     </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thumb" translatesAutoresizingMaskIntoConstraints="NO" id="9Su-a7-hE4">
+                                        <rect key="frame" x="62" y="62" width="146" height="146"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="146" id="AV5-bk-f6b"/>
+                                            <constraint firstAttribute="height" constant="146" id="bgz-JV-fms"/>
+                                            <constraint firstAttribute="width" secondItem="9Su-a7-hE4" secondAttribute="height" multiplier="1:1" id="cmg-RC-3hd"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -284,6 +292,8 @@
                                     <constraint firstItem="8Rw-6R-1Cr" firstAttribute="centerY" secondItem="qYu-Da-hm3" secondAttribute="centerY" id="ZTU-0X-bLb"/>
                                     <constraint firstAttribute="height" constant="270" id="ang-lr-0Vh"/>
                                     <constraint firstAttribute="width" secondItem="qYu-Da-hm3" secondAttribute="height" multiplier="1:1" id="c15-06-3fz"/>
+                                    <constraint firstItem="9Su-a7-hE4" firstAttribute="centerX" secondItem="qYu-Da-hm3" secondAttribute="centerX" id="m8r-ha-A3M"/>
+                                    <constraint firstItem="9Su-a7-hE4" firstAttribute="centerY" secondItem="qYu-Da-hm3" secondAttribute="centerY" id="qma-PW-GLh"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="angle">
@@ -341,11 +351,12 @@
                         <outlet property="circularProgressView" destination="qYu-Da-hm3" id="opM-Vr-Siu"/>
                         <outlet property="cupImage" destination="8Rw-6R-1Cr" id="wOz-QS-eFz"/>
                         <outlet property="label" destination="hxe-2P-bt9" id="ohI-YN-YZ6"/>
+                        <outlet property="thumbImage" destination="9Su-a7-hE4" id="W4M-ye-8M9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSE-KP-6es" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2841" y="129"/>
+            <point key="canvasLocation" x="2840.579710144928" y="128.57142857142856"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="sKE-mm-gsS">
