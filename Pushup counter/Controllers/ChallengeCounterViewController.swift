@@ -83,6 +83,13 @@ class ChallengeCounterViewController: UIViewController {
       //  circularProgressView.startAngle = 270
       //  circularProgressView.angle = 0
         activateProximitySensor()
+        
+        print("Hey,\(fetchedTrainingDaysArray)")
+        loadDataFromCD()
+        print("Hey,\(fetchedTrainingDaysArray)")
+        print("555: \(fetchedTrainingDaysArray[dayNumber - 1].dayNumber)")
+        
+  
 
         counterLabel.text = String(currentNumber)
 
@@ -234,6 +241,9 @@ class ChallengeCounterViewController: UIViewController {
 
             //MARK: - TO DO add save func
             
+            fetchedTrainingDaysArray[dayNumber - 1].done = true
+            save()
+            
             doneSound.play()
             timerPlanc.invalidate()
             timeRemainingPlank = setThree
@@ -257,6 +267,16 @@ class ChallengeCounterViewController: UIViewController {
         counterLabel.text = "\(timeRemainingPlank)"
     }
     
+    func save() {
+        let context = getContext()
+      
+            do {
+                try context.save()
+ 
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+    }
 
     
     func loadDataFromCD() {

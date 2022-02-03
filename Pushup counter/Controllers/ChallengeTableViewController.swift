@@ -123,15 +123,17 @@ class ChallengeTableViewController: UITableViewController {
         
 
         
-        if fetchedTrainingDaysArray[indexPath.row].done == true {
-            cell.cellBubble.image = UIImage(named: "ButtonDone")
-            cell.cellCheck.image = UIImage(named: "Check2")
-        }
+//        if fetchedTrainingDaysArray[indexPath.row].done == true {
+//            cell.cellBubble.image = UIImage(named: "ButtonDone")
+//            cell.cellCheck.image = UIImage(named: "Check2")
+//        }
         
         cell.dayLabel.text = "Day \(fetchedTrainingDaysArray[indexPath.row].dayNumber)"
         cell.pushUpLabel.text = "Push up \(fetchedTrainingDaysArray[indexPath.row].firstSet)-\(fetchedTrainingDaysArray[indexPath.row].secondSet)"
         cell.plankLabel.text = "Full plank \(fetchedTrainingDaysArray[indexPath.row].thirdSet)"
-
+        cell.cellCheck.image = fetchedTrainingDaysArray[indexPath.row].done == true ? UIImage(named: "Check2") : UIImage(named: "Go")
+        cell.cellBubble.image = fetchedTrainingDaysArray[indexPath.row].done == true ? UIImage(named: "ButtonDone") : UIImage(named: "ButtonNew")
+        
         return cell
     }
     
