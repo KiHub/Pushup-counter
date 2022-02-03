@@ -244,16 +244,22 @@ class CounterViewController: UIViewController {
         
     //    saveData()
         
+      //MARK: - Check here!
+      //      UIDevice.current.isProximityMonitoringEnabled = false
+        
+        
+        UIDevice.current.isProximityMonitoringEnabled = false
         thumbImage.isHidden = false
         thumbImage.alpha = 1.0
         circularProgressView.alpha = 1.0
         label.text = ""
       //  counterLabel.isHidden = true
 
-        UIView.animate(withDuration: 0.5, delay: 1.0, options: [], animations: {
+        UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
 
                     self.thumbImage.alpha = 0.0
                     self.circularProgressView.alpha = 0.0
+           
            // self.circularProgressView.angle = 0
 
                 }) { (finished: Bool) in
