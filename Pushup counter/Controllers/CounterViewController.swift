@@ -149,14 +149,13 @@ class CounterViewController: UIViewController {
     
     func updateWithSets() {
         
-  //      if currentSet != sets {
-           // circularProgressView.angle = 0
+
             circularProgressView.alpha = 1.0
             label.text = "0"
             print("Part3")
         if currentNumber != labelNumber - 1 {
             print(currentNumber, ">>>", labelNumber)
-            //  print("labekNumber:\(labelNumber)")
+          
             circularProgressView.angle += Double(360 / labelNumber)
             currentNumber += 1
             label.text = String(currentNumber)
@@ -168,13 +167,14 @@ class CounterViewController: UIViewController {
             label.text = ""
             
             currentSet += 1
+        //
             
             if currentSet != sets {
             thumbUp()
              //   UIDevice.current.isProximityMonitoringEnabled = false
                 doneSound.play()
                 currentNumber = 0
-               
+              //  circularProgressView.angle += Double(360 / labelNumber)
                 label.text = "0"
 
             } else {
