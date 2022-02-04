@@ -25,6 +25,7 @@ class CounterViewController: UIViewController {
     var timeRemaining = 30
     var setThree = 30
     
+    let customAlert = ThumbAlert()
     
     @IBOutlet weak var cupImage: UIImageView!
     @IBOutlet weak var circularProgressView: KDCircularProgress!
@@ -247,7 +248,7 @@ class CounterViewController: UIViewController {
       //MARK: - Check here!
       //      UIDevice.current.isProximityMonitoringEnabled = false
         
-        
+      //  customAlert.showAlert(viewController: self)
         UIDevice.current.isProximityMonitoringEnabled = false
         thumbImage.isHidden = false
         thumbImage.alpha = 1.0
