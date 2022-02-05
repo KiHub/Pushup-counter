@@ -24,31 +24,24 @@ class CounterViewController: UIViewController {
     var timer: Timer!
     var timeRemaining = 30
     var setThree = 30
+    var chek = 0
     
     let customAlert = ThumbAlert()
     
     @IBOutlet weak var cupImage: UIImageView!
     @IBOutlet weak var circularProgressView: KDCircularProgress!
     @IBOutlet weak var label: UILabel!
-    
     @IBOutlet weak var thumbImage: UIImageView!
     
-    //    override func viewWillAppear(_ animated: Bool) {
-    //        super.viewWillAppear(animated)
-    //        let context = getContext()
-    //        let fetchRequest: NSFetchRequest<Day> = Day.fetchRequest()
-    //        do {
-    //            days = try context.fetch(fetchRequest)
-    //        } catch let error as NSError {
-    //            print(error.localizedDescription)
-    //        }
-    //    }
     
     override func viewWillAppear(_ animated: Bool) {
         
     }
     
     override func viewDidLoad() {
+       chek = 0
+      
+        
         super.viewDidLoad()
         cupImage.isHidden = true
         label.text = String(currentNumber)
@@ -66,6 +59,7 @@ class CounterViewController: UIViewController {
         UIDevice.current.isProximityMonitoringEnabled = true
         UIApplication.shared.isIdleTimerDisabled = true
         currentSet = 0
+        currentNumber = 0
         
     }
         
@@ -77,6 +71,7 @@ class CounterViewController: UIViewController {
     
     @IBAction func doneBarButton(_ sender: UIBarButtonItem) {
     }
+    
     
     //MARK: - Seve data using CoreData
     func saveDayDate(trainingDate: String) {
@@ -124,29 +119,87 @@ class CounterViewController: UIViewController {
             saveDayDate(trainingDate: dateString)
         }
     }
-//
-//    func updateNew(currentNumber: Int) {
-//
-//        for set in sets {
-//          //  currentNumber = 0
-//            if currentNumber = labelNumber {
-//                circularProgressView.angle = 360
-//                label.text = ""
-//                if currentSet != sets {
-//                thumbUp()
-//                    UIDevice.current.isProximityMonitoringEnabled = false
-//                    doneSound.play()
-//                }
-//
-//            } else {
-//                <#statements#>
-//            }
-//
-//
-//        }
-//
-//    }
+
     
+    func updateWhile(counеerUP: Int) {
+        
+        while sets != currentSet {
+            circularProgressView.alpha = 1.0
+            label.text = "0"
+            if currentNumber != labelNumber - 1 {
+               // print(currentNumber, ">>>", labelNumber)
+              
+                circularProgressView.angle += Double(360 / labelNumber)
+                currentNumber += 1
+                label.text = String(currentNumber)
+
+                print("Part1")
+            } else {
+                
+                circularProgressView.angle = 360
+                //  label.text = "Done!"
+                label.text = ""
+                
+                currentSet += 1
+                
+                thumbUp()
+                 //   UIDevice.current.isProximityMonitoringEnabled = false
+                    doneSound.play()
+                    currentNumber = 0
+                  //  circularProgressView.angle += Double(360 / labelNumber)
+                    label.text = "0"
+                
+            }
+        }
+        
+        
+        
+    }
+    
+    
+    
+    func updateWithSetsTwo() {
+        
+
+            circularProgressView.alpha = 1.0
+            label.text = "0"
+            print("Part3")
+        if currentNumber < labelNumber - 1 && currentSet != sets {
+            print(currentNumber, ">>>", labelNumber)
+          
+            circularProgressView.angle += Double(360 / labelNumber)
+            currentNumber += 1
+            label.text = String(currentNumber)
+
+            print("Part1")
+        } else { // if currentNumber == labelNumber - 1 && currentSet != sets {
+            
+            circularProgressView.angle = 360
+         
+            label.text = ""
+            
+            currentSet += 1
+            
+            thumbUp()
+            //   UIDevice.current.isProximityMonitoringEnabled = false
+                doneSound.play()
+                currentNumber = 0
+              //  circularProgressView.angle += Double(360 / labelNumber)
+                label.text = "0"
+            if currentSet == sets {
+              //  circularProgressView.alpha = 1.0
+              //  circularProgressView.angle = 360
+                label.text = ""
+                thumbImage.isHidden = true
+                cupImage.isHidden = false
+                UIDevice.current.isProximityMonitoringEnabled = false
+
+                print("Part4")
+            }
+
+    }
+  
+    }
     
     func updateWithSets() {
         
@@ -198,23 +251,7 @@ class CounterViewController: UIViewController {
             print("Part2")
         
         }
-    //    }
-//        else {
-//            circularProgressView.alpha = 1.0
-//            circularProgressView.angle = 360
-//
-//            label.text = ""
-//            cupImage.isHidden = false
-//            UIDevice.current.isProximityMonitoringEnabled = false
-//            doneSound.play()
-//
-//            let formatter = DateFormatter()
-//            formatter.dateFormat = "dd-MM-yyyy"
-//            let dateString = formatter.string(from: date)
-//
-//            saveDayDate(trainingDate: dateString)
-//            print("Part4")
-//        }
+
     }
     
     func rest() {
@@ -229,46 +266,52 @@ class CounterViewController: UIViewController {
         if timeRemaining > 0 {
             timeRemaining -= 1
         } else {
-          //  cupImage.isHidden = false
-          //  doneSound.play()
+  
             timer.invalidate()
-        //    timeRemaining = setThree
-          //  exerciseLabel.text = ""
-            //MARK: - ToDo Save data and set check mark
+
         }
         label.text = "\(timeRemaining)"
     }
     
     func thumbUp() {
         
-   //     fetchedTrainingDaysArray[row].done.setValue(true, forKey: "done")
-        
-    //    saveData()
+
         
       //MARK: - Check here!
-      //      UIDevice.current.isProximityMonitoringEnabled = false
-        
-      //  customAlert.showAlert(viewController: self)
-        UIDevice.current.isProximityMonitoringEnabled = false
+   
         thumbImage.isHidden = false
         thumbImage.alpha = 1.0
         circularProgressView.alpha = 1.0
         label.text = ""
-      //  counterLabel.isHidden = true
 
         UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
 
                     self.thumbImage.alpha = 0.0
                     self.circularProgressView.alpha = 0.0
-           
-           // self.circularProgressView.angle = 0
+
 
                 }) { (finished: Bool) in
-                    
-                    UIDevice.current.isProximityMonitoringEnabled = true
+
                     self.thumbImage.isHidden = true
-                //    self.counterLabel.isHidden = false
+
                 }
+        if currentSet == sets {
+            cupImage.isHidden = false
+          
+        }
+    }
+    
+    @objc func stopSensor() {
+        UIDevice.current.isProximityMonitoringEnabled = false
+        
+        
+    }
+    
+    //    perform(#selector(runSensor), with: nil, afterDelay: 4)
+    @objc func runSensor() {
+        UIDevice.current.isProximityMonitoringEnabled = true
+        
+        
     }
     
     //MARK: - Proximity sensor
@@ -284,7 +327,12 @@ class CounterViewController: UIViewController {
         if let device = notification.object as? UIDevice {
             if device.proximityState {
                // update()
-                updateWithSets()
+             
+                chek += 1
+                print(chek)
+                
+                updateWithSetsTwo()
+              //  updateWithSets()
             }
         }
     }

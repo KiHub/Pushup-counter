@@ -136,13 +136,17 @@ class ChallengeCounterViewController: UIViewController {
               
                 exerciseLabel.text = "rest"
                 circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
+                
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepOne), userInfo: nil, repeats: true)
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(setThree)) {
-               UIDevice.current.isProximityMonitoringEnabled = true
-                self.circularProgressViewCH.angle = 0
-                self.counterLabel.text = "0"
-                self.exerciseLabel.text = "push up"
-            }
+                
+                perform(#selector(runSensor), with: nil, afterDelay: TimeInterval(setThree + 1))
+                
+//                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(setThree)) {
+//               UIDevice.current.isProximityMonitoringEnabled = true
+//                self.circularProgressViewCH.angle = 0
+//                self.counterLabel.text = "0"
+//                self.exerciseLabel.text = "push up"
+//            }
             } else {
 
                 plancOption()
@@ -154,6 +158,28 @@ class ChallengeCounterViewController: UIViewController {
          
         }
     }
+    
+    
+    //    perform(#selector(runSensor), with: nil, afterDelay: 4)
+    @objc func runSensor() {
+        UIDevice.current.isProximityMonitoringEnabled = true
+        circularProgressViewCH.angle = 0
+        counterLabel.text = "0"
+        exerciseLabel.text = "push up"
+        
+    }
+    
+    @objc func runSensorPlanc() {
+       
+          timeRemainingPlank = setThree
+          circularProgressViewCH.angle = 0
+          exerciseLabel.text = "full plank"
+        
+          circularProgressViewCH.animate(fromAngle: 0, toAngle: 360, duration: TimeInterval(setThree), completion: nil)
+          timerPlanc = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
+        
+    }
+    
     func plancOption() {
         exerciseLabel.text = "rest"
         timeRemaining = setThree
@@ -162,21 +188,23 @@ class ChallengeCounterViewController: UIViewController {
         circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepOne), userInfo: nil, repeats: true)
         
-     
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(setThree)) { [self] in
-          //  UIDevice.current.isProximityMonitoringEnabled = true
-            timeRemainingPlank = setThree
-            circularProgressViewCH.angle = 0
-            exerciseLabel.text = "full plank"
-          //  timeRemaining = setThree
-         //   self.label.text = "0"
-            circularProgressViewCH.animate(fromAngle: 0, toAngle: 360, duration: TimeInterval(setThree), completion: nil)
-            timerPlanc = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
-        }
+        perform(#selector(runSensorPlanc), with: nil, afterDelay: TimeInterval(setThree + 1))
+//        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(setThree)) { [self] in
+//          //  UIDevice.current.isProximityMonitoringEnabled = true
+//            timeRemainingPlank = setThree
+//            circularProgressViewCH.angle = 0
+//            exerciseLabel.text = "full plank"
+//          //  timeRemaining = setThree
+//         //   self.label.text = "0"
+//            circularProgressViewCH.animate(fromAngle: 0, toAngle: 360, duration: TimeInterval(setThree), completion: nil)
+//            timerPlanc = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
+//        }
         
         
         
     }
+    
+    
     
     func thumbUp() {
         
