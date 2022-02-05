@@ -23,6 +23,8 @@ class ChallengeCounterViewController: UIViewController {
     
     var switcher = false
     
+    var push = 0
+    
     var timer: Timer!
     var timerPlanc: Timer!
     var timeRemaining = 30
@@ -64,7 +66,10 @@ class ChallengeCounterViewController: UIViewController {
         super.viewDidLoad()
         exerciseLabel.alpha = 0.7
         timeRemainingPlank = setThree
-      //  currentSet = setOne
+        
+        timeRemaining = setThree
+        
+        currentSet = setOne
      //   guard let progress = circularProgressViewCH else { return print("ERROR") }
         circularProgressViewCH.startAngle = 270
         circularProgressViewCH.angle = 0
@@ -92,6 +97,9 @@ class ChallengeCounterViewController: UIViewController {
   
 
         counterLabel.text = String(currentNumber)
+        
+      
+       
 
     }
     
@@ -102,15 +110,63 @@ class ChallengeCounterViewController: UIViewController {
         reset()
     }
     
-
+    func updateTwo() {
+        
+        switch currentNumber != currentSet - 1 {
+        case true:
+            exerciseLabel.text = "push up"
+            print(currentSet)
+            circularProgressViewCH.angle += Double(360 / currentSet)
+            currentNumber += 1
+            counterLabel.text = String(currentNumber)
+            print("case1", currentNumber, currentSet)
+        
+        case (false) where currentSet != setTwo:
+            UIDevice.current.isProximityMonitoringEnabled = false
+            circularProgressViewCH.angle = 0
+              thumbUp()
+              exerciseLabel.text = "rest"
+           //   counterLabel.text = "Rest"
+              doneSound.play()
+           //   thumbImage.isHidden = false
+            //  counterLabel.text = String(currentSet)
+            currentNumber = 0
+            
+        
+          
+            exerciseLabel.text = "rest"
+            circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
+            
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepOne), userInfo: nil, repeats: true)
+            
+            perform(#selector(runSensor), with: nil, afterDelay: TimeInterval(setThree + 1))
+            
+            currentSet = setTwo
+            print("case2", currentNumber, currentSet)
+        case (false) where currentSet == setTwo:
+            UIDevice.current.isProximityMonitoringEnabled = false
+            circularProgressViewCH.angle = 0
+              thumbUp()
+              exerciseLabel.text = "rest"
+           //   counterLabel.text = "Rest"
+              doneSound.play()
+           //   thumbImage.isHidden = false
+            //  counterLabel.text = String(currentSet)
+            currentNumber = 0
+            
+            plancOption()
+            print("case3", currentNumber, currentSet)
+        default:
+            return
+        }
+        
+        
+    }
     
     func update() {
         
-//        exerciseLabel.text == "rest" ? (UIDevice.current.isProximityMonitoringEnabled = false) : (UIDevice.current.isProximityMonitoringEnabled = true)
-        
         if currentNumber != currentSet - 1 {
             exerciseLabel.text = "push up"
-            //  print("labekNumber:\(labelNumber)")
             print(currentSet)
             circularProgressViewCH.angle += Double(360 / currentSet)
             currentNumber += 1
@@ -200,7 +256,7 @@ class ChallengeCounterViewController: UIViewController {
 //            timerPlanc = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
 //        }
         
-        
+        reset()
         
     }
     
@@ -228,6 +284,7 @@ class ChallengeCounterViewController: UIViewController {
     }
     
     func reset() {
+        push = 0
         timeRemainingPlank = setThree
         timeRemaining = setThree
         currentSet = setOne
@@ -338,8 +395,12 @@ class ChallengeCounterViewController: UIViewController {
     @objc func proximityChanged(notification: NSNotification) {
         if let device = notification.object as? UIDevice {
             if device.proximityState {
-                update()
+             //   update()
                // updateUI()
+             //   push += 1
+               
+              
+               updateTwo()
             }
         }
     }
