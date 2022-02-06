@@ -157,7 +157,9 @@ class ChallengeCounterViewController: UIViewController {
            //   thumbImage.isHidden = false
             //  counterLabel.text = String(currentSet)
             currentNumber = 0
-            
+            if   exerciseLabel.text == "rest" {
+            UIDevice.current.isProximityMonitoringEnabled = false
+            }
           //  exerciseLabel.text = "rest"
             circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
             
@@ -166,6 +168,9 @@ class ChallengeCounterViewController: UIViewController {
             perform(#selector(runSensor), with: nil, afterDelay: TimeInterval(setThree + 1))
             
             currentSet = setTwo
+            
+//            currentSet == setTwo ? (UIDevice.current.isProximityMonitoringEnabled = true) : (UIDevice.current.isProximityMonitoringEnabled = false)
+            
             print("case2", currentNumber, currentSet)
         case (false) where currentSet == setTwo:
           //  timeRemaining = setThree
@@ -179,6 +184,9 @@ class ChallengeCounterViewController: UIViewController {
            //   thumbImage.isHidden = false
             //  counterLabel.text = String(currentSet)
             currentNumber = 0
+            if   exerciseLabel.text == "rest" {
+            UIDevice.current.isProximityMonitoringEnabled = false
+            }
             circularProgressViewCH.isHidden = false
          //   circularProgressViewCH.angle = 360
             circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
@@ -253,12 +261,44 @@ class ChallengeCounterViewController: UIViewController {
     }
     
     
+    func readyAlert() {
+        let color = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
+        let alert = UIAlertController(title: "Ready?", message: "", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "YES", style: .default) { (action) in
+           
+            UIDevice.current.isProximityMonitoringEnabled = true
+            
+            
+            
+            
+            
+        }
+//        let action = UIAlertAction(title: "Add", style: .default) { (action) in
+//
+//
+//
+//
+//
+//
+//        }
+//
+        
+        
+        
+        cancel.setValue(color, forKey: "titleTextColor")
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
     //    perform(#selector(runSensor), with: nil, afterDelay: 4)
     @objc func runSensor() {
         UIDevice.current.isProximityMonitoringEnabled = true
         circularProgressViewCH.angle = 0
         counterLabel.text = "0"
         exerciseLabel.text = "push up"
+    //    readyAlert()
         
     }
     
