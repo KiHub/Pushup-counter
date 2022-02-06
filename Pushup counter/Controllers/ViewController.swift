@@ -19,6 +19,7 @@ class ViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.isIdleTimerDisabled = false
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidLoad() {
@@ -53,6 +54,8 @@ class ViewController: UIViewController{
         guard let counterVC = segue.destination as? CounterViewController else {return}
         counterVC.labelNumber = selected
         counterVC.sets = selectedSet
+        
+       // self.hidesBottomBarWhenPushed = true
     }
     
 }

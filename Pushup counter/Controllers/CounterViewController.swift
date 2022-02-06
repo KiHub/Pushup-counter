@@ -40,7 +40,7 @@ class CounterViewController: UIViewController {
     
     override func viewDidLoad() {
        chek = 0
-      
+        self.tabBarController?.tabBar.isHidden = true
         
         super.viewDidLoad()
         cupImage.isHidden = true

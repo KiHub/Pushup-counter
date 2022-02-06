@@ -59,6 +59,8 @@ class ChallengeTableViewController: UITableViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+        
         UIApplication.shared.isIdleTimerDisabled = false
         if fetchedTrainingDaysArray.isEmpty {
             for traininDay in traininDays {
@@ -157,8 +159,7 @@ class ChallengeTableViewController: UITableViewController {
         
     }
     
-
-    
+ 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "challengeSegue" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
@@ -168,6 +169,9 @@ class ChallengeTableViewController: UITableViewController {
                 challengeCounterVC.setThree = Int(fetchedTrainingDaysArray[indexPath.row].thirdSet)
                 challengeCounterVC.dayNumber = Int(fetchedTrainingDaysArray[indexPath.row].dayNumber)
                 challengeCounterVC.row = indexPath.row
+                
+             //   self.hidesBottomBarWhenPushed = true
+                
             //    challengeCounterVC.done = fetchTrainingDaysArray[indexPath.row].done
             }
         }

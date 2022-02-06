@@ -22,6 +22,7 @@ class ChallengeCounterViewController: UIViewController {
     var labelNumber = 0
     
     var switcher = false
+    var quit = false
     
     var push = 0
     
@@ -63,6 +64,11 @@ class ChallengeCounterViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        quit = false
+        
+        
+        self.tabBarController?.tabBar.isHidden = true
+        
         super.viewDidLoad()
         exerciseLabel.alpha = 0.7
         timeRemainingPlank = setThree
@@ -162,6 +168,9 @@ class ChallengeCounterViewController: UIViewController {
         
         
     }
+    
+    
+    
     
     func update() {
         
