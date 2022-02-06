@@ -283,7 +283,7 @@ class CounterViewController: UIViewController {
         thumbImage.alpha = 1.0
         circularProgressView.alpha = 1.0
         label.text = ""
-
+        if currentSet != sets {
         UIView.animate(withDuration: 1.0, delay: 1.0, options: [], animations: {
 
                     self.thumbImage.alpha = 0.0
@@ -295,10 +295,15 @@ class CounterViewController: UIViewController {
                     self.thumbImage.isHidden = true
 
                 }
-        if currentSet == sets {
+        } else {
+            thumbImage.isHidden = true
             cupImage.isHidden = false
-          
+            
         }
+//        if currentSet == sets {
+//            cupImage.isHidden = false
+//          
+//        }
     }
     
     @objc func stopSensor() {
