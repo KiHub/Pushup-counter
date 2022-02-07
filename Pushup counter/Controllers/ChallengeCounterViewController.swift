@@ -25,6 +25,7 @@ class ChallengeCounterViewController: UIViewController {
     var quit = false
     
     var push = 0
+  
     
     var timer: Timer!
     var timerPlanc: Timer!
@@ -165,12 +166,25 @@ class ChallengeCounterViewController: UIViewController {
             
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepOne), userInfo: nil, repeats: true)
             
-            perform(#selector(runSensor), with: nil, afterDelay: TimeInterval(setThree + 1))
+        //    perform(#selector(runSensor), with: nil, afterDelay: TimeInterval(setThree + 1))
             
-            currentSet = setTwo
+            afterBlock(seconds: setThree, queue: .main) { [self] in
+                UIDevice.current.isProximityMonitoringEnabled = true
+                circularProgressViewCH.angle = 0
+                counterLabel.text = "0"
+                exerciseLabel.text = "push up"
+                
+                currentSet = setTwo
+               // circularProgressViewCH.angle += Double(360 / currentSet)
+          
+            }
+            
+          
+            
+         //   currentSet = setTwo
             
 //            currentSet == setTwo ? (UIDevice.current.isProximityMonitoringEnabled = true) : (UIDevice.current.isProximityMonitoringEnabled = false)
-            
+           
             print("case2", currentNumber, currentSet)
         case (false) where currentSet == setTwo:
           //  timeRemaining = setThree
@@ -205,6 +219,12 @@ class ChallengeCounterViewController: UIViewController {
         
     }
     
+    func afterBlock(seconds: Int, queue: DispatchQueue = DispatchQueue.global(),
+                    completion: @escaping () -> ()) {
+        queue.asyncAfter(deadline: .now() + .seconds(seconds)) {
+            completion()
+        }
+    }
     
     
     
@@ -294,10 +314,14 @@ class ChallengeCounterViewController: UIViewController {
     
     //    perform(#selector(runSensor), with: nil, afterDelay: 4)
     @objc func runSensor() {
+        
+        
         UIDevice.current.isProximityMonitoringEnabled = true
         circularProgressViewCH.angle = 0
         counterLabel.text = "0"
         exerciseLabel.text = "push up"
+        
+        
     //    readyAlert()
         
     }
