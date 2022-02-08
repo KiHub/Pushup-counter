@@ -13,7 +13,6 @@ import CoreData
 
 class ChallengeCounterViewController: UIViewController {
     
-  //  let defaults = UserDefaults.standard
     var fetchedTrainingDaysArray = [DayChallenge]()
     
     var currentNumber = 0
@@ -39,10 +38,6 @@ class ChallengeCounterViewController: UIViewController {
     var setTwo = 0
     var setThree = 30
     var row = 0
-  //  var done = false
-    
- //   var fetchedTrainingDaysArray = [DayChallenge]()
-  //  var indexPath = 0
     
     let formatter = DateFormatter()
     let doneSound = SimpleSound(named: "win")
@@ -56,7 +51,6 @@ class ChallengeCounterViewController: UIViewController {
     @IBOutlet weak var exerciseLabel: UILabel!
     
     @IBOutlet weak var thumbImage: UIImageView!
-    
     
     override func viewWillAppear(_ animated: Bool) {
         UIDevice.current.isProximityMonitoringEnabled = true
@@ -72,7 +66,6 @@ class ChallengeCounterViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         
         super.viewDidLoad()
-        
         
                 self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward.2"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(ChallengeCounterViewController.back(sender:)))
@@ -110,11 +103,8 @@ class ChallengeCounterViewController: UIViewController {
         print("Hey,\(fetchedTrainingDaysArray)")
         print("555: \(fetchedTrainingDaysArray[dayNumber - 1].dayNumber)")
         
-  
-
         counterLabel.text = String(currentNumber)
         
-      
        
 
     }
@@ -130,16 +120,13 @@ class ChallengeCounterViewController: UIViewController {
     
     @objc func back(sender: UIBarButtonItem) {
         quit = true
-           // Perform your custom actions
-           // ...
-           // Go back to the previous ViewController
            _ = navigationController?.popViewController(animated: true)
        }
     
     
     func updateTwo() {
         if quit == true {return}
-        switch currentNumber != currentSet - 1 {
+        switch currentNumber < currentSet - 1 {
         case true:
             exerciseLabel.text = "push up"
             print(currentSet)
@@ -153,10 +140,8 @@ class ChallengeCounterViewController: UIViewController {
             circularProgressViewCH.angle = 0
               thumbUp()
               exerciseLabel.text = "rest"
-           //   counterLabel.text = "Rest"
               doneSound.play()
-           //   thumbImage.isHidden = false
-            //  counterLabel.text = String(currentSet)
+
             currentNumber = 0
             if   exerciseLabel.text == "rest" {
             UIDevice.current.isProximityMonitoringEnabled = false
@@ -176,16 +161,11 @@ class ChallengeCounterViewController: UIViewController {
                 
                 currentSet = setTwo
                // circularProgressViewCH.angle += Double(360 / currentSet)
-          
-            }
-            
-          
-            
-         //   currentSet = setTwo
-            
-//            currentSet == setTwo ? (UIDevice.current.isProximityMonitoringEnabled = true) : (UIDevice.current.isProximityMonitoringEnabled = false)
            
+            }
+
             print("case2", currentNumber, currentSet)
+
         case (false) where currentSet == setTwo:
           //  timeRemaining = setThree
             
@@ -225,9 +205,7 @@ class ChallengeCounterViewController: UIViewController {
             completion()
         }
     }
-    
-    
-    
+
     func update() {
         
         if currentNumber != currentSet - 1 {
@@ -261,13 +239,7 @@ class ChallengeCounterViewController: UIViewController {
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepOne), userInfo: nil, repeats: true)
                 
                 perform(#selector(runSensor), with: nil, afterDelay: TimeInterval(setThree + 1))
-                
-//                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(setThree)) {
-//               UIDevice.current.isProximityMonitoringEnabled = true
-//                self.circularProgressViewCH.angle = 0
-//                self.counterLabel.text = "0"
-//                self.exerciseLabel.text = "push up"
-//            }
+
             } else {
 
                 plancOption()
@@ -285,25 +257,12 @@ class ChallengeCounterViewController: UIViewController {
         let color = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
         let alert = UIAlertController(title: "Ready?", message: "", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "YES", style: .default) { (action) in
-           
+      
             UIDevice.current.isProximityMonitoringEnabled = true
-            
-            
-            
-            
+
             
         }
-//        let action = UIAlertAction(title: "Add", style: .default) { (action) in
-//
-//
-//
-//
-//
-//
-//        }
-//
-        
-        
+
         
         cancel.setValue(color, forKey: "titleTextColor")
         alert.addAction(cancel)
@@ -345,18 +304,7 @@ class ChallengeCounterViewController: UIViewController {
       //  counterLabel.text = "Rest"
         circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepTwo), userInfo: nil, repeats: true)
-        
- //       perform(#selector(runSensorPlanc), with: nil, afterDelay: TimeInterval(setThree + 1))
-//        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(setThree)) { [self] in
-//          //  UIDevice.current.isProximityMonitoringEnabled = true
-//            timeRemainingPlank = setThree
-//            circularProgressViewCH.angle = 0
-//            exerciseLabel.text = "full plank"
-//          //  timeRemaining = setThree
-//         //   self.label.text = "0"
-//            circularProgressViewCH.animate(fromAngle: 0, toAngle: 360, duration: TimeInterval(setThree), completion: nil)
-//            timerPlanc = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(step), userInfo: nil, repeats: true)
-//        }
+
         
         reset()
         
