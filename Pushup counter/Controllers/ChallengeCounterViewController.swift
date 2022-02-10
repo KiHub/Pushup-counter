@@ -338,11 +338,9 @@ class ChallengeCounterViewController: UIViewController {
         if timeRemaining > 0 {
             timeRemaining -= 1
         } else {
-          //  cupImage.isHidden = false
-          //  doneSound.play()
+
             timer.invalidate()
-        //    timeRemaining = setThree
-          //  exerciseLabel.text = ""
+    
             //MARK: - ToDo Save data and set check mark
         }
         counterLabel.text = "\(timeRemaining)"
@@ -352,20 +350,16 @@ class ChallengeCounterViewController: UIViewController {
         if timeRemainingTwo > 0 {
             timeRemainingTwo -= 1
         } else {
-          //  cupImage.isHidden = false
-          //  doneSound.play()
+
             timer.invalidate()
-        //    timeRemaining = setThree
-          //  exerciseLabel.text = ""
+  
             //MARK: - ToDo Save data and set check mark
         }
         counterLabel.text = "\(timeRemainingTwo)"
     }
 
 //            //MARK: - ToDo Save data and set check mark
-//        }
-//        counterLabel.text = "\(timeRemaining)"
-//    }
+
     
     @objc func step() {
         if timeRemainingPlank > 0 {
