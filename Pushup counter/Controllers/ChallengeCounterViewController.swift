@@ -31,6 +31,8 @@ class ChallengeCounterViewController: UIViewController {
     var timeRemaining = 30
     var timeRemainingTwo = 30
     var timeRemainingPlank = 30
+    let date = Date()
+    var days: [Day] = []
     
     var dayNumber = 0
     var currentSet = 0
@@ -370,6 +372,13 @@ class ChallengeCounterViewController: UIViewController {
 
             //MARK: - TO DO add save func
             
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            let dateString = formatter.string(from: date)
+            print(dateString)
+            saveDayDate(trainingDate: dateString)
+            
+            
             fetchedTrainingDaysArray[dayNumber - 1].done = true
             save()
             
@@ -416,6 +425,22 @@ class ChallengeCounterViewController: UIViewController {
             print("Error fetching data")
         }
 
+    }
+    
+    func saveDayDate(trainingDate: String) {
+        let context = getContext()
+        guard let entity = NSEntityDescription.entity(forEntityName: "Day", in: context)
+        else {return}
+        
+        let dayObject = Day(entity: entity, insertInto: context)
+        dayObject.trainingDate = trainingDate
+        do {
+            try context.save()
+            days.append(dayObject)
+            print("Testing append from core data to array: \(days)")
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
 
     func getContext() -> NSManagedObjectContext {

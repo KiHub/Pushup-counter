@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import FSCalendar
 
 
 class ChallengeTableViewController: UITableViewController {
@@ -58,6 +59,10 @@ class ChallengeTableViewController: UITableViewController {
     var doneMyTrainings: [String] = []
     
     
+    
+
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         
@@ -75,7 +80,10 @@ class ChallengeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
   
-        
+     //   calendar.appearance.fo
+    //    calendar = FSCalendar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 200))
+      
+       
         
 
         
@@ -310,4 +318,23 @@ class ChallengeTableViewController: UITableViewController {
 
 }
 
+
+extension ChallengeTableViewController: FSCalendarDelegate, FSCalendarDelegateAppearance {
+    
+   
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+//        for item in myTrainings {
+//            guard let excludeddate = formatter.date(from: item) else { return nil }
+//            if date.compare(excludeddate) == .orderedSame {
+//                return .systemOrange
+//            }
+//        }
+        return nil
+    }
+    
+    
+}
 
