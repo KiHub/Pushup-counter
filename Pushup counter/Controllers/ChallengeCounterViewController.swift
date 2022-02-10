@@ -39,9 +39,10 @@ class ChallengeCounterViewController: UIViewController {
     var setThree = 30
     var row = 0
     
+    
     let formatter = DateFormatter()
     let doneSound = SimpleSound(named: "win")
-    
+  
     @IBOutlet weak var circularProgressViewCH: KDCircularProgress!
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var cupImage: UIImageView!
@@ -79,7 +80,6 @@ class ChallengeCounterViewController: UIViewController {
         timeRemaining = setThree
         
         currentSet = setOne
-     //   guard let progress = circularProgressViewCH else { return print("ERROR") }
         circularProgressViewCH.startAngle = 270
         circularProgressViewCH.angle = 0
         cupImage.isHidden = true
@@ -94,18 +94,14 @@ class ChallengeCounterViewController: UIViewController {
         print(setOne)
         print(setTwo)
         print(setThree)
-      //  circularProgressView.startAngle = 270
-      //  circularProgressView.angle = 0
         activateProximitySensor()
         
         print("Hey,\(fetchedTrainingDaysArray)")
         loadDataFromCD()
         print("Hey,\(fetchedTrainingDaysArray)")
         print("555: \(fetchedTrainingDaysArray[dayNumber - 1].dayNumber)")
-        
+
         counterLabel.text = String(currentNumber)
-        
-       
 
     }
     
@@ -115,9 +111,7 @@ class ChallengeCounterViewController: UIViewController {
         UIDevice.current.isProximityMonitoringEnabled = false
         reset()
     }
-    
-    
-    
+
     @objc func back(sender: UIBarButtonItem) {
         quit = true
            _ = navigationController?.popViewController(animated: true)
@@ -125,74 +119,63 @@ class ChallengeCounterViewController: UIViewController {
     
     
     func updateTwo() {
+        print("start")
+
         if quit == true {return}
         switch currentNumber < currentSet - 1 {
         case true:
+            print("case 1 start")
             exerciseLabel.text = "push up"
             print(currentSet)
             circularProgressViewCH.angle += Double(360 / currentSet)
             currentNumber += 1
             counterLabel.text = String(currentNumber)
-            print("case1", currentNumber, currentSet)
-        
+            print("case 1 exit", currentNumber, currentSet)
+           
         case (false) where currentSet != setTwo:
+            print("case 2 start")
             UIDevice.current.isProximityMonitoringEnabled = false
             circularProgressViewCH.angle = 0
               thumbUp()
               exerciseLabel.text = "rest"
               doneSound.play()
-
             currentNumber = 0
-            if   exerciseLabel.text == "rest" {
-            UIDevice.current.isProximityMonitoringEnabled = false
-            }
-          //  exerciseLabel.text = "rest"
             circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
-            
+
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepOne), userInfo: nil, repeats: true)
-            
-        //    perform(#selector(runSensor), with: nil, afterDelay: TimeInterval(setThree + 1))
-            
-            afterBlock(seconds: setThree, queue: .main) { [self] in
+            afterBlock(seconds: setThree + 1, queue: .main) { [self] in
+
                 UIDevice.current.isProximityMonitoringEnabled = true
                 circularProgressViewCH.angle = 0
                 counterLabel.text = "0"
                 exerciseLabel.text = "push up"
-                
                 currentSet = setTwo
-               // circularProgressViewCH.angle += Double(360 / currentSet)
-           
+
+                print("after block")
             }
 
-            print("case2", currentNumber, currentSet)
+            print("case 2 exit", currentNumber, currentSet)
+            return
 
         case (false) where currentSet == setTwo:
-          //  timeRemaining = setThree
-            
+
+            print("case 3 start")
             UIDevice.current.isProximityMonitoringEnabled = false
-          //  circularProgressViewCH.angle = 0
               thumbUp()
               exerciseLabel.text = "rest"
-           //   counterLabel.text = "Rest"
               doneSound.play()
-           //   thumbImage.isHidden = false
-            //  counterLabel.text = String(currentSet)
             currentNumber = 0
             if   exerciseLabel.text == "rest" {
             UIDevice.current.isProximityMonitoringEnabled = false
             }
             circularProgressViewCH.isHidden = false
-         //   circularProgressViewCH.angle = 360
             circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
-            
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepTwo), userInfo: nil, repeats: true)
-            
             perform(#selector(runSensorPlanc), with: nil, afterDelay: TimeInterval(setThree + 1))
-            
-            
            // plancOption()
-            print("case3", currentNumber, currentSet)
+            print("case 3 exit", currentNumber, currentSet)
         default:
+            print("return")
             return
         }
         
@@ -314,9 +297,6 @@ class ChallengeCounterViewController: UIViewController {
     
     func thumbUp() {
         
-   //     fetchedTrainingDaysArray[row].done.setValue(true, forKey: "done")
-        
-    //    saveData()
         
         thumbImage.isHidden = false
         thumbImage.alpha = 1.0
@@ -381,16 +361,7 @@ class ChallengeCounterViewController: UIViewController {
         }
         counterLabel.text = "\(timeRemainingTwo)"
     }
-    
-//    @objc func stepTwo() {
-//        if timeRemaining > 0 {
-//            timeRemaining -= 1
-//        } else {
-//          //  cupImage.isHidden = false
-//          //  doneSound.play()
-//            timer.invalidate()
-//        //    timeRemaining = setThree
-//          //  exerciseLabel.text = ""
+
 //            //MARK: - ToDo Save data and set check mark
 //        }
 //        counterLabel.text = "\(timeRemaining)"
@@ -421,8 +392,7 @@ class ChallengeCounterViewController: UIViewController {
          //   defaults.set(true, forKey: "\(dayNumber)")
             
             reset()
-         //   currentSet = setOne
-            
+
             UIDevice.current.isProximityMonitoringEnabled = false
             UIApplication.shared.isIdleTimerDisabled = false
             
@@ -442,7 +412,6 @@ class ChallengeCounterViewController: UIViewController {
             }
     }
 
-    
     func loadDataFromCD() {
         let context = getContext()
         
@@ -452,14 +421,13 @@ class ChallengeCounterViewController: UIViewController {
         } catch {
             print("Error fetching data")
         }
-        
+
     }
-    
+
     func getContext() -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
-    
 
     
     //MARK: - Proximity sensor
@@ -474,11 +442,9 @@ class ChallengeCounterViewController: UIViewController {
     @objc func proximityChanged(notification: NSNotification) {
         if let device = notification.object as? UIDevice {
             if device.proximityState {
-           //   update()
-               // updateUI()
-             //   push += 1
-               
-              
+
+                print("sensor active")
+          
                updateTwo()
             }
         }
