@@ -84,6 +84,11 @@
                             <constraint firstItem="pbr-ZS-wd5" firstAttribute="top" secondItem="gOU-5i-guM" secondAttribute="top" id="XcM-fb-6Vo"/>
                             <constraint firstItem="Vk7-iJ-J5B" firstAttribute="centerX" secondItem="gOU-5i-guM" secondAttribute="centerX" id="hmP-a7-KpK"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Vk7-iJ-J5B"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="a0I-NW-SPV">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="infinity.circle.fill" catalog="system" id="qbp-UI-78y">
