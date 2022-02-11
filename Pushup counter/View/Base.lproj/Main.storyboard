@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="-620.08928571428567"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding View Controller-->
         <scene sceneID="rIb-Cq-Txo">
             <objects>
-                <viewController id="alx-Yp-KkE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="welcome" id="alx-Yp-KkE" customClass="OnboardingViewController" customModule="Pushup_counter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gOU-5i-guM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,6 +60,18 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="pbr-ZS-wd5">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vk7-iJ-J5B">
+                                <rect key="frame" x="91" y="704" width="232" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Vk7-iJ-J5B" secondAttribute="height" multiplier="58:17" id="ZzA-oT-2ev"/>
+                                </constraints>
+                                <state key="normal" image="With Icon">
+                                    <color key="titleShadowColor" red="0.58451128009999997" green="0.43908354640000002" blue="0.70199126010000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pNj-1H-GMn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S5P-GL-ddR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -67,7 +79,10 @@
                             <constraint firstAttribute="bottom" secondItem="pbr-ZS-wd5" secondAttribute="bottom" id="2sG-HK-DGn"/>
                             <constraint firstItem="pbr-ZS-wd5" firstAttribute="leading" secondItem="S5P-GL-ddR" secondAttribute="leading" id="6a8-UO-Yym"/>
                             <constraint firstItem="pbr-ZS-wd5" firstAttribute="trailing" secondItem="S5P-GL-ddR" secondAttribute="trailing" id="KKN-me-mDp"/>
+                            <constraint firstItem="Vk7-iJ-J5B" firstAttribute="width" secondItem="Vk7-iJ-J5B" secondAttribute="height" multiplier="58:17" id="O1h-Q4-F7v"/>
+                            <constraint firstItem="S5P-GL-ddR" firstAttribute="bottom" secondItem="Vk7-iJ-J5B" secondAttribute="bottom" constant="90" id="OCP-2k-5qB"/>
                             <constraint firstItem="pbr-ZS-wd5" firstAttribute="top" secondItem="gOU-5i-guM" secondAttribute="top" id="XcM-fb-6Vo"/>
+                            <constraint firstItem="Vk7-iJ-J5B" firstAttribute="centerX" secondItem="gOU-5i-guM" secondAttribute="centerX" id="hmP-a7-KpK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="a0I-NW-SPV">
@@ -78,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cx8-gN-5Ef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3591" y="-1485"/>
+            <point key="canvasLocation" x="3599" y="-1454"/>
         </scene>
         <!--Challenge Counter View Controller-->
         <scene sceneID="NYg-X6-OPG">

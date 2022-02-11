@@ -26,6 +26,7 @@
 		0B8C91ED27988A7C00939C6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8C91EB27988A7C00939C6E /* LaunchScreen.storyboard */; };
 		0B8C91F72798A9AD00939C6E /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8C91F62798A9AD00939C6E /* CounterViewController.swift */; };
 		0BF8730727B5D9E00024AD00 /* CalendarChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8730627B5D9E00024AD00 /* CalendarChallengeViewController.swift */; };
+		0BF8730927B5E05F0024AD00 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8730827B5E05F0024AD00 /* OnboardingViewController.swift */; };
 		A2EE4CFDEBDFFBD6AD9D75C8 /* Pods_Pushup_counter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83032839446C6B50191AE45 /* Pods_Pushup_counter.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		0B8C91EE27988A7C00939C6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B8C91F62798A9AD00939C6E /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 		0BF8730627B5D9E00024AD00 /* CalendarChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarChallengeViewController.swift; sourceTree = "<group>"; };
+		0BF8730827B5E05F0024AD00 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		75C7C6F27C3D946D120D8FA2 /* Pods-Pushup counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pushup counter.debug.xcconfig"; path = "Target Support Files/Pods-Pushup counter/Pods-Pushup counter.debug.xcconfig"; sourceTree = "<group>"; };
 		C93FB38BE45DF0B68D2E8716 /* Pods-Pushup counter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pushup counter.release.xcconfig"; path = "Target Support Files/Pods-Pushup counter/Pods-Pushup counter.release.xcconfig"; sourceTree = "<group>"; };
 		F83032839446C6B50191AE45 /* Pods_Pushup_counter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pushup_counter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 				0B621A3C279F54B400C007BF /* ChallengeTableViewController.swift */,
 				0B7E347827A05F010096E795 /* ChallengeCounterViewController.swift */,
 				0BF8730627B5D9E00024AD00 /* CalendarChallengeViewController.swift */,
+				0BF8730827B5E05F0024AD00 /* OnboardingViewController.swift */,
 				0B7E347C27ADE1CB0096E795 /* ThumbAlert.swift */,
 			);
 			path = Controllers;
@@ -282,6 +285,7 @@
 				0B621A3F279F561200C007BF /* Day.swift in Sources */,
 				0B7E347927A05F010096E795 /* ChallengeCounterViewController.swift in Sources */,
 				0B8C91E027988A7900939C6E /* SceneDelegate.swift in Sources */,
+				0BF8730927B5E05F0024AD00 /* OnboardingViewController.swift in Sources */,
 				0B621A3A279ACDEC00C007BF /* CalendarViewController.swift in Sources */,
 				0B8C91E827988A7900939C6E /* Pushup_counter.xcdatamodeld in Sources */,
 			);
