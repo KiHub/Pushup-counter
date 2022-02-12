@@ -212,7 +212,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pushup_counter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="ViewController" customModule="Pushup_counter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -434,7 +434,7 @@
         <!--Counter-->
         <scene sceneID="BZU-pd-OWT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2lK-Y1-xq3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="nav" automaticallyAdjustsScrollViewInsets="NO" id="2lK-Y1-xq3" customClass="NavViewController" customModule="Pushup_counter" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Counter" image="stopwatch" catalog="system" id="Pcj-wk-vgj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="FWb-Mq-tGf">
@@ -477,10 +477,10 @@
             </objects>
             <point key="canvasLocation" x="1048" y="-607"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="20i-UU-Oap">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Pth-bw-mFR" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Pth-bw-mFR" customClass="TabBarViewController" customModule="Pushup_counter" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tyg-Ml-Wtt">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
