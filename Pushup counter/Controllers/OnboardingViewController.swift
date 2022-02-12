@@ -36,6 +36,7 @@ class OnboardingViewController: UIPageViewController {
             let page1 = ViewController1()
             let page2 = ViewController2()
             let page3 = ViewController3()
+          
 
             pages.append(page1)
             pages.append(page2)
@@ -263,12 +264,25 @@ class OnboardingViewController: UIPageViewController {
        
         func pushSegue(){
             
-            let vc = NavViewController()
-          //  vc.modalPresentationStyle = .fullScreen
-           //     present(vc, animated: true)
-            present(vc, animated: true, completion: nil)
-//             let main = ViewController()
-//                present(main, animated: true, completion: nil)
+            let pvc = self.parent as! UIPageViewController
+          //  pvc.removeFromParent()
+            pvc.dismiss(animated: true, completion: nil)
+           // performSegue(withIdentifier: "show", sender: self)
+            
+      //     let cha = ChallengeTableViewController()
+       //     present(cha, animated: true, completion: nil)
+         //   self.performSegue(withIdentifier: "showMainScreen", sender: self)
+            
+     //       let vc = storyboard?.instantiateViewController(withIdentifier: "mainScreen") as! ViewController
+       //     vc.modalPresentationStyle = .fullScreen
+       //     present(vc, animated: true)
+            
+//            let vc = NavViewController()
+//          //  vc.modalPresentationStyle = .fullScreen
+//           //     present(vc, animated: true)
+//            present(vc, animated: true, completion: nil)
+////             let main = ViewController()
+////                present(main, animated: true, completion: nil)
         }
    }
         
