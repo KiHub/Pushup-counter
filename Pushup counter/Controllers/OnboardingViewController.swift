@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 
 class OnboardingViewController: UIPageViewController {
@@ -121,8 +122,33 @@ class OnboardingViewController: UIPageViewController {
     class ViewController1: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
-            if let background = UIImage(named: "Background2.jpg") {
-            view.backgroundColor = UIColor(patternImage: background)
+            interfaceVC1()
+            }
+            
+             func interfaceVC1() {
+                 if let background = UIImage(named: "Background2.jpg") {
+                 view.backgroundColor = UIColor(patternImage: background)
+                     let label = UILabel()
+                     label.text = "🎉 Hey,"
+                     label.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
+                     label.font = UIFont(name: "Avenir Next Regular", size: 40)
+                     view.addSubview(label)
+                     label.snp.makeConstraints { make in
+                         make.left.equalToSuperview().inset(50)
+                         make.top.equalToSuperview().inset(300)
+                     }
+                     let tipText = UILabel()
+                     tipText.text = "This app will counting push ups instead of you. Instead of counting, you can focus on the technique of exercise"
+                     tipText.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
+                     tipText.font = UIFont(name: "Avenir Next Regular", size: 20)
+                     tipText.numberOfLines = 0
+                     view.addSubview(tipText)
+                     tipText.snp.makeConstraints { make in
+                         make.left.equalToSuperview().inset(50)
+                         make.right.equalToSuperview().inset(50)
+                         make.top.equalTo(label).inset(100)
+                     }
+                     
             }
         }
     }
