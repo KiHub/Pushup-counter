@@ -11,6 +11,7 @@ class ViewController: UIViewController{
     
     @IBOutlet weak var picker: UIPickerView!
     
+    let defaults = UserDefaults.standard
     var selected = 25
     var selectedSet = 3
     var selectedSetsArray = ["x1", "x2", "x3"]
@@ -33,13 +34,15 @@ class ViewController: UIViewController{
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if Core.shared.isNewUser() {
-            //show onboarding
-            
-            let vc = storyboard?.instantiateViewController(withIdentifier: "welcome") as! OnboardingViewController
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true)
-        }
+        firstLaunch()
+        
+//        if Core.shared.isNewUser() {
+//            //show onboarding
+//
+//            let vc = storyboard?.instantiateViewController(withIdentifier: "welcome") as! OnboardingViewController
+//            vc.modalPresentationStyle = .fullScreen
+//            present(vc, animated: true)
+//        }
     }
     
     @IBAction func barButtonPressed(_ sender: UIBarButtonItem) {
@@ -157,15 +160,34 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
   //     return view
     }
     
-    class Core {
-        static let shared = Core()
+//    class Core {
+//        static let shared = Core()
+//
+//        func isNewUser() -> Bool {
+//            return !UserDefaults.standard.bool(forKey: "isNewUser")
+//        }
+//        func setIsNotNewUser() {
+//            UserDefaults.standard.set(true, forKey: "isNewUser")
+//        }
+//    }
+    
+    func firstLaunch() {
         
-        func isNewUser() -> Bool {
-            return !UserDefaults.standard.bool(forKey: "isNewUser")
+        if defaults.bool(forKey: "First launch") == true {
+            print("Second+")
+            
+            defaults.set(true, forKey: "First launch")
+        } else {
+            print("First")
+            
+            let vc = storyboard?.instantiateViewController(withIdentifier: "welcome") as! OnboardingViewController
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+            
+            defaults.set(true, forKey: "First launch")
         }
-        func setIsNotNewUser() {
-            UserDefaults.standard.set(true, forKey: "isNewUser")
-        }
+        
     }
+    
     
 }

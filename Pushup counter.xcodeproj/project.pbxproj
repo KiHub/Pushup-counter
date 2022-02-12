@@ -27,8 +27,6 @@
 		0B8C91F72798A9AD00939C6E /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8C91F62798A9AD00939C6E /* CounterViewController.swift */; };
 		0BF8730727B5D9E00024AD00 /* CalendarChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8730627B5D9E00024AD00 /* CalendarChallengeViewController.swift */; };
 		0BF8730927B5E05F0024AD00 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8730827B5E05F0024AD00 /* OnboardingViewController.swift */; };
-		0BF8730B27B807930024AD00 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8730A27B807920024AD00 /* TabBarViewController.swift */; };
-		0BF8730D27B80CC10024AD00 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8730C27B80CC10024AD00 /* NavViewController.swift */; };
 		A2EE4CFDEBDFFBD6AD9D75C8 /* Pods_Pushup_counter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83032839446C6B50191AE45 /* Pods_Pushup_counter.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,8 +53,6 @@
 		0B8C91F62798A9AD00939C6E /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 		0BF8730627B5D9E00024AD00 /* CalendarChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarChallengeViewController.swift; sourceTree = "<group>"; };
 		0BF8730827B5E05F0024AD00 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		0BF8730A27B807920024AD00 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		0BF8730C27B80CC10024AD00 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		75C7C6F27C3D946D120D8FA2 /* Pods-Pushup counter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pushup counter.debug.xcconfig"; path = "Target Support Files/Pods-Pushup counter/Pods-Pushup counter.debug.xcconfig"; sourceTree = "<group>"; };
 		C93FB38BE45DF0B68D2E8716 /* Pods-Pushup counter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pushup counter.release.xcconfig"; path = "Target Support Files/Pods-Pushup counter/Pods-Pushup counter.release.xcconfig"; sourceTree = "<group>"; };
 		F83032839446C6B50191AE45 /* Pods_Pushup_counter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pushup_counter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,8 +80,6 @@
 				0B7E347827A05F010096E795 /* ChallengeCounterViewController.swift */,
 				0BF8730627B5D9E00024AD00 /* CalendarChallengeViewController.swift */,
 				0BF8730827B5E05F0024AD00 /* OnboardingViewController.swift */,
-				0BF8730C27B80CC10024AD00 /* NavViewController.swift */,
-				0BF8730A27B807920024AD00 /* TabBarViewController.swift */,
 				0B7E347C27ADE1CB0096E795 /* ThumbAlert.swift */,
 			);
 			path = Controllers;
@@ -286,7 +280,6 @@
 				0B7E347D27ADE1CC0096E795 /* ThumbAlert.swift in Sources */,
 				0B8C91DE27988A7900939C6E /* AppDelegate.swift in Sources */,
 				0B621A3D279F54B500C007BF /* ChallengeTableViewController.swift in Sources */,
-				0BF8730D27B80CC10024AD00 /* NavViewController.swift in Sources */,
 				0B621A34279A08CC00C007BF /* SimpleSound.swift in Sources */,
 				0BF8730727B5D9E00024AD00 /* CalendarChallengeViewController.swift in Sources */,
 				0B621A3F279F561200C007BF /* Day.swift in Sources */,
@@ -294,7 +287,6 @@
 				0B8C91E027988A7900939C6E /* SceneDelegate.swift in Sources */,
 				0BF8730927B5E05F0024AD00 /* OnboardingViewController.swift in Sources */,
 				0B621A3A279ACDEC00C007BF /* CalendarViewController.swift in Sources */,
-				0BF8730B27B807930024AD00 /* TabBarViewController.swift in Sources */,
 				0B8C91E827988A7900939C6E /* Pushup_counter.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

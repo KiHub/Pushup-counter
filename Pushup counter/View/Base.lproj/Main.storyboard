@@ -225,7 +225,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1de-Yi-eJA" secondAttribute="height" multiplier="58:17" id="ZcD-8K-a7Q"/>
                                 </constraints>
-                                <state key="normal" image="With Icon">
+                                <state key="normal" image="Start85">
                                     <color key="titleShadowColor" red="0.58451128009999997" green="0.43908354640000002" blue="0.70199126010000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -242,12 +242,11 @@
                         <constraints>
                             <constraint firstItem="uuk-LZ-WK8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="AuT-te-ZnW"/>
                             <constraint firstItem="uuk-LZ-WK8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bea-Aw-b73"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1de-Yi-eJA" secondAttribute="trailing" constant="91" id="NJv-Rb-El3"/>
                             <constraint firstAttribute="bottom" secondItem="PRg-62-rDY" secondAttribute="bottom" id="PIB-6x-Q2i"/>
                             <constraint firstItem="PRg-62-rDY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XBo-em-vvK"/>
-                            <constraint firstItem="1de-Yi-eJA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="91" id="edt-fv-Qxw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1de-Yi-eJA" secondAttribute="bottom" constant="90" id="fQH-tN-wmu"/>
                             <constraint firstItem="PRg-62-rDY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="haJ-0g-Lrv"/>
+                            <constraint firstItem="1de-Yi-eJA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r5N-VI-0cR"/>
                             <constraint firstItem="PRg-62-rDY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ztX-H3-6xe"/>
                         </constraints>
                     </view>
@@ -396,9 +395,18 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
-                                        <color key="value" red="0.99607843139999996" green="0.76078431369999999" blue="0.37647058820000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.67490029340000002" green="0.5636265278" blue="0.88630640510000003" alpha="0.66256421229999996" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="allowsSelection" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                        <color key="value" red="0.24793019890000001" green="0.23210102320000001" blue="0.56474155189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                                        <color key="value" red="0.58451128009999997" green="0.43908354640000002" blue="0.70199126010000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                                        <color key="value" red="0.58451128009999997" green="0.43908354640000002" blue="0.70199126010000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -434,7 +442,7 @@
         <!--Counter-->
         <scene sceneID="BZU-pd-OWT">
             <objects>
-                <navigationController storyboardIdentifier="nav" automaticallyAdjustsScrollViewInsets="NO" id="2lK-Y1-xq3" customClass="NavViewController" customModule="Pushup_counter" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="nav" automaticallyAdjustsScrollViewInsets="NO" id="2lK-Y1-xq3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Counter" image="stopwatch" catalog="system" id="Pcj-wk-vgj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="FWb-Mq-tGf">
@@ -622,9 +630,18 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
-                                        <color key="value" red="0.99607843139999996" green="0.76078431369999999" blue="0.37647058820000001" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.67490029340000002" green="0.5636265278" blue="0.88630640510000003" alpha="0.66256421229999996" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="allowsSelection" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                                        <color key="value" red="0.58451128009999997" green="0.43908354640000002" blue="0.70199126010000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                                        <color key="value" red="0.58451128009999997" green="0.43908354640000002" blue="0.70199126010000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                        <color key="value" red="0.24793019890000001" green="0.23210102320000001" blue="0.56474155189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -640,20 +657,12 @@
                             <constraint firstItem="oZQ-dZ-nNe" firstAttribute="trailing" secondItem="FdE-dZ-OsJ" secondAttribute="trailing" id="zgz-AJ-25T"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="N8l-7k-BkV">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Item" image="xmark.circle.fill" catalog="system" id="VRf-ck-ANa">
-                            <color key="tintColor" red="0.25098039220000001" green="0.23137254900000001" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="Bjq-bP-KcX" kind="unwind" unwindAction="unwindToFirstVCWithSegue:" id="aTV-L3-EQj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="N8l-7k-BkV"/>
                     <connections>
                         <outlet property="calendar" destination="jhH-Ok-Ed5" id="FM7-Ws-2PZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6E-fa-cO4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Bjq-bP-KcX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2774" y="-1454"/>
         </scene>
@@ -661,6 +670,7 @@
     <resources>
         <image name="Background2" width="530" height="919"/>
         <image name="Cup" width="170.5" height="170.5"/>
+        <image name="Start85" width="232" height="68"/>
         <image name="Thumb" width="133" height="133"/>
         <image name="With Icon" width="232" height="68"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
