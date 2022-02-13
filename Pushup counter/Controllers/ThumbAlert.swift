@@ -13,8 +13,6 @@ class ThumbAlert {
         static let backgroundAlpha: CGFloat = 0.8
     }
     
-    
-    
     private let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .purple
@@ -37,11 +35,6 @@ class ThumbAlert {
         return imageView
         
     }()
-    
-    
-    
-    
-  //  func showAlert(title: String, message: String, viewController: UIViewController) {
     
     
     func showAlert(viewController: CounterViewController) {

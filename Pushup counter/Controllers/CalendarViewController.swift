@@ -44,13 +44,6 @@ class CalendarViewController: UIViewController {
 //MARK: - Calendar delegate
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDelegateAppearance {
     
-//    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "dd-MM-yyyy"
-//        let dateString = formatter.string(from: date)
-//        print("\(dateString)")
-//    }
-    
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
@@ -62,15 +55,4 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDelegateAppearan
         }
         return nil
     }
-    
-//    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "dd-MM-yyyy"
-//        guard let eventDate = formatter.date(from: "02-01-2022") else { return 0 }
-//        if date.compare(eventDate) == .orderedSame {
-//            return 1
-//        }
-//        return 0
-//    }
-    
 }

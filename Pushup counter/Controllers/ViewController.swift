@@ -14,9 +14,6 @@ class ViewController: UIViewController{
     let defaults = UserDefaults.standard
     var selected = 25
     var selectedSet = 3
-    var selectedSetsArray = ["x1", "x2", "x3"]
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.isIdleTimerDisabled = false
@@ -29,20 +26,11 @@ class ViewController: UIViewController{
         self.picker.dataSource = self
         picker.selectRow(24, inComponent: 0, animated: true)
         picker.selectRow(2, inComponent: 1, animated: true)
-        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         firstLaunch()
-        
-//        if Core.shared.isNewUser() {
-//            //show onboarding
-//
-//            let vc = storyboard?.instantiateViewController(withIdentifier: "welcome") as! OnboardingViewController
-//            vc.modalPresentationStyle = .fullScreen
-//            present(vc, animated: true)
-//        }
     }
     
     @IBAction func barButtonPressed(_ sender: UIBarButtonItem) {
@@ -69,9 +57,7 @@ class ViewController: UIViewController{
         counterVC.labelNumber = selected
         counterVC.sets = selectedSet
         
-       // self.hidesBottomBarWhenPushed = true
     }
-    
 }
 //MARK: - PickerView settings
 extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
@@ -87,12 +73,10 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
             return 360
         case 1:
             return 20
-      //      return 20
+            //      return 20
         default:
-              return 0
+            return 0
         }
-        
-       // return 360
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -103,9 +87,8 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
         case 1:
             return "\(row)"
         default:
-              return ""
+            return ""
         }
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -118,11 +101,9 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
             selectedSet = row + 1
             print("selectedSet: \(selectedSet)")
         default:
-              break
+            break
         }
         
-      //  selected = row + 1
-      //  print(selected)
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
@@ -149,45 +130,20 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource  {
             label.text = "x\(row + 1)"
             return view
         default:
-              return view
+            return view
         }
         
-      //  label.text = String(row)
-//        label.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-//        label.textAlignment = .center
-//        label.font = UIFont.systemFont(ofSize: 35, weight: UIFont.Weight.medium)
-//        view.addSubview(label)
-  //     return view
     }
-    
-//    class Core {
-//        static let shared = Core()
-//
-//        func isNewUser() -> Bool {
-//            return !UserDefaults.standard.bool(forKey: "isNewUser")
-//        }
-//        func setIsNotNewUser() {
-//            UserDefaults.standard.set(true, forKey: "isNewUser")
-//        }
-//    }
-    
     func firstLaunch() {
-        
         if defaults.bool(forKey: "First launch") == true {
             print("Second+")
-            
             defaults.set(true, forKey: "First launch")
         } else {
             print("First")
-            
             let vc = storyboard?.instantiateViewController(withIdentifier: "welcome") as! OnboardingViewController
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true)
-            
             defaults.set(true, forKey: "First launch")
         }
-        
     }
-    
-    
 }

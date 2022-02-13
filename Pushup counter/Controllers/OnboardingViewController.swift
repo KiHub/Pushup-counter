@@ -17,7 +17,6 @@ class OnboardingViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setup()
         style()
         layout()
@@ -29,7 +28,6 @@ extension OnboardingViewController {
     func setup() {
         dataSource = self
         delegate = self
-        
         pageControl.addTarget(self, action: #selector(pageControlTapped(_:)), for: .valueChanged)
         
         
@@ -108,7 +106,6 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
 
 extension OnboardingViewController: UIPageViewControllerDelegate {
     
-    // pageControl sync with viewControllers
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
         guard let viewControllers = pageViewController.viewControllers else { return }
@@ -127,10 +124,10 @@ class ViewController1: UIViewController {
     }
     
     func interfaceVC1() {
-
+        
         if let background = UIImage(named: "Background2.jpg") {
             view.backgroundColor = UIColor(patternImage: background) }
-      
+        
         let label = UILabel()
         label.text = "🎉 Hey,"
         label.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
@@ -161,7 +158,7 @@ class ViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         interfaceVC2()
-   
+        
     }
     func interfaceVC2() {
         if let background = UIImage(named: "Background2.jpg") {
@@ -217,12 +214,13 @@ class ViewController2: UIViewController {
 class ViewController3: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         interfaceVC3()
     }
     func interfaceVC3() {
         if let background = UIImage(named: "Background2.jpg") {
             view.backgroundColor = UIColor(patternImage: background) }
+        view.contentMode = .scaleAspectFill
         
         let topLabel = UILabel()
         topLabel.text = "🎯 Ready?"
