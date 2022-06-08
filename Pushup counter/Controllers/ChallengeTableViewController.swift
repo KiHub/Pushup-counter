@@ -33,16 +33,16 @@ class ChallengeTableViewController: UITableViewController {
         TrainingDay(dayNumber: 18, firstSet: 24, secondSet: 12, thirdSet: 40, done: false),
         TrainingDay(dayNumber: 19, firstSet: 24, secondSet: 14, thirdSet: 42, done: false),
         TrainingDay(dayNumber: 20, firstSet: 26, secondSet: 14, thirdSet: 44, done: false),
-        TrainingDay(dayNumber: 21, firstSet: 26, secondSet: 15, thirdSet: 46, done: false),
-        TrainingDay(dayNumber: 22, firstSet: 26, secondSet: 15, thirdSet: 48, done: false),
-        TrainingDay(dayNumber: 23, firstSet: 26, secondSet: 15, thirdSet: 50, done: false),
+        TrainingDay(dayNumber: 21, firstSet: 26, secondSet: 14, thirdSet: 46, done: false),
+        TrainingDay(dayNumber: 22, firstSet: 27, secondSet: 14, thirdSet: 48, done: false),
+        TrainingDay(dayNumber: 23, firstSet: 28, secondSet: 15, thirdSet: 50, done: false),
         TrainingDay(dayNumber: 24, firstSet: 28, secondSet: 15, thirdSet: 52, done: false),
         TrainingDay(dayNumber: 25, firstSet: 30, secondSet: 15, thirdSet: 55, done: false),
-        TrainingDay(dayNumber: 26, firstSet: 35, secondSet: 15, thirdSet: 57, done: false),
-        TrainingDay(dayNumber: 27, firstSet: 37, secondSet: 15, thirdSet: 60, done: false),
-        TrainingDay(dayNumber: 28, firstSet: 40, secondSet: 15, thirdSet: 40, done: false),
-        TrainingDay(dayNumber: 29, firstSet: 45, secondSet: 5, thirdSet: 30, done: false),
-        TrainingDay(dayNumber: 30, firstSet: 50, secondSet: 5, thirdSet: 30, done: false)
+        TrainingDay(dayNumber: 26, firstSet: 33, secondSet: 15, thirdSet: 57, done: false),
+        TrainingDay(dayNumber: 27, firstSet: 35, secondSet: 15, thirdSet: 60, done: false),
+        TrainingDay(dayNumber: 28, firstSet: 37, secondSet: 10, thirdSet: 40, done: false),
+        TrainingDay(dayNumber: 29, firstSet: 39, secondSet: 5, thirdSet: 30, done: false),
+        TrainingDay(dayNumber: 30, firstSet: 40, secondSet: 5, thirdSet: 30, done: false)
         
     ]
     
@@ -55,13 +55,11 @@ class ChallengeTableViewController: UITableViewController {
         UIApplication.shared.isIdleTimerDisabled = false
         if fetchedTrainingDaysArray.isEmpty {
             for traininDay in traininDays {
-                // print(traininDay)
                 saveDataToCD(dayNumber: Int64(traininDay.dayNumber), firstSet: Int64(traininDay.firstSet), secondSet: Int64(traininDay.secondSet), thirdSet: Int64(traininDay.thirdSet), done: traininDay.done)
             }
         }
         loadDataFromCD()
         tableView.reloadData()
-      //  UIApplication.shared.isIdleTimerDisabled = false
     }
     
     override func viewDidLoad() {
@@ -123,7 +121,6 @@ class ChallengeTableViewController: UITableViewController {
         }
     }
     
-
     func saveData() {
         let context = getContext()
         

@@ -99,7 +99,6 @@ class ChallengeCounterViewController: UIViewController {
         _ = navigationController?.popViewController(animated: true)
     }
     
-    
     func updateTwo() {
         print("start")
        
@@ -113,27 +112,21 @@ class ChallengeCounterViewController: UIViewController {
             circularProgressViewCH.angle += Double(360 / currentSet)
             currentNumber += 1
             counterLabel.text = String(currentNumber)
-//            if currentNumber == currentSet  {
-//                print("lock")
-//                UIDevice.current.isProximityMonitoringEnabled = false }
             print("case 1 exit", currentNumber, currentSet)
             
         case (false) where currentSet != setTwo:
             print("case 2 start")
             delay(setThree) {
                 [self] in
-           //     activateProximitySensor()
                     UIDevice.current.isProximityMonitoringEnabled = true
-             //   activateProximitySensor()
                     circularProgressViewCH.angle = 0
-                 //   counterLabel.text = "0"
                     exerciseLabel.text = "push up"
                     currentSet = setTwo
                     print("after block")
+         
                 
             }
             UIDevice.current.isProximityMonitoringEnabled = false
-         //   circularProgressViewCH.angle = 0
             thumbUp()
             exerciseLabel.text = "rest"
             doneSound.play()
@@ -150,7 +143,7 @@ class ChallengeCounterViewController: UIViewController {
 //            }
             
             print("case 2 exit", currentNumber, currentSet)
-        //    return
+
             
         case (false) where currentSet == setTwo:
             
@@ -167,7 +160,6 @@ class ChallengeCounterViewController: UIViewController {
             circularProgressViewCH.animate(fromAngle: 360, toAngle: 0, duration: TimeInterval(setThree), completion: nil)
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stepTwo), userInfo: nil, repeats: true)
             perform(#selector(runSensorPlanc), with: nil, afterDelay: TimeInterval(setThree + 1))
-            // plancOption()
             print("case 3 exit", currentNumber, currentSet)
         default:
             print("return")
@@ -250,7 +242,6 @@ class ChallengeCounterViewController: UIViewController {
         currentSet = setOne
         currentNumber = 0
         circularProgressViewCH.angle = 0
-        //      UIDevice.current.isProximityMonitoringEnabled = false
         if timer != nil {
             timer.invalidate()
         }

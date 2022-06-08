@@ -15,6 +15,7 @@ class OnboardingViewController: UIPageViewController {
     let pageControl = UIPageControl()
     let initialPage = 0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -46,7 +47,7 @@ extension OnboardingViewController {
     }
     
     func style() {
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
+     //   pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.currentPageIndicatorTintColor = .black
         pageControl.pageIndicatorTintColor = .systemGray2
         pageControl.numberOfPages = pages.count
@@ -56,11 +57,11 @@ extension OnboardingViewController {
     func layout() {
         view.addSubview(pageControl)
         
-        NSLayoutConstraint.activate([
-            pageControl.widthAnchor.constraint(equalTo: view.widthAnchor),
-            pageControl.heightAnchor.constraint(equalToConstant: 20),
-            view.bottomAnchor.constraint(equalToSystemSpacingBelow: pageControl.bottomAnchor, multiplier: 1),
-        ])
+        pageControl.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.bottom.equalTo(view.fs_bottom).inset(50)
+        }
+
     }
 }
 
@@ -97,7 +98,7 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
         if currentIndex < pages.count - 1 {
             return pages[currentIndex + 1]  // next
         } else {
-            return pages.first              // first
+            return  pages.first              // first
         }
     }
 }
@@ -107,10 +108,8 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
 extension OnboardingViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        
         guard let viewControllers = pageViewController.viewControllers else { return }
         guard let currentIndex = pages.firstIndex(of: viewControllers[0]) else { return }
-        
         pageControl.currentPage = currentIndex
     }
 }
@@ -131,16 +130,16 @@ class ViewController1: UIViewController {
         let label = UILabel()
         label.text = "🎉 Hey,"
         label.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-        label.font = UIFont(name: "Avenir Next Regular", size: 25)
+        label.font = UIFont(name: "Avenir Next Regular", size: 28)
         view.addSubview(label)
         label.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(50)
             make.top.equalToSuperview().inset(200)
         }
         let tipText = UILabel()
-        tipText.text = "This app will counting push ups instead of you. Instead of counting, you can focus on the technique of exercise"
+        tipText.text = "This app will count push-ups instead of you. You can focus on the exercise"
         tipText.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-        tipText.font = UIFont(name: "Avenir Next Ultra Light", size: 18)
+        tipText.font = UIFont(name: "Avenir Next Regular", size: 18)
         tipText.numberOfLines = 0
         view.addSubview(tipText)
         tipText.snp.makeConstraints { make in
@@ -166,16 +165,16 @@ class ViewController2: UIViewController {
         let label = UILabel()
         label.text = "⏱ Counter mode"
         label.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-        label.font = UIFont(name: "Avenir Next Regular", size: 25)
+        label.font = UIFont(name: "Avenir Next Regular", size: 28)
         view.addSubview(label)
         label.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(50)
             make.top.equalToSuperview().inset(200)
         }
         let tipText = UILabel()
-        tipText.text = "Here you can simply create own exercise sets. This app will count your push ups and sets"
+        tipText.text = "Simply create your own exercise sets. This app will count your push-ups and sets"
         tipText.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-        tipText.font = UIFont(name: "Avenir Next Ultra Light", size: 18)
+        tipText.font = UIFont(name: "Avenir Next Regular", size: 18)
         tipText.numberOfLines = 0
         view.addSubview(tipText)
         tipText.snp.makeConstraints { make in
@@ -186,7 +185,7 @@ class ViewController2: UIViewController {
         let labelTwo = UILabel()
         labelTwo.text = "🏆 Challenge mode"
         labelTwo.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-        labelTwo.font = UIFont(name: "Avenir Next Regular", size: 25)
+        labelTwo.font = UIFont(name: "Avenir Next Regular", size: 28)
         view.addSubview(labelTwo)
         labelTwo.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(50)
@@ -197,9 +196,9 @@ class ViewController2: UIViewController {
             make.top.equalTo(label).inset(200)
         }
         let tipTextTwo = UILabel()
-        tipTextTwo.text = "This mode can help improve your push ups skills. During 30 days challenge you may increase push up quantity up to 50 "
+        tipTextTwo.text = "Improve your push-ups skills. During 30 days challenge, you may lift skills to the next level"
         tipTextTwo.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-        tipTextTwo.font = UIFont(name: "Avenir Next Ultra Light", size: 18)
+        tipTextTwo.font = UIFont(name: "Avenir Next Regular", size: 18)
         tipTextTwo.numberOfLines = 0
         view.addSubview(tipTextTwo)
         tipTextTwo.snp.makeConstraints { make in
@@ -225,14 +224,14 @@ class ViewController3: UIViewController {
         let topLabel = UILabel()
         topLabel.text = "🎯 Ready?"
         topLabel.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
-        topLabel.font = UIFont(name: "Avenir Next Regular", size: 25)
+        topLabel.font = UIFont(name: "Avenir Next Regular", size: 28)
         view.addSubview(topLabel)
         topLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(50)
             make.top.equalToSuperview().inset(200)
         }
         let label = UILabel()
-        label.text = "Chose counter or challenge mode. Put a phone on the floor right opposite your chest and press start. When your body will in 5 centimeters above the phone, push up will calculate. On calendar page you can check all completed training days"
+        label.text = "It's easy. Chose counter or challenge mode. Put a phone on the floor right opposite your chest and press the start button. After, you can check all completed training days on the calendar page"
         label.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
         label.numberOfLines = 0
         label.font = UIFont(name: "Avenir Next Ultra Light", size: 18)
@@ -260,7 +259,6 @@ class ViewController3: UIViewController {
     func pushSegue(){
         
         let pvc = self.parent as! UIPageViewController
-        //  pvc.removeFromParent()
         pvc.dismiss(animated: false, completion: nil)
         
     }

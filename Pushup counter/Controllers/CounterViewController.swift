@@ -57,12 +57,12 @@ class CounterViewController: UIViewController {
     }
     
     //MARK: - Deactivate proximity sensor
-    override func viewWillDisappear(_ animated: Bool) {
-        UIDevice.current.isProximityMonitoringEnabled = false
-    }
-    
-    @IBAction func doneBarButton(_ sender: UIBarButtonItem) {
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//            UIDevice.current.isProximityMonitoringEnabled = false
+//        }
+//    
+//    @IBAction func doneBarButton(_ sender: UIBarButtonItem) {
+//    }
     
     
     //MARK: - Seve data using CoreData
@@ -89,32 +89,32 @@ class CounterViewController: UIViewController {
     //MARK: - Update counter
     
     func updateWithSetsTwo() {
-        circularProgressView.alpha = 1.0
-        label.text = "0"
-        print("Part3")
-        if currentNumber < labelNumber - 1 && currentSet != sets {
-            print(currentNumber, ">>>", labelNumber)
-            circularProgressView.angle += Double(360 / labelNumber)
-            currentNumber += 1
-            label.text = String(currentNumber)
-            print("Part1")
-        } else {
-            circularProgressView.angle = 360
-            label.text = ""
-            currentSet += 1
-            thumbUp()
-            doneSound.play()
-            currentNumber = 0
-            label.text = "0"
-            if currentSet == sets {
-                label.text = ""
-                thumbImage.isHidden = true
-                cupImage.isHidden = false
-                UIDevice.current.isProximityMonitoringEnabled = false
-                print("Part4")
-            }
-        }
-    }
+           circularProgressView.alpha = 1.0
+           label.text = "0"
+           print("Part3")
+           if currentNumber < labelNumber - 1 && currentSet != sets {
+               print(currentNumber, ">>>", labelNumber)
+               circularProgressView.angle += Double(360 / labelNumber)
+               currentNumber += 1
+               label.text = String(currentNumber)
+               print("Part1")
+           } else {
+               circularProgressView.angle = 360
+               label.text = ""
+               currentSet += 1
+               thumbUp()
+               doneSound.play()
+               currentNumber = 0
+               label.text = "0"
+               if currentSet == sets {
+                   label.text = ""
+                   thumbImage.isHidden = true
+                   cupImage.isHidden = false
+                   UIDevice.current.isProximityMonitoringEnabled = false
+                   print("Part4")
+               }
+           }
+       }
     
     func rest() {
         UIDevice.current.isProximityMonitoringEnabled = false
