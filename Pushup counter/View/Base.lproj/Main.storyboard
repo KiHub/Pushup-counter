@@ -165,13 +165,24 @@
                     <view key="view" contentMode="scaleToFill" id="gwm-Sm-PjP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="gYi-5X-jaC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="kPM-ap-V0a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="gYi-5X-jaC" secondAttribute="bottom" id="F2N-cS-Qva"/>
+                            <constraint firstItem="gYi-5X-jaC" firstAttribute="leading" secondItem="kPM-ap-V0a" secondAttribute="leading" id="Jxy-Ic-9JZ"/>
+                            <constraint firstItem="gYi-5X-jaC" firstAttribute="trailing" secondItem="kPM-ap-V0a" secondAttribute="trailing" id="Wub-GI-vm0"/>
+                            <constraint firstItem="gYi-5X-jaC" firstAttribute="top" secondItem="gwm-Sm-PjP" secondAttribute="top" id="oFf-ZX-rMY"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="paM-uR-YXU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4654" y="-620"/>
+            <point key="canvasLocation" x="4652.1739130434789" y="-620.08928571428567"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

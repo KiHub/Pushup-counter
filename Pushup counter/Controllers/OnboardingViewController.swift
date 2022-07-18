@@ -41,8 +41,6 @@ extension OnboardingViewController {
         pages.append(page2)
         pages.append(page3)
         
-        // set initial viewController to be displayed
-        
         setViewControllers([pages[initialPage]], direction: .forward, animated: true, completion: nil)
     }
     
@@ -120,6 +118,7 @@ class ViewController1: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         interfaceVC1()
+    
     }
     
     func interfaceVC1() {
@@ -137,7 +136,7 @@ class ViewController1: UIViewController {
             make.top.equalToSuperview().inset(200)
         }
         let tipText = UILabel()
-        tipText.text = "This app will count push-ups instead of you. You can focus on the exercise"
+        tipText.text = "This app will count push ups instead of you"
         tipText.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
         tipText.font = UIFont(name: "Avenir Next Regular", size: 18)
         tipText.numberOfLines = 0
@@ -161,7 +160,10 @@ class ViewController2: UIViewController {
     }
     func interfaceVC2() {
         if let background = UIImage(named: "Background2.jpg") {
-            view.backgroundColor = UIColor(patternImage: background) }
+            view.backgroundColor = UIColor(patternImage: background)
+    
+        }
+        
         let label = UILabel()
         label.text = "⏱ Counter mode"
         label.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
@@ -172,7 +174,7 @@ class ViewController2: UIViewController {
             make.top.equalToSuperview().inset(200)
         }
         let tipText = UILabel()
-        tipText.text = "Simply create your own exercise sets. This app will count your push-ups and sets"
+        tipText.text = "Create your own exercise sets. This app will count your push ups and sets"
         tipText.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
         tipText.font = UIFont(name: "Avenir Next Regular", size: 18)
         tipText.numberOfLines = 0
@@ -196,7 +198,7 @@ class ViewController2: UIViewController {
             make.top.equalTo(label).inset(200)
         }
         let tipTextTwo = UILabel()
-        tipTextTwo.text = "Improve your push-ups skills. During 30 days challenge, you may lift skills to the next level"
+        tipTextTwo.text = "Improve your push ups skills. During 30 days, you may lift skills to the next level"
         tipTextTwo.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
         tipTextTwo.font = UIFont(name: "Avenir Next Regular", size: 18)
         tipTextTwo.numberOfLines = 0
@@ -231,10 +233,10 @@ class ViewController3: UIViewController {
             make.top.equalToSuperview().inset(200)
         }
         let label = UILabel()
-        label.text = "It's easy. Chose counter or challenge mode. Put a phone on the floor right opposite your chest and press the start button. After, you can check all completed training days on the calendar page"
+        label.text = "It's easy. Chose counter or challenge mode. Put a phone on the floor right opposite your chest and press the start button"
         label.textColor = #colorLiteral(red: 0.2509803922, green: 0.231372549, blue: 0.5843137255, alpha: 1)
         label.numberOfLines = 0
-        label.font = UIFont(name: "Avenir Next Ultra Light", size: 18)
+        label.font = UIFont(name: "Avenir Next Regular", size: 18)
         view.addSubview(label)
         label.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(50)
